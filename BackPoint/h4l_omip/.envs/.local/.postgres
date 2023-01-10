@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=h4l.cn
+POSTGRES_PORT=5432
+POSTGRES_DB=h4l-omip
+POSTGRES_USER=postgre
+POSTGRES_PASSWORD=1004426187
