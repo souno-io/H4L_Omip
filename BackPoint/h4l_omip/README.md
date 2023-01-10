@@ -1,65 +1,60 @@
 # H4L-OMIP
 
-h4l_omip
+H4L运营管理系统
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
-## Settings
+## 设置
 
-Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
+查看更多请点击 [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
 
-## Basic Commands
+## 基础命令
 
-### Setting Up Your Users
+### 设置你的账户
 
--   To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+- 要创建**普通用户帐户**，只需转到注册并填写表单。提交后，您将看到“验证您的电子邮件地址”页面。转到您的主机以查看模拟的电子邮件验证消息。将链接复制到浏览器中。现在，用户的电子邮件应该经过验证并准备就绪。
+- 要创建**超级用户帐户**，请使用以下命令：
 
--   To create a **superuser account**, use this command:
+  $ python manage.py createsuperuser
 
-        $ python manage.py createsuperuser
+为方便起见，您可以让普通用户在 Chrome 上登录，让您的超级用户在 Firefox（或类似用户）上登录，以便您可以看到网站在这两种用户的行为方式。
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+### 类型检查
 
-### Type checks
+使用 mypy 运行类型检查:
 
-Running type checks with mypy:
+$ mypy h4l_omip
+### 测试覆盖率
 
-    $ mypy h4l_omip
+使用以下命令运行测试，检查测试覆盖率并生成 HTML 覆盖率报告:
 
-### Test coverage
+$ coverage run -m pytest
+$ coverage html
+$ open htmlcov/index.html
+#### 使用 pytest 运行测试
 
-To run the tests, check your test coverage, and generate an HTML coverage report:
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-#### Running tests with pytest
-
-    $ pytest
-
-### Live reloading and Sass CSS compilation
+$ pytest
+### 实时重新加载和 Sass CSS 编译
 
 Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html#sass-compilation-live-reloading).
 
 ### Celery
 
-This app comes with Celery.
+这个程序附带了Celery.
 
-To run a celery worker:
+运行 celery worker:
 
-``` bash
+```bash
 cd h4l_omip
 celery -A config.celery_app worker -l info
 ```
+请注意：要使Celery的导入魔法起作用，运行Celery命令的位置很重要。如果您与 *manage.py* 位于同一文件夹中，您应该是对的。
 
-Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
+## 部署
 
-## Deployment
-
-The following details how to deploy this application.
+下面详细介绍了如何部署此应用程序.
 
 ### Docker
 
-See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
+查看详细 [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
