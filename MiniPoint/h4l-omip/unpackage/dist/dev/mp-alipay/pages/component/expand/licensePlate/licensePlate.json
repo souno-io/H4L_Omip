@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "车牌号键盘",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-single-input": "../../../../components/firstui/fui-single-input/fui-single-input",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-license-plate": "../../../../components/firstui/fui-license-plate/fui-license-plate"
+  }
+}

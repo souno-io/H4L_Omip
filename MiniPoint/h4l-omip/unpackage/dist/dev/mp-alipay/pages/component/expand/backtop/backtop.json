@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "回到顶部",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-backtop": "../../../../components/firstui/fui-backtop/fui-backtop"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "页脚",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-footer": "../../../../components/firstui/fui-footer/fui-footer"
+  }
+}

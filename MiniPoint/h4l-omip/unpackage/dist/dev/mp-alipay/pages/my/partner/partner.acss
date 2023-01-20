@@ -1,0 +1,24 @@
+
+page {
+		background-color: #FFFFFF;
+}
+.fui-grid__cell {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		flex: 1;
+		font-size: 28rpx;
+		font-weight: 400;
+}
+.fui-icon__wrap {
+		width: 96rpx;
+		height: 96rpx;
+		overflow: hidden;
+		margin-bottom: 16rpx;
+}
+.fui-icon {
+		width: 96rpx;
+		height: 96rpx;
+		border-radius: 16rpx;
+}

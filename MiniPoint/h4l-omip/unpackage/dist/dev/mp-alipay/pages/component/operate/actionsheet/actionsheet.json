@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "上拉菜单",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-actionsheet": "../../../../components/firstui/fui-actionsheet/fui-actionsheet"
+  }
+}

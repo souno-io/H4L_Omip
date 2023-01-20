@@ -1,0 +1,24 @@
+
+page {
+		background-color: #FFFFFF;
+		font-weight: normal;
+}
+.fui-title {
+		font-weight: 600;
+}
+.fui-content {
+		width: 100%;
+		padding: 32rpx;
+		box-sizing: border-box;
+		font-size: 28rpx;
+}
+.fui-p {
+		width: 100%;
+		padding-bottom: 32rpx;
+		word-break: break-all;
+		display: flex;
+		line-height: 44rpx;
+}
+.fui-sign {
+		padding-right: 8rpx;
+}

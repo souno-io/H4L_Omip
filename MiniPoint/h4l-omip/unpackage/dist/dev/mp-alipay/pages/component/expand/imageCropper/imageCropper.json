@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "图片裁剪",
+  "pullRefresh": false,
+  "titleBarColor": "#303132",
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "fui-image-cropper": "../../../../components/firstui/fui-image-cropper/fui-image-cropper",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

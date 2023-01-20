@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "步骤条",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-steps": "../../../../components/firstui/fui-steps/fui-steps",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

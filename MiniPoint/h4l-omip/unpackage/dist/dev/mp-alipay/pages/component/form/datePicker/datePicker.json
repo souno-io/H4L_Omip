@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "日期时间选择器",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-date-picker": "../../../../components/firstui/fui-date-picker/fui-date-picker"
+  }
+}

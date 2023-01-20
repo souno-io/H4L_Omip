@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "分享面板",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-share-sheet": "../../../../components/firstui/fui-share-sheet/fui-share-sheet"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "纵向选项卡",
+  "pullRefresh": false,
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "fui-vtabs": "../../../../components/firstui/fui-vtabs/fui-vtabs"
+  }
+}

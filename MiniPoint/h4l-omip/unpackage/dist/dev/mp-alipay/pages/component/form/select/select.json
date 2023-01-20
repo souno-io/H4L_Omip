@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "选择器",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-select": "../../../../components/firstui/fui-select/fui-select"
+  }
+}

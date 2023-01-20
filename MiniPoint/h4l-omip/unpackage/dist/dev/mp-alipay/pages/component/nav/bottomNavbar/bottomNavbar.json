@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "底部导航栏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-bottom-navbar": "../../../../components/firstui/fui-bottom-navbar/fui-bottom-navbar",
+    "fui-bubble-box": "../../../../components/firstui/fui-bubble-box/fui-bubble-box"
+  }
+}

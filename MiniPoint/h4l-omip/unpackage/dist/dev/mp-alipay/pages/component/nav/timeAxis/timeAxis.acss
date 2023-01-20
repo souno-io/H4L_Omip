@@ -1,0 +1,84 @@
+
+page {
+		font-weight: normal;
+}
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-node {
+		width: 32rpx;
+		height: 32rpx;
+		border-radius: 50%;
+		background: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 4px solid #ccc;
+		box-sizing: border-box;
+}
+.fui-process__node {
+		padding-left: 20rpx;
+}
+.fui-node__pb {
+		padding-bottom: 48rpx;
+}
+.fui-title {
+		font-size: 34rpx;
+		line-height: 34rpx;
+		font-weight: bold;
+}
+.fui-descr {
+		font-size: 28rpx;
+		padding-top: 12rpx;
+		color: #7F7F7F;
+}
+.fui-time {
+		font-size: 24rpx;
+		color: #B2B2B2;
+		padding-top: 12rpx;
+}
+.fui-time__left {
+		font-size: 36rpx;
+		line-height: 36rpx;
+		text-align: right;
+		padding-right: 20rpx;
+}
+.fui-node__pbtm {
+		padding-bottom: 88rpx;
+}
+.fui-custom__wrap {
+		padding: 20rpx;
+		box-sizing: border-box;
+}
+.fui-custom__innder {
+		height: 200rpx;
+		border-radius: 0 16rpx 16rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #F1F4FA;
+		color: #FFB703;
+}
+.fui-logo {
+		width: 120rpx;
+		height: 120rpx;
+		border-radius: 24rpx;
+}
+.fui-node__box {
+		width: 36rpx;
+		height: 36rpx;
+		background: #ccc;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+}
+.fui-node__sm {
+		width: 9px;
+		height: 9px;
+		background: #ccc;
+		border-radius: 50%;
+}

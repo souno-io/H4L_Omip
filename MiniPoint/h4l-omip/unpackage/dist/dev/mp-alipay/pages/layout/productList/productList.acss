@@ -1,0 +1,84 @@
+@import "../../../nvue.acss";
+
+page {
+		font-weight: normal;
+}
+.fui-align__center {
+		flex-direction: row;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+
+	/* ============================ */
+	/* 商品列表 css */
+.fui-goods__list {
+
+		width: 100%;
+		display: flex;
+		overflow: hidden;
+
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+}
+.fui-goods__item {
+
+		display: flex;
+
+		background-color: #fff;
+}
+.fui-goods__hover:active {
+		background-color: rgba(0, 0, 0, 0.2);
+}
+.fui-goods__item-card {
+		width: 344rpx;
+		flex-direction: column;
+		margin-bottom: 16rpx;
+		border-radius: 16rpx;
+		overflow: hidden;
+
+		transform: translateY(0);
+}
+.fui-goods__item-list {
+		flex: 1;
+
+		width: 100%;
+		box-sizing: border-box;
+
+		padding: 12rpx 24rpx;
+		flex-direction: row;
+}
+.fui-gi__mr {
+		margin-right: 16rpx;
+}
+.fui-goods__item-content {
+		height: 252rpx;
+
+		width: 100%;
+		display: flex;
+		box-sizing: border-box;
+
+		flex-direction: column;
+		justify-content: space-between;
+}
+.fui-goods__item-top {
+		width: 426rpx;
+}
+.fui-card__padding {
+		padding: 20rpx;
+}
+.fui-list__padding {
+		padding: 12rpx 0 12rpx 24rpx;
+}
+.fui-goods__item-price {
+
+		display: flex;
+
+		flex-direction: row;
+		align-items: flex-end;
+}
+.fui-goods__item-attr {
+		flex-direction: row;
+		padding-top: 8rpx;
+}

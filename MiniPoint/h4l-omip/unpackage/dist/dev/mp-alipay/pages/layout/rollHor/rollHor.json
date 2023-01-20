@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "横向滚动",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-text": "../../../components/firstui/fui-text/fui-text",
+    "fui-list-cell": "../../../components/firstui/fui-list-cell/fui-list-cell",
+    "fui-avatar": "../../../components/firstui/fui-avatar/fui-avatar",
+    "fui-overflow-hidden": "../../../components/firstui/fui-overflow-hidden/fui-overflow-hidden",
+    "fui-button": "../../../components/firstui/fui-button/fui-button"
+  }
+}

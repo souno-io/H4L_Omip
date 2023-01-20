@@ -1,0 +1,11 @@
+
+.fui-title {
+		width: 100%;
+		height: 72rpx;
+		background: #e1e1e1;
+		display: flex;
+		align-items: center;
+		padding: 0 32rpx;
+		box-sizing: border-box;
+		font-size: 28rpx;
+}

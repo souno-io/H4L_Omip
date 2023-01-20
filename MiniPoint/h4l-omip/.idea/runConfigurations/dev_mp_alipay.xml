@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="dev:mp-alipay" type="UniappConfigurationType">
+    <option name="platform" value="支付宝小程序" />
+    <option name="UNI_MINIMIZE" value="false" />
+    <method v="2" />
+  </configuration>
+</component>

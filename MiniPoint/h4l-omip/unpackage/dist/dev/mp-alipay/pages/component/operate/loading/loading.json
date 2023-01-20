@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "加载中",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-loading": "../../../../components/firstui/fui-loading/fui-loading"
+  }
+}

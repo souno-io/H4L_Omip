@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "滑块拼图验证",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-puzzle-verify": "../../../../components/firstui/fui-puzzle-verify/fui-puzzle-verify"
+  }
+}

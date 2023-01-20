@@ -1,0 +1,13 @@
+
+.fui-btn__box {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		padding-bottom: 64rpx;
+}
+.fui-page__bd{
+		padding-left: 24rpx;
+		box-sizing: border-box;
+}

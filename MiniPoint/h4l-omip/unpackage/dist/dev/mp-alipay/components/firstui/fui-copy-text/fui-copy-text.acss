@@ -1,0 +1,167 @@
+
+.fui-copy__text-wrap.data-v-e2a45a81 {
+
+		display: inline-flex;
+
+		position: relative;
+}
+.fui-copy__text.data-v-e2a45a81 {
+		position: relative;
+		z-index: 2;
+
+		display: inline;
+}
+.fui-copy__tooltip-list.data-v-e2a45a81 {
+
+		display: flex;
+		position: absolute;
+
+		border-radius: 6px;
+		background-color: #181818;
+		padding: 5px 0;
+		align-items: center;
+		flex-direction: row;
+}
+.fui-copy__list-column.data-v-e2a45a81 {
+		flex-direction: column !important;
+		padding: 0 5px;
+}
+.fui-copy__tooltip-cell.data-v-e2a45a81 {
+
+		white-space: nowrap;
+		box-sizing: border-box;
+
+		color: #ffffff;
+		text-align: center;
+		padding: 3px 15px;
+
+
+
+		font-size: 14px;
+}
+.fui-copy__btn-extend.data-v-e2a45a81 {
+
+		border-left: 1rpx solid rgba(255, 255, 255, 0.15);
+}
+.fui-copy__tooltip-column.data-v-e2a45a81 {
+		padding: 8px 10px;
+		border-left-width: 0;
+
+		border-bottom: 1rpx solid rgba(255, 255, 255, 0.15);
+}
+.fui-copy__tooltip-top.data-v-e2a45a81 {
+		left: 50%;
+		top: 0;
+		margin-top: -10px;
+		transform: translate(-50%, -100%);
+}
+.fui-copy__tooltip-bottom.data-v-e2a45a81 {
+		left: 50%;
+		top: 100%;
+		margin-top: 10px;
+		transform: translate(-50%, 0);
+}
+.fui-copy__tooltip-left.data-v-e2a45a81 {
+		left: 0;
+		top: 50%;
+		margin-left: -10px;
+		transform: translate(-100%, -50%);
+}
+.fui-copy__tooltip-right.data-v-e2a45a81 {
+		left: 100%;
+		top: 50%;
+		margin-left: 10px;
+		transform: translate(0, -50%);
+}
+.fui-copy__tooltip-column.data-v-e2a45a81:last-child {
+		border-bottom: 0
+}
+.fui-copy__tooltip-top.data-v-e2a45a81::after {
+		content: ' ';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translate(-50%, 0);
+		border-width: 5px;
+		border-style: solid;
+		border-color: #181818 transparent transparent transparent;
+}
+.fui-copy__tooltip-bottom.data-v-e2a45a81::after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, -100%);
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent #181818 transparent;
+}
+.fui-copy__tooltip-left.data-v-e2a45a81::after {
+		content: ' ';
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		transform: translate(0, -50%);
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent transparent #181818;
+}
+.fui-copy__tooltip-right.data-v-e2a45a81::after {
+		content: ' ';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translate(-100%, -50%);
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent #181818 transparent transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

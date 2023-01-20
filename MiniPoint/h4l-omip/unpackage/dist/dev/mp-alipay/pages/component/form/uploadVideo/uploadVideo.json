@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "视频上传",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-upload-video": "../../../../components/firstui/fui-upload-video/fui-upload-video",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

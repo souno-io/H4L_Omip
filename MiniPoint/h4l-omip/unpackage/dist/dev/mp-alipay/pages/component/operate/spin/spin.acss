@@ -1,0 +1,33 @@
+
+page {
+		background-color: #FFFFFF;
+}
+.fui-load__item {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+}
+.fui-loading {
+		width: 40rpx;
+		height: 40rpx;
+		border-radius: 50%;
+		border: 2px solid #465CFF;
+		border-left-color: transparent;
+}
+.fui-loading2{
+		width: 40rpx;
+		height: 40rpx;
+		border-radius: 50%;
+		border: 2px solid #ccc;
+		border-left-color: #888;
+}
+.fui-icon__img{
+		width: 60rpx;
+		height: 60rpx;
+		display: block;
+}
+.fui-circle{
+		border-radius: 50%;
+}

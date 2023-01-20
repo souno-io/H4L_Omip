@@ -1,0 +1,75 @@
+@import "../../../nvue.acss";
+
+page {
+		font-weight: normal;
+}
+.fui-align__center {
+		flex-direction: row;
+}
+.fui-section__title {
+}
+.fui-btn__box {
+
+		width: 100%;
+		display: flex;
+
+		flex-direction: row;
+		justify-content: center;
+}
+
+	/* 布局内容样式 start */
+.fui-roll__news {
+
+		width: 100%;
+		display: flex;
+		box-sizing: border-box;
+
+		flex-direction: row;
+		align-items: center;
+		background: #fff;
+		border-radius: 16rpx;
+		padding: 0 20rpx;
+}
+.fui-rn__swiper {
+
+		width: 100%;
+
+		flex: 1;
+		height: 80rpx;
+}
+.fui-rn__item {
+
+		width: 100%;
+
+		height: 80rpx;
+		overflow: hidden;
+}
+.fui-rn__news-text {
+
+		width: 100%;
+		display: block;
+		white-space: nowrap;
+		box-sizing: border-box;
+
+
+
+
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 80rpx;
+		line-height: 80rpx;
+		padding-left: 20rpx;
+		font-size: 30rpx;
+		color: #333333;
+		/* opacity: .6; */
+}
+.fui-rn__circle {
+		border-radius: 44rpx;
+		padding: 0 30rpx;
+		background: rgba(0, 0, 0, .4);
+}
+.fui-rn__color-white {
+		color: #fff
+}
+
+	/* 布局内容样式 end */

@@ -1,0 +1,1 @@
+<view class="fui-circle__wrap data-v-4673f12e" style="{{'width:' + e + ';' + ('height:' + f)}}"><canvas class="fui-circle__canvas data-v-4673f12e" canvas-id="{{a}}" id="{{b}}" style="{{'width:' + c + ';' + ('height:' + d)}}"></canvas><view class="fui-circle__inner data-v-4673f12e"><slot></slot></view></view>

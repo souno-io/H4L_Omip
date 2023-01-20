@@ -1,0 +1,139 @@
+
+.fui-fab__mask.data-v-3014da5e {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		opacity: 0;
+
+		visibility: hidden;
+		transition-property: visibility, opacity;
+
+		transition-duration: .25s;
+}
+.fui-fab__mask-show.data-v-3014da5e {
+		opacity: 1;
+
+
+
+
+		visibility: visible;
+}
+.fui-fab__btn-wrap.data-v-3014da5e {
+
+		display: flex;
+
+		flex-direction: column;
+		justify-content: center;
+		position: fixed;
+		bottom: 120rpx;
+}
+.fui-fab__wrap-left.data-v-3014da5e {
+		align-items: flex-start;
+		left: 80rpx;
+}
+.fui-fab__wrap-right.data-v-3014da5e {
+		align-items: flex-end;
+		right: 80rpx;
+}
+.fui-fab__btn-list.data-v-3014da5e {
+
+		display: flex;
+		visibility: hidden;
+		transition: all 0.25s ease-in-out;
+		transform: scale3d(0, 0, 1);
+		opacity: 0;
+
+		flex-direction: column;
+}
+.fui-fab__list-left.data-v-3014da5e {
+		transform-origin: 0 100%;
+		align-items: flex-start;
+}
+.fui-fab__list-right.data-v-3014da5e {
+		transform-origin: 100% 100%;
+		align-items: flex-end;
+}
+.fui-fab__btn-hidden.data-v-3014da5e {
+		width: 0;
+		height: 0;
+}
+.fui-fab__list-ani.data-v-3014da5e {
+
+		opacity: 1;
+		transform: scale3d(1, 1, 1);
+		visibility: visible;
+}
+.fui-fab__button-box.data-v-3014da5e {
+
+		display: flex;
+
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+		margin-bottom: 32rpx;
+}
+.fui-fab__button-left.data-v-3014da5e {
+		flex-direction: row-reverse;
+		justify-content: flex-start;
+}
+.fui-fab__button-right.data-v-3014da5e {
+		flex-direction: row;
+		justify-content: flex-end;
+}
+.fui-fab__btn-text.data-v-3014da5e {
+
+		box-sizing: border-box;
+
+		padding-left: 24rpx;
+		padding-right: 24rpx;
+		font-weight: normal;
+}
+.fui-fab__button.data-v-3014da5e {
+
+		display: flex;
+		border-radius: 50%;
+
+
+
+
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+}
+.fui-fab__btn-abbr.data-v-3014da5e {
+		text-align: center;
+		font-weight: normal;
+}
+.fui-fab__btn-main.data-v-3014da5e {
+
+		display: flex;
+		border-radius: 50%;
+
+
+
+
+		box-shadow: 0 10rpx 14rpx 0 rgba(0, 0, 0, 0.1);
+		align-items: center;
+		justify-content: center;
+		transform: rotate(0deg);
+		overflow: hidden;
+}
+.fui-fab__btn-inner.data-v-3014da5e {
+
+		display: flex;
+		transform: rotate(0deg);
+		transition: transform .25s;
+
+		align-items: center;
+		justify-content: center;
+}
+.fui-fab__btn-ani.data-v-3014da5e {
+		transform: rotate(135deg);
+}
+.fui-fab__btn-color.data-v-3014da5e {
+		background: var(--fui-color-primary, #465CFF) !important;
+}
+
+

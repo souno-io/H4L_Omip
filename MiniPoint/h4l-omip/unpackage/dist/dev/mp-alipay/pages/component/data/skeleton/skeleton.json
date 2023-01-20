@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "骨架屏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-skeleton": "../../../../components/firstui/fui-skeleton/fui-skeleton"
+  }
+}

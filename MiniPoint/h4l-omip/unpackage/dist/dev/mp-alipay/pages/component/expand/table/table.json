@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "表格",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-table": "../../../../components/firstui/fui-table/fui-table"
+  }
+}

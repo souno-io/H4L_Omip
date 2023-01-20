@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "f-drag-item": "./f-drag-item"
+  }
+}

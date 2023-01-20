@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "旋转验证",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-rotate-verify": "../../../../components/firstui/fui-rotate-verify/fui-rotate-verify"
+  }
+}

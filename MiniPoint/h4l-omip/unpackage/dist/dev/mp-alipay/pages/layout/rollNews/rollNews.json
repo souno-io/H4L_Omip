@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "滚动消息",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-icon": "../../../components/firstui/fui-icon/fui-icon",
+    "fui-button": "../../../components/firstui/fui-button/fui-button"
+  }
+}

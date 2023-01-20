@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "评分",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-rate": "../../../../components/firstui/fui-rate/fui-rate"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "滑块",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-slider": "../../../../components/firstui/fui-slider/fui-slider"
+  }
+}

@@ -1,0 +1,1 @@
+<view a:if="{{a}}" class="{{('fui-popup__animation') + ' ' + 'data-v-2fecaf62' + ' ' + b}}" style="{{c}}" onTap="{{d}}" ref="fui_ani"><slot></slot></view>

@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "",
+  "pullRefresh": false,
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "fui-text": "../../../components/firstui/fui-text/fui-text",
+    "fui-lazyload": "../../../components/firstui/fui-lazyload/fui-lazyload",
+    "fui-list": "../../../components/firstui/fui-list/fui-list"
+  }
+}

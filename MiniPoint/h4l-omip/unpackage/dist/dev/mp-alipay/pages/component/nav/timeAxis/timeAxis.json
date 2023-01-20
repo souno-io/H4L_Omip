@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "时间轴",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-timeaxis-node": "../../../../components/firstui/fui-timeaxis-node/fui-timeaxis-node",
+    "fui-timeaxis": "../../../../components/firstui/fui-timeaxis/fui-timeaxis",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

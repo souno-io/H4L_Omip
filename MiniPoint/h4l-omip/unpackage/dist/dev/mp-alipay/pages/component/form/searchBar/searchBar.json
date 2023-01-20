@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "搜索栏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-search-bar": "../../../../components/firstui/fui-search-bar/fui-search-bar"
+  }
+}

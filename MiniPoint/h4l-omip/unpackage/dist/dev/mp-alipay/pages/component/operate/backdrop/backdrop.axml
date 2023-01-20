@@ -1,0 +1,1 @@
+<view class="fui-wrap"><view class="fui-page__hd"><view class="fui-page__title">Backdrop</view><view class="fui-page__desc">Backdrop 遮罩层，在组件中设置显示蒙层。</view></view><view class="fui-page__bd"><fui-button onClick="{{a}}" u-i="15957d1f-0" onVI="__l" u-p="{{b}}"></fui-button></view><fui-backdrop onClick="{{c}}" u-i="15957d1f-1" onVI="__l" u-p="{{d}}"></fui-backdrop></view>

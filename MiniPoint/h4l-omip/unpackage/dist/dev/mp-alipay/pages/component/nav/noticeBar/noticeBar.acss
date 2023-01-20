@@ -1,0 +1,36 @@
+
+page {
+		font-weight: normal;
+}
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-page__hd {
+		transition: all .2s;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-icon__box {
+		padding-left: 24rpx;
+		padding-right: 12rpx;
+}
+.fui-more__wrap {
+		display: flex;
+		align-items: center;
+		padding: 0 24rpx;
+}
+.fui-more__text {
+		font-size: 26rpx;
+		color: #7F7F7F;
+}
+.fui-notice__fixed {
+		width: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 10;
+}
+.fui-notice__pt {
+		padding-top: 124rpx;
+}

@@ -1,0 +1,64 @@
+
+.fui-page__bd {
+		padding-bottom: 600rpx;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-list__item {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #fff;
+}
+.fui-text {
+		font-weight: normal;
+		font-size: 30rpx;
+}
+.fui-tabbar--wrap {
+		width: 100%;
+		height: 144rpx;
+		padding: 0 32rpx 44rpx;
+		box-sizing: border-box;
+		background: #fff;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+}
+.fui-cart--box {
+		width: 120rpx;
+		height: 120rpx;
+		border-radius: 50%;
+		background: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		left: 40rpx;
+		bottom: 80rpx;
+		box-shadow: 0 10rpx 14rpx 0 rgba(0, 0, 0, 0.1);
+		z-index: 100;
+}
+.fui-cart--right {
+		left: auto;
+		right: 40rpx;
+}
+.fui-badge {
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #FF2B2B;
+		color: #fff;
+		font-size: 12px;
+}
+.fui-badge--logo {
+		width: 18px;
+		height: 18px;
+}

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "密码输入",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-single-input": "../../../../components/firstui/fui-single-input/fui-single-input"
+  }
+}

@@ -1,0 +1,63 @@
+"use strict";
+const templateData = [{
+  cn: "\u5546\u57CE",
+  en: "MALL",
+  src: "shopping_mall",
+  background: "#FFF7E5",
+  page: ""
+}, {
+  cn: "\u70B9\u9910",
+  en: "ORDER",
+  src: "order",
+  background: "#FFF4F4",
+  page: ""
+}, {
+  cn: "\u804A\u5929",
+  en: "CHAT",
+  src: "chat",
+  background: "#F2FCF6",
+  page: ""
+}, {
+  cn: "\u77ED\u89C6\u9891",
+  en: "SHORT VIDEO",
+  src: "short_video",
+  background: "#FFF4F4",
+  page: ""
+}, {
+  cn: "\u65B0\u95FB",
+  en: "NEWS",
+  src: "journalism",
+  background: "#F6F7FF",
+  page: ""
+}, {
+  cn: "\u95E8\u6237",
+  en: "PORTAL",
+  src: "gateway",
+  background: "#F2FCF6",
+  page: "/pages/nav/portal-nav/portal-nav"
+}, {
+  cn: "\u767B\u5F55",
+  en: "LOGIN",
+  src: "login",
+  background: "#FFF7E5",
+  page: "/pages/nav/login-nav/login-nav"
+}, {
+  cn: "\u7B7E\u5230",
+  en: "SIGN IN",
+  src: "sign_in",
+  background: "#F7F4FF",
+  page: ""
+}, {
+  cn: "\u6295\u7968",
+  en: "VOTE",
+  src: "vote",
+  background: "#FFF4F4",
+  page: ""
+}, {
+  cn: "\u6559\u80B2",
+  en: "EDUCATION",
+  src: "education",
+  background: "#F6F7FF",
+  page: ""
+}];
+exports.templateData = templateData;

@@ -1,0 +1,69 @@
+
+.fui-wrap {
+		width: 100%;
+		padding: 0 64rpx 64rpx;
+		box-sizing: border-box;
+}
+.fui-bg__box {
+		width: 100%;
+		position: relative;
+}
+.fui-share__bg {
+		width: 100%;
+		height: 466rpx;
+		display: block;
+		margin-top: 112rpx;
+}
+.fui-logo__box {
+		width: 100%;
+		position: absolute;
+		top: 48rpx;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+}
+.fui-logo {
+		width: 96rpx;
+		height: 96rpx;
+		border-radius: 16rpx;
+}
+.fui-text {
+		font-size: 28rpx;
+		padding-top: 16rpx;
+}
+.fui-qrcode__box {
+		width: 512rpx;
+		height: 512rpx;
+		padding: 56rpx;
+		box-sizing: border-box;
+		background: #FFFFFF;
+		box-shadow: 0 20rpx 20rpx 0 rgba(9, 41, 134, 0.12);
+		border-radius: 48rpx;
+		margin: -88rpx auto 0;
+		position: relative;
+		z-index: 10;
+}
+.fui-qrcode {
+		width: 100%;
+		height: 400rpx;
+}
+.fui-btn__box {
+		width: 100%;
+}
+.fui-share__ic {
+		width: 48rpx;
+		height: 48rpx;
+		margin-right: 16rpx;
+}
+.fui-ani__box {
+		width: 600rpx;
+		border-radius: 24rpx;
+}
+.fui-poster__img {
+		width: 100%;
+		border-radius: 24rpx;
+		margin-bottom: 30rpx;
+		display: block;
+}

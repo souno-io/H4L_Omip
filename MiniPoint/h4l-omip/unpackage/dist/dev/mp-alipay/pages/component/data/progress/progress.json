@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "进度条",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-progress": "../../../../components/firstui/fui-progress/fui-progress",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

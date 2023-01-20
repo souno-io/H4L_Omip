@@ -1,0 +1,22 @@
+
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-scroll__wrap {
+		padding-top: 30rpx;
+		position: relative;
+}
+.fui-title {
+		font-size: 30rpx;
+		font-weight: bold;
+		text-align: center;
+		padding-bottom: 24rpx;
+}
+.fui-icon__close {
+		position: absolute;
+		top: 24rpx;
+		right: 24rpx;
+}

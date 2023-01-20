@@ -1,0 +1,26 @@
+
+page {
+		font-weight: normal;
+}
+.fui-wrap{
+		padding-bottom: 64rpx;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-nav__city {
+		font-size: 28rpx;
+		padding-right: 12px;
+		flex-shrink: 0;
+}
+.fui-search__box {
+		width: 100%;
+		height: 32px;
+		background-color: #eee;
+		border-radius: 28px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 28rpx;
+		color: #b2b2b2;
+}

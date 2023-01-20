@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "我要合作",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-divider": "../../../components/firstui/fui-divider/fui-divider",
+    "fui-button": "../../../components/firstui/fui-button/fui-button",
+    "fui-animation": "../../../components/firstui/fui-animation/fui-animation"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "transparentTitle": "always",
+  "titlePenetrate": "YES",
+  "usingComponents": {
+    "fui-list-cell": "../../../components/firstui/fui-list-cell/fui-list-cell"
+  }
+}

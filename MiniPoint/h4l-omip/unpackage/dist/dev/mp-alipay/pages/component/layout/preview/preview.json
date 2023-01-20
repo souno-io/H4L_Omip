@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "表单预览",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-preview": "../../../../components/firstui/fui-preview/fui-preview"
+  }
+}

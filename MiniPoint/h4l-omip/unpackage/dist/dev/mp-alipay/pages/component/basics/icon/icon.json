@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "图标",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon",
+    "fui-grid-item": "../../../../components/firstui/fui-grid-item/fui-grid-item",
+    "fui-grid": "../../../../components/firstui/fui-grid/fui-grid"
+  }
+}

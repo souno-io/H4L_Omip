@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "吸顶容器",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-sticky": "../../../../components/firstui/fui-sticky/fui-sticky"
+  }
+}

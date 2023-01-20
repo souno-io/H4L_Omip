@@ -1,0 +1,55 @@
+
+.fui-count__down-wrap.data-v-b4537aac {
+
+		display: inline-flex;
+
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+}
+.fui-count__down-item.data-v-b4537aac {
+
+		display: flex;
+		white-space: nowrap;
+
+		align-items: center;
+		justify-content: center;
+		border-radius: 6rpx;
+		border-width: 1rpx;
+		border-style: solid;
+		text-align: center;
+}
+.fui-count__down-colon.data-v-b4537aac {
+
+		display: flex;
+
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+}
+.fui-count__down-ms.data-v-b4537aac {
+		overflow: hidden;
+		border-radius: 6rpx;
+		border-width: 1rpx;
+		border-style: solid;
+}
+.fui-count__down-ms_list.data-v-b4537aac {
+		animation: loop-b4537aac 1s steps(10) infinite;
+}
+@keyframes loop-b4537aac {
+from {
+			transform: translateY(0);
+}
+to {
+			transform: translateY(-100%);
+}
+}
+.fui-count__down-ms_item.data-v-b4537aac {
+
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+}

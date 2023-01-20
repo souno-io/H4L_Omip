@@ -1,0 +1,35 @@
+
+.fui-sticky__wrap.data-v-d913debb {
+
+		width: 100%;
+}
+.fui-sticky__fixed.data-v-d913debb {
+
+		width: 100%;
+
+		position: -webkit-sticky;
+
+		position: sticky;
+		top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

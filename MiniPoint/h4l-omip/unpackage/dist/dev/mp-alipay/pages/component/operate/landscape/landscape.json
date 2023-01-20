@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "压屏窗",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-landscape": "../../../../components/firstui/fui-landscape/fui-landscape"
+  }
+}

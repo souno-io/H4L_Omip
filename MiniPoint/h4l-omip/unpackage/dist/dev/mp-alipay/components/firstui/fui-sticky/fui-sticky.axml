@@ -1,0 +1,1 @@
+<view class="{{('fui-sticky__wrap') + ' ' + 'data-v-d913debb' + ' ' + (d && 'fui-sticky__fixed')}}" style="{{e}}" id="{{f}}" ref="fui_sticky__el"><view class="{{('data-v-d913debb') + ' ' + (a && 'fui-sticky__fixed') + ' ' + (b && 'fui-sticky__fixed-mp')}}" style="{{c}}"><slot></slot></view><slot name="content"></slot></view>

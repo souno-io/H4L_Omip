@@ -5,7 +5,7 @@
 			// #ifdef H5
 			"titleNView": false,
 			// #endif
-			"navigationBarTitleText": "First UI",
+			"navigationBarTitleText": "运维管理系统",
 			"enablePullDownRefresh": false,
 			"mp-weixin": {
 				"disableScroll": true
@@ -27,7 +27,7 @@
 			// #ifdef H5
 			"titleNView": false,
 			// #endif
-			"navigationBarTitleText": "First UI",
+			"navigationBarTitleText": "运维管理系统",
 			"enablePullDownRefresh": false,
 			"backgroundColorTop": "#FFFFFF",
 			"backgroundColorBottom": "#FFFFFF",
@@ -43,7 +43,7 @@
 			// #ifdef H5
 			"titleNView": false,
 			// #endif
-			"navigationBarTitleText": "First UI",
+			"navigationBarTitleText": "运维管理系统",
 			"enablePullDownRefresh": false,
 			"backgroundColorTop": "#FFFFFF",
 			"backgroundColorBottom": "#FFFFFF",
@@ -2135,7 +2135,7 @@
 	"globalStyle": {
 		"backgroundTextStyle": "dark",
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "First UI",
+		"navigationBarTitleText": "运维管理系统",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F1F4FA",
 		"backgroundColorTop": "#F1F4FA",
@@ -2147,22 +2147,22 @@
 		"backgroundColor": "#FFFFFF",
 		"list": [{
 				"pagePath": "pages/tabbar/index/index",
-				"text": "组件",
+				"text": "资源",
 				"iconPath": "static/images/tabbar/assembly_default_3x.png",
 				"selectedIconPath": "static/images/tabbar/assembly_selected_3x.png"
 			},
-			{
-				"pagePath": "pages/tabbar/layout/layout",
-				"text": "布局",
-				"iconPath": "static/images/tabbar/layout_default_3x.png",
-				"selectedIconPath": "static/images/tabbar/layout_selected_3x.png"
-			},
-			{
-				"pagePath": "pages/tabbar/template/template",
-				"text": "模板",
-				"iconPath": "static/images/tabbar/mod_default_3x.png",
-				"selectedIconPath": "static/images/tabbar/mod_selected_3x.png"
-			},
+			// {
+			// 	"pagePath": "pages/tabbar/layout/layout",
+			// 	"text": "布局",
+			// 	"iconPath": "static/images/tabbar/layout_default_3x.png",
+			// 	"selectedIconPath": "static/images/tabbar/layout_selected_3x.png"
+			// },
+			// {
+			// 	"pagePath": "pages/tabbar/template/template",
+			// 	"text": "模板",
+			// 	"iconPath": "static/images/tabbar/mod_default_3x.png",
+			// 	"selectedIconPath": "static/images/tabbar/mod_selected_3x.png"
+			// },
 			{
 				"pagePath": "pages/tabbar/my/my",
 				"text": "我的",

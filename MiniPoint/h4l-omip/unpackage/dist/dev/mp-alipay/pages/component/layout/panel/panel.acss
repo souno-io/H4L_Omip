@@ -1,0 +1,8 @@
+
+page {
+		font-weight: normal;
+}
+.fui-text__link {
+		color: #465CFF;
+		font-size: 32rpx;
+}

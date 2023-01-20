@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "头像",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-avatar": "../../../../components/firstui/fui-avatar/fui-avatar",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

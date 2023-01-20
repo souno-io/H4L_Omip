@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "数字滚轮",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-digital-roller": "../../../../components/firstui/fui-digital-roller/fui-digital-roller",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

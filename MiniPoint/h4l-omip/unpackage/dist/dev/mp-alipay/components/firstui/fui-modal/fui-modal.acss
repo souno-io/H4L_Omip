@@ -1,0 +1,147 @@
+
+.fui-modal__wrap.data-v-ca6399ed {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		display: flex;
+
+		justify-content: center;
+		align-items: center;
+		transition-timing-function: ease;
+		transition-duration: 0.3s;
+
+
+
+
+		opacity: 0;
+
+		transform: scale3d(1.2, 1.2, 1);
+		transition-property: all;
+		visibility: hidden;
+}
+.fui-modal__fadein.data-v-ca6399ed {
+		opacity: 1;
+		transform: scale3d(1, 1, 1);
+		visibility: visible;
+}
+.fui-modal__inner.data-v-ca6399ed {
+
+		display: flex;
+		box-sizing: border-box;
+
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 32rpx 0;
+		position: relative;
+}
+.fui-modal__title.data-v-ca6399ed {
+		text-align: center;
+		font-size: 34rpx;
+		color: #333;
+		font-weight: 600;
+		padding-top: 12rpx;
+		padding-bottom: 24rpx;
+
+		word-break: break-all;
+}
+.fui-modal__descr.data-v-ca6399ed {
+		text-align: center;
+		color: #999;
+		font-size: 28rpx;
+		padding-bottom: 24rpx;
+		font-weight: normal;
+
+		word-break: break-all;
+}
+.fui-modal__descr-pt.data-v-ca6399ed {
+		padding-top: 36rpx;
+}
+.fui-modal__btn-wrap.data-v-ca6399ed {
+
+		width: 100%;
+		box-sizing: border-box;
+
+		padding-top: 12rpx;
+}
+.fui-modal__btn-row.data-v-ca6399ed {
+
+		display: flex;
+
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+}
+.fui-modal__button.data-v-ca6399ed {
+		flex: 1;
+		margin-left: 20rpx;
+		margin-right: 20rpx;
+		margin-top: 20rpx;
+		margin-bottom: 20rpx;
+		height: 68rpx;
+		position: relative;
+
+		overflow: hidden;
+		box-sizing: border-box;
+}
+.fui-modal__button-col.data-v-ca6399ed {
+		margin-bottom: 0 !important;
+}
+.fui-modal__button-border.data-v-ca6399ed {
+
+
+
+
+
+		border-width: 1rpx;
+		transform: translateZ(0);
+
+		border-style: solid;
+}
+.fui-modal__button-bg.data-v-ca6399ed {
+		background: var(--fui-color-primary, #465CFF) !important;
+}
+.fui-modal__button-bc.data-v-ca6399ed {
+		border-color: var(--fui-color-primary, #465CFF) !important;
+}
+.fui-modal__button-color.data-v-ca6399ed {
+		color: var(--fui-color-primary, #465CFF) !important;
+}
+.fui-modal__button-inner.data-v-ca6399ed {
+
+		display: flex;
+		white-space: nowrap;
+		box-sizing: border-box;
+
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+
+
+
+
+
+
+
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 26rpx;
+		font-weight: normal;
+		color: #FFFFFF;
+}
+.fui-modal__button-inner.data-v-ca6399ed:active {
+
+
+
+
+
+		background-color: var(--fui-bg-color-hover, rgba(0, 0, 0, 0.2));
+}

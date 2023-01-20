@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "二维码",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-textarea": "../../../../components/firstui/fui-textarea/fui-textarea",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-qrcode": "../../../../components/firstui/fui-qrcode/fui-qrcode"
+  }
+}

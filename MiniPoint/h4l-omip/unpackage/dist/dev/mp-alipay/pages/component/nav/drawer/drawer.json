@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "抽屉",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-list-cell": "../../../../components/firstui/fui-list-cell/fui-list-cell",
+    "fui-drawer": "../../../../components/firstui/fui-drawer/fui-drawer"
+  }
+}

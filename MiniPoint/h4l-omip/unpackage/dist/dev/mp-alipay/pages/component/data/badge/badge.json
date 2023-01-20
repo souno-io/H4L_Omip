@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "徽章",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-badge": "../../../../components/firstui/fui-badge/fui-badge",
+    "fui-list-cell": "../../../../components/firstui/fui-list-cell/fui-list-cell"
+  }
+}

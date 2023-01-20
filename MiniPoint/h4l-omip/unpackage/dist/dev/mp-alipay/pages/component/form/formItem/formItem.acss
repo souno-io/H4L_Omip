@@ -1,0 +1,13 @@
+
+page {
+		font-weight: normal;
+}
+.fui-wrap {
+		padding-bottom: 96rpx;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-page__input {
+		font-size: 32rpx;
+}

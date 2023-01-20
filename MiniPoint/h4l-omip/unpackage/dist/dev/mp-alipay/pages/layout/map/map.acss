@@ -1,0 +1,18 @@
+@import "../../../nvue.acss";
+
+page {
+		font-weight: normal;
+}
+.fui-align__center {
+		flex-direction: row;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-page__bd {
+
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+}

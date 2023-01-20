@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "表单验证",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-input": "../../../../components/firstui/fui-input/fui-input",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

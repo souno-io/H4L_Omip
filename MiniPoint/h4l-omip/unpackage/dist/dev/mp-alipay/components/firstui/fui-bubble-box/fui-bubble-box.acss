@@ -1,0 +1,144 @@
+
+.fui-bubble__box-wrap.data-v-8cece2bb {
+		position: relative;
+}
+.fui-bubble__box-inner.data-v-8cece2bb {
+
+		display: flex;
+		transition: all 0.3s ease-in-out;
+		visibility: hidden;
+		opacity: 0;
+}
+.fui-bubble__box-list.data-v-8cece2bb {
+		border-radius: 8rpx;
+		overflow: hidden;
+		position: relative;
+
+		z-index: 5;
+}
+.fui-bb__list-top.data-v-8cece2bb {
+		left: 50%;
+		top: 0;
+		/* margin-top: -10px; */
+		transform: translate(-50%, -100%);
+}
+.fui-bb__list-bottom.data-v-8cece2bb {
+		left: 50%;
+		top: 100%;
+		/* margin-top: 10px; */
+		transform: translate(-50%, 0);
+}
+.fui-bb__list-left.data-v-8cece2bb {
+		left: 0;
+		top: 50%;
+		/* margin-left: -10px; */
+		transform: translate(-100%, -50%);
+}
+.fui-bb__list-right.data-v-8cece2bb {
+		left: 100%;
+		top: 50%;
+		/* margin-left: 10px; */
+		transform: translate(0, -50%);
+}
+.fui-bubble__box-row.data-v-8cece2bb {
+		flex-direction: row;
+}
+.fui-bubble__box-col.data-v-8cece2bb {
+		flex-direction: column;
+}
+.fui-bubble__box-item.data-v-8cece2bb {
+
+		width: 100%;
+		display: flex;
+		box-sizing: border-box;
+
+		flex: 1;
+		flex-direction: row;
+		align-items: center;
+
+
+
+		position: relative;
+}
+.fui-bubble__box-item.data-v-8cece2bb:active {
+		background: rgba(0, 0, 0, .2);
+}
+.fui-bubble__box-line.data-v-8cece2bb {
+		position: absolute;
+		bottom: 0;
+
+
+
+
+
+		height: 1px;
+		transform: scaleY(0.5);
+		transform-origin: 0 100%;
+		z-index: 1;
+}
+.fui-bb__line-left.data-v-8cece2bb {
+		left: 32rpx;
+		right: 0;
+}
+.fui-bb__line-right.data-v-8cece2bb {
+		left: 0;
+		right: 32rpx;
+}
+.fui-bubble__box-text.data-v-8cece2bb {
+		padding-left: 16rpx;
+}
+.fui-bubble__box-mask.data-v-8cece2bb {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+
+
+
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+		visibility: hidden;
+		z-index: 3;
+}
+.fui-bb__unnvue-show.data-v-8cece2bb {
+		opacity: 1 !important;
+		visibility: visible !important;
+}
+.fui-bb__triangle-wrap.data-v-8cece2bb {
+		position: relative;
+		overflow: hidden;
+}
+.fui-bubble__box-triangle.data-v-8cece2bb {
+		width: 10px;
+		height: 10px;
+		position: absolute;
+}
+.fui-bb__triangle-top.data-v-8cece2bb {
+
+		transform: rotate(-45deg) translateY(-8px);
+}
+.fui-bb__triangle-bottom.data-v-8cece2bb {
+
+		transform: rotate(45deg) translateY(8px);
+}
+.fui-bb__triangle-right.data-v-8cece2bb {
+
+		transform: rotate(45deg) translateX(8px);
+}
+.fui-bb__triangle-left.data-v-8cece2bb {
+
+		transform: rotate(-45deg) translateX(-8px);
+}
+
+
+
+
+
+
+
+
+
+
+

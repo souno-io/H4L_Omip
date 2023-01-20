@@ -1,0 +1,1 @@
+<view class="fui-wrap"><fui-list-cell u-s="{{['d']}}" u-i="0ff25699-0" onVI="__l" u-p="{{c}}"><text class="fui-title">First UI {{a}}（{{b}}）</text></fui-list-cell><view class="fui-content"><view a:for="{{d}}" a:for-item="item" a:key="b" class="fui-p"><text a:if="{{e}}" class="fui-sign">-</text><text>{{item.a}}</text></view></view></view>

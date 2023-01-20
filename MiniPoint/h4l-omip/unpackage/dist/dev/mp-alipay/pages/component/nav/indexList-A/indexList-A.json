@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "索引列表",
+  "pullRefresh": false,
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "fui-search-bar": "../../../../components/firstui/fui-search-bar/fui-search-bar",
+    "fui-loadmore": "../../../../components/firstui/fui-loadmore/fui-loadmore",
+    "fui-divider": "../../../../components/firstui/fui-divider/fui-divider",
+    "fui-index-list": "../../../../components/firstui/fui-index-list/fui-index-list"
+  }
+}

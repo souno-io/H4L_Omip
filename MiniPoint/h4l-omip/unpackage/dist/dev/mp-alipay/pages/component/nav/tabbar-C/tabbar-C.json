@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "组件",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "page-a": "./pageA",
+    "page-b": "./pageB",
+    "page-c": "./pageC",
+    "page-d": "./pageD",
+    "fui-tabbar": "../../../../components/firstui/fui-tabbar/fui-tabbar"
+  }
+}

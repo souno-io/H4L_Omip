@@ -1,0 +1,44 @@
+@import "../../../nvue.acss";
+
+page {
+		font-weight: normal;
+}
+.fui-align__center {
+		flex-direction: row;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+
+	/*
+	  新闻列表 css
+	*/
+.fui-news__item {
+
+		width: 100%;
+		box-sizing: border-box;
+
+		padding: 20rpx 32rpx;
+		background-color: #fff;
+}
+.fui-news__item:active {
+		background-color: rgba(0, 0, 0, 0.2);
+}
+.fui-image__list {
+
+		display: flex;
+
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		padding-top: 20rpx;
+		padding-bottom: 16rpx;
+}
+.fui-news__info {
+
+		display: flex;
+
+		flex-direction: row;
+		transform: scale(0.8);
+		transform-origin: 0 100%;
+}

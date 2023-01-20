@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "条形码",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-input": "../../../../components/firstui/fui-input/fui-input",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-barcode": "../../../../components/firstui/fui-barcode/fui-barcode"
+  }
+}

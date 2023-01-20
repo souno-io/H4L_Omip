@@ -1,0 +1,1 @@
+<canvas style="{{'width:' + a + ';' + ('height:' + b)}}" canvas-id="{{c}}" id="{{d}}" class="fui-poster__canvas data-v-cd821dbc"></canvas>

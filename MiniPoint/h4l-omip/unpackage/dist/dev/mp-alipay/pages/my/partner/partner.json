@@ -1,0 +1,8 @@
+{
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-grid-item": "../../../components/firstui/fui-grid-item/fui-grid-item",
+    "fui-grid": "../../../components/firstui/fui-grid/fui-grid"
+  }
+}

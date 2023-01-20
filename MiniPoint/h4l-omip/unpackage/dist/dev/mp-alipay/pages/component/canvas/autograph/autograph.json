@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "手写签名",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-autograph": "../../../../components/firstui/fui-autograph/fui-autograph",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "底部安全区域",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-divider": "../../../../components/firstui/fui-divider/fui-divider",
+    "fui-safe-area": "../../../../components/firstui/fui-safe-area/fui-safe-area"
+  }
+}

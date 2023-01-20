@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "通告栏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-notice-bar": "../../../../components/firstui/fui-notice-bar/fui-notice-bar",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

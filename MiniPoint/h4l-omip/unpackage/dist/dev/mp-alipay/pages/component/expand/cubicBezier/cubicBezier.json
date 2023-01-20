@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "贝塞尔曲线",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon",
+    "fui-cubic-bezier": "../../../../components/firstui/fui-cubic-bezier/fui-cubic-bezier",
+    "fui-list-cell": "../../../../components/firstui/fui-list-cell/fui-list-cell"
+  }
+}

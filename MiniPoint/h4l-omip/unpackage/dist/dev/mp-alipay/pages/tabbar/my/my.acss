@@ -1,0 +1,94 @@
+
+page {
+		background-color: #FFFFFF;
+}
+.fui-banner__box {
+		width: 100%;
+		height: 512rpx;
+		background: #EDF9FF;
+		position: relative;
+}
+.fui-banner {
+		width: 100%;
+		height: 512rpx;
+		display: block;
+}
+.fui-vip__box {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+}
+.fui-mod__box {
+		width: 100%;
+		height: 124rpx;
+		background: #31344D;
+		border-radius: 16rpx 16rpx 0 0;
+		overflow: hidden;
+}
+.fui-vip__bg {
+		width: 100%;
+		height: 124rpx;
+		display: block;
+}
+.fui-vip__btn {
+		font-size: 28rpx;
+		color: #FFD694;
+		position: absolute;
+		height: 100%;
+		right: 64rpx;
+		top: 0;
+}
+.fui-menu__wrap {
+		height: 210rpx;
+		background: #FFFFFF;
+		box-shadow: 0 4rpx 8rpx 0 rgba(2, 4, 38, 0.05);
+		border-radius: 0 0 16rpx 16rpx;
+}
+.fui-menu__item {
+		flex: 1;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		font-size: 24rpx;
+
+
+
+		position: relative;
+}
+.fui-menu__img {
+		width: 96rpx;
+		height: 96rpx;
+		border-radius: 24rpx;
+		margin-bottom: 16rpx;
+}
+.fui-menu__img image {
+		width: 64rpx;
+		height: 64rpx;
+		display: block;
+}
+.fui-btn__feedback {
+		background: transparent !important;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+		border: 0;
+		z-index: 1;
+}
+.fui-btn__feedback::after {
+		border: 0;
+}
+.fui-list__wrap {
+		padding-top: 32rpx;
+}
+.fui-list__icon {
+		width: 48rpx;
+		height: 48rpx;
+}
+.fui-list__text {
+		padding-left: 24rpx;
+}

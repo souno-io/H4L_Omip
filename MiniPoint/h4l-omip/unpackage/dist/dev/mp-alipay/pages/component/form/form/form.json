@@ -1,0 +1,22 @@
+{
+  "defaultTitle": "表单校验",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-input": "../../../../components/firstui/fui-input/fui-input",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-textarea": "../../../../components/firstui/fui-textarea/fui-textarea",
+    "fui-radio": "../../../../components/firstui/fui-radio/fui-radio",
+    "fui-list-cell": "../../../../components/firstui/fui-list-cell/fui-list-cell",
+    "fui-label": "../../../../components/firstui/fui-label/fui-label",
+    "fui-radio-group": "../../../../components/firstui/fui-radio-group/fui-radio-group",
+    "fui-checkbox": "../../../../components/firstui/fui-checkbox/fui-checkbox",
+    "fui-checkbox-group": "../../../../components/firstui/fui-checkbox-group/fui-checkbox-group",
+    "fui-switch": "../../../../components/firstui/fui-switch/fui-switch",
+    "fui-rate": "../../../../components/firstui/fui-rate/fui-rate",
+    "fui-upload": "../../../../components/firstui/fui-upload/fui-upload",
+    "fui-form": "../../../../components/firstui/fui-form/fui-form",
+    "fui-picker": "../../../../components/firstui/fui-picker/fui-picker",
+    "fui-date-picker": "../../../../components/firstui/fui-date-picker/fui-date-picker"
+  }
+}

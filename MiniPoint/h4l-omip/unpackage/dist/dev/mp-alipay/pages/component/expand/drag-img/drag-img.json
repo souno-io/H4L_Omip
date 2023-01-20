@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "拖拽排序",
+  "pullRefresh": false,
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "fui-drag": "../../../../components/firstui/fui-drag/fui-drag"
+  }
+}

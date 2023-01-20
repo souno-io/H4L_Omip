@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "画廊",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-gallery": "../../../../components/firstui/fui-gallery/fui-gallery"
+  }
+}

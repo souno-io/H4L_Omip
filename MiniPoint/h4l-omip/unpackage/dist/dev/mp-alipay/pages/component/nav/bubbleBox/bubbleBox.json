@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "气泡框",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-bubble-box": "../../../../components/firstui/fui-bubble-box/fui-bubble-box"
+  }
+}

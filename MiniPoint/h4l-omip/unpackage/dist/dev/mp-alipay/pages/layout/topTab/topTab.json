@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "顶部选项卡",
+  "pullRefresh": false,
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "f-news-item": "./fNewsItem",
+    "fui-tabs": "../../../components/firstui/fui-tabs/fui-tabs",
+    "fui-loadmore": "../../../components/firstui/fui-loadmore/fui-loadmore",
+    "fui-divider": "../../../components/firstui/fui-divider/fui-divider"
+  }
+}

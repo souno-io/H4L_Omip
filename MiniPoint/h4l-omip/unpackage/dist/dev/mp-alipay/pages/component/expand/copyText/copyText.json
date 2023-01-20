@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "长按复制",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-copy-text": "../../../../components/firstui/fui-copy-text/fui-copy-text"
+  }
+}

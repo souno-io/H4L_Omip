@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "加载动画",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-load-ani": "../../../../components/firstui/fui-load-ani/fui-load-ani",
+    "fui-grid-item": "../../../../components/firstui/fui-grid-item/fui-grid-item",
+    "fui-grid": "../../../../components/firstui/fui-grid/fui-grid"
+  }
+}

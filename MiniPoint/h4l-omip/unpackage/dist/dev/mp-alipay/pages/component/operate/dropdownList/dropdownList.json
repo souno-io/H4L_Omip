@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "下拉菜单",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon",
+    "fui-list-cell": "../../../../components/firstui/fui-list-cell/fui-list-cell",
+    "fui-dropdown-list": "../../../../components/firstui/fui-dropdown-list/fui-dropdown-list"
+  }
+}

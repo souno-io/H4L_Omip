@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "商品导航栏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-icon": "../../../components/firstui/fui-icon/fui-icon",
+    "fui-button": "../../../components/firstui/fui-button/fui-button",
+    "fui-badge": "../../../components/firstui/fui-badge/fui-badge",
+    "fui-safe-area": "../../../components/firstui/fui-safe-area/fui-safe-area"
+  }
+}

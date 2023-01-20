@@ -1,0 +1,89 @@
+
+.fui-image__cropper.data-v-10c6f7fc {
+		background: rgba(0, 0, 0, 0.6);
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 1;
+}
+.fui-cropper__img.data-v-10c6f7fc,
+	.fui-cropper__real-el.data-v-10c6f7fc {
+
+		-webkit-backface-visibility: hidden;
+
+		        backface-visibility: hidden;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		transform-origin: center;
+}
+.fui-cropper__img-hidden.data-v-10c6f7fc{
+		opacity: 0;
+		visibility: hidden;
+}
+.fui-cropper__mask.data-v-10c6f7fc {
+		position: fixed;
+		z-index: 4;
+
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		border: 3000px solid rgba(0, 0, 0, 0.5);
+		pointer-events: none;
+}
+.fui-cropper__border.data-v-10c6f7fc {
+
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		box-sizing: border-box;
+		pointer-events: none;
+
+		border-width: 1px;
+		border-style: solid;
+}
+.fui-cropper__canvas.data-v-10c6f7fc {
+		position: fixed;
+		left: -3000px;
+		top: -3000px;
+		pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

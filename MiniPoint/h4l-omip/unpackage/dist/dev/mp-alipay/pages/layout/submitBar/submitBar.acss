@@ -1,0 +1,96 @@
+@import "../../../nvue.acss";
+
+.fui-align__center {
+		flex-direction: row;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+
+	/* 布局内容样式 start */
+.fui-submit__bar {
+
+		width: 100%;
+		box-sizing: border-box;
+
+		height: 100rpx;
+		padding: 0 32rpx;
+		background-color: #fff;
+		position: relative;
+}
+.fui-submit__bar::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		border-top: 1px solid #eee;
+		transform: scaleY(0.5);
+		transform-origin: 0 0;
+		z-index: 1;
+		pointer-events: none;
+}
+.fui-submitbar__flex {
+
+		display: flex;
+
+		flex-direction: row;
+		align-items: center;
+}
+.fui-submitbar__column {
+
+		display: flex;
+
+		flex-direction: column;
+}
+.fui-submit__bar-left {
+
+		display: flex;
+
+		flex-direction: row;
+}
+.fui-submit__bar-text {
+		font-size: 26rpx;
+		line-height: 26rpx;
+		font-weight: normal;
+		padding: 0 24rpx 0 12rpx;
+}
+.fui-submit__bar-sign {
+		font-size: 26rpx;
+		line-height: 26rpx;
+		font-weight: normal;
+}
+.fui-submitbar__price {
+		font-size: 32rpx;
+		line-height: 32rpx;
+		font-weight: 500;
+}
+.fui-submitbar__sub {
+		font-size: 25rpx;
+		font-weight: normal;
+		color: #7F7F7F;
+		transform: scale(0.8);
+		transform-origin: 0 center;
+}
+.fui-submitbar__between {
+		justify-content: space-between;
+}
+.fui-submitbar__end {
+		justify-content: flex-end;
+}
+.fui-color__danger {
+		color: #FF2B2B;
+}
+.fui-submitbar__pr {
+		padding-right: 28rpx;
+}
+.fui-submitbar__fixed {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		z-index: 10;
+}
+
+	/* 布局内容样式 end */

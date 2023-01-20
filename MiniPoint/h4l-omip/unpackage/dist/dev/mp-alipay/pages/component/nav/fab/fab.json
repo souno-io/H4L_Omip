@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "浮动按钮",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-fab": "../../../../components/firstui/fui-fab/fui-fab",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

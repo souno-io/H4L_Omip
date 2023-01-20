@@ -1,0 +1,9 @@
+
+page {
+		font-weight: normal;
+}
+.fui-btn__box {
+		width: 100%;
+		padding: 64rpx 32rpx;
+		box-sizing: border-box;
+}

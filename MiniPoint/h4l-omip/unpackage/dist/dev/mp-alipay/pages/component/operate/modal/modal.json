@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "模态框",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-modal": "../../../../components/firstui/fui-modal/fui-modal",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "f-index-list-item": "./f-index-list-item"
+  }
+}

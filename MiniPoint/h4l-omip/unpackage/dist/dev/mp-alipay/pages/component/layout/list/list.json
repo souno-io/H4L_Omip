@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "列表",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-list-cell": "../../../../components/firstui/fui-list-cell/fui-list-cell",
+    "fui-badge": "../../../../components/firstui/fui-badge/fui-badge",
+    "fui-list": "../../../../components/firstui/fui-list/fui-list"
+  }
+}

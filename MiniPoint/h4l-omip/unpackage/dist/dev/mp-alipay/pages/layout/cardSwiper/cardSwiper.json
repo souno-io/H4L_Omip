@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "卡片轮播",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-swiper-dot": "../../../components/firstui/fui-swiper-dot/fui-swiper-dot",
+    "fui-button": "../../../components/firstui/fui-button/fui-button"
+  }
+}

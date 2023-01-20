@@ -1,0 +1,1 @@
+<view class="fui-spin__wrap data-v-7ccf9a5d" style="{{'width:' + a + ';' + ('height:' + b)}}" ref="fui_spin_ani"><slot></slot></view>

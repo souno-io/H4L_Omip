@@ -1,0 +1,32 @@
+
+.fui-page__bd{
+		padding-bottom: 100rpx;
+}
+.fui-content{
+		width: 100%;
+		padding: 0 32rpx;
+		box-sizing: border-box;
+}
+.fui-content__text{
+		width: 100%;
+		height: 1200px;
+		font-size: 28rpx;
+		font-weight: normal;
+}
+.fui-tabbar__box{
+	   width: 100%;
+	   position: fixed;
+	   left: 0;
+	   right: 0;
+	   bottom: 0;
+	   z-index: 10;
+}
+.fui-tabbar__content{
+	   width: 100%;
+	   height: 100rpx;
+	   background: #fff;
+	   display: flex;
+	   align-items: center;
+	   padding: 0 32rpx;
+	   box-sizing: border-box;
+}

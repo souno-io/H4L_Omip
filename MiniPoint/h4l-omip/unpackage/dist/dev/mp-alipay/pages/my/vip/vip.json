@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "会员权益",
+  "pullRefresh": false,
+  "titleBarColor": "#181818",
+  "backgroundColor": "#181818",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../components/firstui/fui-button/fui-button",
+    "fui-animation": "../../../components/firstui/fui-animation/fui-animation"
+  }
+}

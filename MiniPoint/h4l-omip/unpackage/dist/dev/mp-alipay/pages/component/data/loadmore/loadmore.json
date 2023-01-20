@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "加载更多",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-loadmore": "../../../../components/firstui/fui-loadmore/fui-loadmore"
+  }
+}

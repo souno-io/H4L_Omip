@@ -1,0 +1,8 @@
+@import "../../../nvue.acss";
+
+page{
+	background-color: #fff;
+}
+.fui-wrap{
+	background-color: #fff;
+}

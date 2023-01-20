@@ -1,0 +1,11 @@
+
+.fui-btn__box {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 48rpx;
+}
+.fui-wrap {
+		padding-bottom: 64rpx;
+}

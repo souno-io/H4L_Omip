@@ -1,0 +1,1 @@
+<view class="fui-timeaxis__wrap data-v-39324a3d" style="{{'padding-top:' + a + ';' + ('padding-right:' + b) + ';' + ('padding-bottom:' + c) + ';' + ('padding-left:' + d) + ';' + ('background:' + e)}}"><slot></slot></view>

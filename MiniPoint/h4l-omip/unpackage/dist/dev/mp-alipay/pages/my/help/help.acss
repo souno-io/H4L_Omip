@@ -1,0 +1,133 @@
+
+page {
+		font-weight: normal;
+}
+.fui-header {
+		width: 100%;
+		height: 338rpx;
+		position: relative;
+		background: #465CFF;
+}
+.fui-banner {
+		width: 100%;
+		height: 336rpx;
+		display: block;
+}
+.fui-hd__content {
+		width: 100%;
+		height: 216rpx;
+		position: absolute;
+		z-index: 2;
+		left: 0;
+		top: 0;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		color: #FFFFFF;
+		padding-left: 64rpx;
+		box-sizing: border-box;
+}
+.fui-hd__title {
+		font-size: 36rpx;
+		font-weight: 600;
+}
+.fui-hd__sub {
+		font-size: 28rpx;
+		font-weight: 400;
+		padding-top: 24rpx;
+}
+.fui-page__bd {
+		margin-top: -120rpx;
+		position: relative;
+		z-index: 2;
+}
+.fui-page__bd text {
+		font-size: 28rpx;
+		line-height: 48rpx;
+}
+.fui-main__box {
+		width: 100%;
+		background-color: #fff;
+		border-radius: 48rpx 48rpx 0 0;
+		padding: 32rpx 32rpx 0 32rpx;
+		box-sizing: border-box;
+}
+.fui-search__box {
+		width: 100%;
+		height: 88rpx;
+		background: #F8F8F8;
+		border-radius: 16rpx;
+		padding: 0 32rpx;
+		box-sizing: border-box;
+		margin-bottom: 16rpx;
+}
+.fui-search__icon {
+		width: 32rpx;
+		height: 32rpx;
+		flex-shrink: 0;
+}
+.fui-search__text {
+		font-size: 28rpx;
+		color: #CCCCCC;
+		padding-left: 16rpx;
+}
+.fui-title {
+		font-size: 32rpx !important;
+		font-weight: 500;
+}
+.fui-menu__box {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding: 48rpx 0;
+}
+.fui-menu__item {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+}
+.fui-menu__item image {
+		width: 64rpx;
+		height: 64rpx;
+}
+.fui-menu__item text {
+		font-size: 28rpx;
+		font-weight: 500;
+		color: #333333;
+		padding-top: 12rpx;
+}
+.fui-title__box {
+		padding: 32rpx;
+		box-sizing: border-box;
+}
+.fui-title__box image {
+		width: 64rpx;
+		height: 64rpx;
+}
+.fui-title__box text {
+		font-size: 28rpx;
+		font-weight: 500;
+		padding-left: 16rpx;
+}
+contact-button {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		right: 0;
+		top: 0;
+		z-index: 2;
+		opacity: 0;
+}
+.fui-footer {
+		font-size: 24rpx;
+		color: #333;
+		text-align: center;
+		padding-top: 32rpx;
+}
+.fui-ft__text {
+		position: relative;
+		font-size: 24rpx;
+		color: #465CFF;
+}

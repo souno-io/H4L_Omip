@@ -1,0 +1,361 @@
+"use strict";
+const lists = [{
+  letter: "A",
+  data: [{
+    text: "\u963F\u514B\u82CF\u673A\u573A",
+    checked: false,
+    value: "1001"
+  }, {
+    text: "\u963F\u62C9\u5C71\u53E3\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u963F\u52D2\u6CF0\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u963F\u91CC\u6606\u838E\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5B89\u5E86\u5929\u67F1\u5C71\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6FB3\u95E8\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "B",
+  data: [{
+    text: "\u4FDD\u5C71\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5305\u5934\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5317\u6D77\u798F\u6210\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5317\u4EAC\u5357\u82D1\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5317\u4EAC\u9996\u90FD\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "C",
+  data: [{
+    text: "\u957F\u767D\u5C71\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u957F\u6625\u9F99\u5609\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5E38\u5FB7\u6843\u82B1\u6E90\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u660C\u90FD\u90A6\u8FBE\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u957F\u6C99\u9EC4\u82B1\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u957F\u6CBB\u738B\u6751\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5E38\u5DDE\u5954\u725B\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6210\u90FD\u53CC\u6D41\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u8D64\u5CF0\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "D",
+  data: [{
+    text: "\u5927\u7406\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5927\u8FDE\u5468\u6C34\u5B50\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5927\u5E86\u8428\u5C14\u56FE\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5927\u540C\u4E1C\u738B\u5E84\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "E",
+  data: [{
+    text: "\u9102\u5C14\u591A\u65AF\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6069\u65BD\u8BB8\u5BB6\u576A\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u4E8C\u8FDE\u6D69\u7279\u8D5B\u4E4C\u82CF\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "F",
+  data: [{
+    text: "\u961C\u9633\u897F\u5173\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u798F\u5DDE\u957F\u4E50\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "G",
+  data: [{
+    text: "\u8D63\u5DDE\u9EC4\u91D1\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u683C\u5C14\u6728\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u56FA\u539F\u516D\u76D8\u5C71\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "H",
+  data: [{
+    text: "\u54C8\u5C14\u6EE8\u592A\u5E73\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u54C8\u5BC6\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6D77\u53E3\u7F8E\u5170\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6D77\u62C9\u5C14\u4E1C\u5C71\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u90AF\u90F8\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5408\u80A5\u9A86\u5C97\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "I",
+  data: []
+}, {
+  letter: "J",
+  data: [{
+    text: "\u6D4E\u5357\u9065\u5899\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6D4E\u5B81\u66F2\u961C\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u9E21\u897F\u5174\u51EF\u6E56\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u4F73\u6728\u65AF\u4E1C\u90CA\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5609\u5CEA\u5173\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "K",
+  data: [{
+    text: "\u5580\u4EC0\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u514B\u62C9\u739B\u4F9D\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5E93\u8F66\u9F9F\u5179\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5E93\u5C14\u52D2\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6606\u660E\u5DEB\u5BB6\u575D\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "L",
+  data: [{
+    text: "\u62C9\u8428\u8D21\u560E\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5170\u5DDE\u4E2D\u5DDD\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u4E3D\u6C5F\u4E09\u4E49\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u8FDE\u4E91\u6E2F\u767D\u5854\u57E0\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6D1B\u9633\u5317\u90CA\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "M",
+  data: [{
+    text: "\u6EE1\u6D32\u91CC\u897F\u90CA\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u7EF5\u9633\u5357\u90CA\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6F20\u6CB3\u53E4\u83B2\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "N",
+  data: [{
+    text: "\u5357\u660C\u660C\u5317\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5357\u5145\u9AD8\u576A\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5357\u4EAC\u7984\u53E3\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5B81\u6CE2\u680E\u793E\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "O",
+  data: []
+}, {
+  letter: "P",
+  data: [{
+    text: "\u666E\u6D31\u601D\u8305\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "Q",
+  data: [{
+    text: "\u9F50\u9F50\u54C8\u5C14\u4E09\u5BB6\u5B50\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u79E6\u7687\u5C9B\u5C71\u6D77\u5173\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u9752\u5C9B\u6D41\u4EAD\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "R",
+  data: [{
+    text: "\u65E5\u5580\u5219\u548C\u5E73\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "S",
+  data: [{
+    text: "\u4E09\u4E9A\u51E4\u51F0\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6C55\u5934\u5916\u7802\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u4E0A\u6D77\u8679\u6865\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6DF1\u5733\u5B9D\u5B89\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "T",
+  data: [{
+    text: "\u5854\u57CE\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u592A\u539F\u6B66\u5BBF\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5929\u6D25\u6EE8\u6D77\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u901A\u8FBD\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "U",
+  data: []
+}, {
+  letter: "V",
+  data: []
+}, {
+  letter: "W",
+  data: [{
+    text: "\u4E07\u5DDE\u4E94\u6865\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6F4D\u574A\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u5A01\u6D77\u5927\u6C34\u6CCA\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6587\u5C71\u666E\u8005\u9ED1\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6E29\u5DDE\u6C38\u5F3A\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6B66\u6C49\u5929\u6CB3\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u4E4C\u9C81\u6728\u9F50\u5730\u7A9D\u5821\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "X",
+  data: [{
+    text: "\u897F\u5B89\u54B8\u9633\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u897F\u53CC\u7248\u7EB3\u560E\u6D12\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u53A6\u95E8\u9AD8\u5D0E\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u9999\u6E2F\u56FD\u9645\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "Y",
+  data: [{
+    text: "\u5EF6\u5B89\u4E8C\u5341\u91CC\u5821\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u76D0\u57CE\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u94F6\u5DDD\u6CB3\u4E1C\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u6986\u6797\u6986\u9633\u673A\u573A",
+    checked: false
+  }]
+}, {
+  letter: "Z",
+  data: [{
+    text: "\u6E5B\u6C5F\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u662D\u901A\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u90D1\u5DDE\u65B0\u90D1\u56FD\u9645\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u821F\u5C71\u6731\u5BB6\u5C16\u673A\u573A",
+    checked: false
+  }, {
+    text: "\u73E0\u6D77\u4E09\u7076\u673A\u573A",
+    checked: false
+  }]
+}];
+exports.lists = lists;

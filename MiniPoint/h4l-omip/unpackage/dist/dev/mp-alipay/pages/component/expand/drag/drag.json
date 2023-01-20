@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "拖拽排序",
+  "pullRefresh": false,
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

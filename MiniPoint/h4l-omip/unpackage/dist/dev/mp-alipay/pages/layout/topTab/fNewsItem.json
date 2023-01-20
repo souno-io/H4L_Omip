@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "fui-overflow-hidden": "../../../components/firstui/fui-overflow-hidden/fui-overflow-hidden",
+    "fui-lazyload": "../../../components/firstui/fui-lazyload/fui-lazyload",
+    "fui-text": "../../../components/firstui/fui-text/fui-text",
+    "fui-list": "../../../components/firstui/fui-list/fui-list"
+  }
+}

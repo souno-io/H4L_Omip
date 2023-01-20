@@ -1,0 +1,37 @@
+
+.fui-cubicbezier__wrap.data-v-70b0a325 {
+		position: relative;
+}
+.fui-ani__cb-x.data-v-70b0a325 {
+
+
+
+
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: inline-block;
+		z-index: 1008;
+
+
+		transition-property: transform;
+		transition-duration: 0.5s;
+		transition-timing-function: cubic-bezier(0, 0, 0, 0);
+}
+.fui-ani__cb-y.data-v-70b0a325 {
+
+		display: inline-block;
+
+		transition-property: transform;
+		transition-duration: 0.5s;
+		transition-timing-function: cubic-bezier(0.3, -0.2, 1, 0);
+}
+
+
+
+
+
+
+
+
+

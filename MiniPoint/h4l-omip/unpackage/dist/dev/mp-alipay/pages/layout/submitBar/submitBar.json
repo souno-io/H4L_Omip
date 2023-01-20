@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "提交订单栏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-checkbox": "../../../components/firstui/fui-checkbox/fui-checkbox",
+    "fui-button": "../../../components/firstui/fui-button/fui-button",
+    "fui-safe-area": "../../../components/firstui/fui-safe-area/fui-safe-area"
+  }
+}

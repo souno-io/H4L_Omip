@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "滑动验证",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-slide-verify": "../../../../components/firstui/fui-slide-verify/fui-slide-verify",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

@@ -1,0 +1,11 @@
+
+.fui-rate__wrap.data-v-f0f43538 {
+
+		display: inline-flex;
+
+		line-height: 1;
+		font-size: 0;
+		flex-direction: row;
+}
+.fui-rate__not-allowed.data-v-f0f43538 {
+}

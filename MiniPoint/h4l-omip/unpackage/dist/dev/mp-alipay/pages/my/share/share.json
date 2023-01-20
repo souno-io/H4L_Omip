@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "分享好友",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../components/firstui/fui-button/fui-button",
+    "fui-poster": "../../../components/firstui/fui-poster/fui-poster"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "内容超出隐藏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-overflow-hidden": "../../../../components/firstui/fui-overflow-hidden/fui-overflow-hidden",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

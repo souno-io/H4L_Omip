@@ -1,0 +1,15 @@
+
+.fui-roller__box {
+		width: 100%;
+		padding: 24rpx 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+}
+.fui-page__bd {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+}

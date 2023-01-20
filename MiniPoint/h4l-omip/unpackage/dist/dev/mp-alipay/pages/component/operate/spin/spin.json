@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "旋转动画",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-spin": "../../../../components/firstui/fui-spin/fui-spin",
+    "fui-grid-item": "../../../../components/firstui/fui-grid-item/fui-grid-item",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon",
+    "fui-grid": "../../../../components/firstui/fui-grid/fui-grid"
+  }
+}

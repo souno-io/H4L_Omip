@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "图片上传",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-upload": "../../../../components/firstui/fui-upload/fui-upload",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

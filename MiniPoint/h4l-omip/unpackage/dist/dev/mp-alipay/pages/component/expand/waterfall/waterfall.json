@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "瀑布流",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-waterfall-item": "../../../../components/firstui/fui-waterfall-item/fui-waterfall-item",
+    "fui-waterfall": "../../../../components/firstui/fui-waterfall/fui-waterfall",
+    "fui-loadmore": "../../../../components/firstui/fui-loadmore/fui-loadmore"
+  }
+}

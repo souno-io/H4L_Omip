@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "数字键盘",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-single-input": "../../../../components/firstui/fui-single-input/fui-single-input",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-digital-keyboard": "../../../../components/firstui/fui-digital-keyboard/fui-digital-keyboard",
+    "fui-backdrop": "../../../../components/firstui/fui-backdrop/fui-backdrop"
+  }
+}

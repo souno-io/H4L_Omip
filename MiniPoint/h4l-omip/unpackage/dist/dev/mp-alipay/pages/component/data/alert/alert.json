@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "警告框",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-alert": "../../../../components/firstui/fui-alert/fui-alert",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

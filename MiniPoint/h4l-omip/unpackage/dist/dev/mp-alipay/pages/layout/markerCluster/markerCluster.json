@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "地图示例",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "NO",
+  "usingComponents": {
+    "fui-empty": "../../../components/firstui/fui-empty/fui-empty"
+  }
+}

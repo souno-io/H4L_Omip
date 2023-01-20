@@ -1,0 +1,144 @@
+
+.fui-table__wrap.data-v-2c7860bf {
+		position: relative;
+
+		box-sizing: border-box;
+		margin: 0 auto;
+
+
+		overflow: hidden;
+
+		font-size: 0;
+}
+.fui-table__border-top.data-v-2c7860bf {
+		border-top-width: 1px;
+		border-top-style: solid;
+}
+.fui-table__border-left.data-v-2c7860bf {
+		border-left-width: 1px;
+		border-left-style: solid;
+}
+.fui-table__border-right.data-v-2c7860bf {
+		border-right-width: 1px;
+		border-right-style: solid;
+}
+.fui-table__border-bottom.data-v-2c7860bf {
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+}
+.fui-table--tr.data-v-2c7860bf {
+
+		display: flex;
+		box-sizing: border-box;
+
+		flex-direction: row;
+}
+.fui-table--td.data-v-2c7860bf {
+
+		display: flex;
+		box-sizing: border-box;
+		flex-shrink: 0;
+
+		flex-direction: row;
+		align-items: center;
+		padding-left: 16rpx;
+		padding-right: 16rpx;
+		position: relative;
+}
+.fui-table__td-sk.data-v-2c7860bf {
+		position: absolute;
+		left: -1px;
+		width: 1px;
+		top: 0;
+		bottom: 0;
+}
+.fui-table__td-wrap.data-v-2c7860bf {
+		flex-wrap: wrap;
+}
+.fui-table--td-text.data-v-2c7860bf {
+		font-weight: 400;
+}
+.fui-table--td-img.data-v-2c7860bf {
+
+		display: block;
+}
+.fui-table--btn.data-v-2c7860bf {
+
+		display: flex;
+		flex-shrink: 0;
+
+		align-items: center;
+		justify-content: center;
+
+
+
+		text-align: center;
+		padding: 2px 0;
+}
+.fui-table--btn.data-v-2c7860bf:active {
+		opacity: .5;
+}
+.fui-td__btn-ml.data-v-2c7860bf {
+		margin-left: 24rpx;
+}
+.fui-table--header-fixed.data-v-2c7860bf {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+
+		z-index: 12;
+
+		left: 0;
+		right: 0;
+}
+.fui-table--col-fixed.data-v-2c7860bf {
+		position: -webkit-sticky;
+		position: sticky;
+
+		z-index: 2;
+}
+.fui-table__center.data-v-2c7860bf {
+		justify-content: center;
+		text-align: center;
+}
+.fui-table__right.data-v-2c7860bf {
+		justify-content: flex-end;
+		text-align: right;
+}
+.fui-text__center.data-v-2c7860bf {
+		text-align: center;
+}
+.fui-text__right.data-v-2c7860bf {
+		text-align: right;
+}
+.fui-td__ellipsis.data-v-2c7860bf {
+
+		overflow: hidden;
+		white-space: nowrap;
+
+
+
+
+		text-overflow: ellipsis;
+}
+.fui-td__wrap.data-v-2c7860bf {
+		word-break: break-all;
+}
+.fui-table__scroll-view.data-v-2c7860bf {
+		position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

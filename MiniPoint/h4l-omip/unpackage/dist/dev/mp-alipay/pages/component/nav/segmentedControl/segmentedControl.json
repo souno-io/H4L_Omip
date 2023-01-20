@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "分段器",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-segmented-control": "../../../../components/firstui/fui-segmented-control/fui-segmented-control"
+  }
+}

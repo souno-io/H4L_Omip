@@ -1,0 +1,78 @@
+@import "../../../nvue.acss";
+
+page {
+		width: 100%;
+		min-height: 100%;
+}
+.fui-top__tabs {
+
+		display: flex;
+		overflow: hidden;
+
+		flex: 1;
+		flex-direction: column;
+		background-color: #F1F4FA;
+		height: 100vh;
+}
+.fui-swiper__box {
+		flex: 1;
+}
+.fui-swiper__item {
+		flex: 1;
+
+		display: flex;
+
+		flex-direction: row;
+}
+.fui-scroll__list {
+		/* flex: 1; */
+
+		display: flex;
+
+
+
+
+		width: 750rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

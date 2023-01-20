@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "分享海报",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-poster": "../../../../components/firstui/fui-poster/fui-poster"
+  }
+}

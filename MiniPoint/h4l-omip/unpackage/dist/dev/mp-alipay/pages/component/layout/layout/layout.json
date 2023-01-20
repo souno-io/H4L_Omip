@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "栅格布局",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-col": "../../../../components/firstui/fui-col/fui-col",
+    "fui-row": "../../../../components/firstui/fui-row/fui-row"
+  }
+}

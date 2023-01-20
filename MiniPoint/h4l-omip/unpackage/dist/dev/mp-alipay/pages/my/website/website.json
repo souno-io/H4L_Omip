@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "开源地址",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-list-cell": "../../../components/firstui/fui-list-cell/fui-list-cell"
+  }
+}

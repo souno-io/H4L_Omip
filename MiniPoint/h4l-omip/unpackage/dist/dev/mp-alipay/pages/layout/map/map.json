@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "地图示例",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../components/firstui/fui-button/fui-button"
+  }
+}

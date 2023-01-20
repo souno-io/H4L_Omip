@@ -1,0 +1,26 @@
+
+.fui-waterfall__item-wrap.data-v-fb2bbb40 {
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		display: flex;
+		box-sizing: border-box;
+
+		overflow: hidden;
+		opacity: 0;
+		transition-property: opacity;
+		transition-duration: .3s;
+		flex-direction: column;
+}
+.fui-waterfall__item-show.data-v-fb2bbb40 {
+		opacity: 1;
+}
+.fui-waterfall__img-wrap.data-v-fb2bbb40 {
+		background: #F1F4FA;
+		overflow: hidden;
+}
+.fui-waterfall__img.data-v-fb2bbb40 {
+
+		display: block;
+}

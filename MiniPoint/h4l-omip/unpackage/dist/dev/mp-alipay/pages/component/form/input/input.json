@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "输入框",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-input": "../../../../components/firstui/fui-input/fui-input",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

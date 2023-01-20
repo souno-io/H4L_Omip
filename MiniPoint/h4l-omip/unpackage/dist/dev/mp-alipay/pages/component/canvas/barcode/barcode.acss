@@ -1,0 +1,21 @@
+
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-page__bd {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+}
+.fui-input__box {
+		width: 100%;
+}
+.fui-tips{
+		width: 100%;
+		font-size: 24rpx;
+		color: #7F7F7F;
+		font-weight: 400;
+		padding: 24rpx;
+		box-sizing: border-box;
+}

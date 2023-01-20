@@ -1,0 +1,5 @@
+
+.fui-wrap {
+		background-color:#F1F4FA ;
+		padding-bottom: 64rpx;
+}

@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "商品列表",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-lazyload": "../../../components/firstui/fui-lazyload/fui-lazyload",
+    "fui-overflow-hidden": "../../../components/firstui/fui-overflow-hidden/fui-overflow-hidden",
+    "fui-tag": "../../../components/firstui/fui-tag/fui-tag",
+    "fui-text": "../../../components/firstui/fui-text/fui-text"
+  }
+}

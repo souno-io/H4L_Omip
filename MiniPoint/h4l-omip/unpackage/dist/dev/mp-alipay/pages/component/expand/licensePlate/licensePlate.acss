@@ -1,0 +1,35 @@
+
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-flex__center {
+		padding-top: 120rpx;
+}
+.fui-title {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		font-size: 24rpx;
+		color: #333;
+		padding-top: 12rpx;
+		padding-bottom: 24rpx;
+		font-weight: normal;
+}
+.fui-si__wrap {
+		width: 100%;
+		position: relative;
+}
+.fui-si__tip {
+		display: block;
+		width: 80rpx;
+		position: absolute;
+		right: 32rpx;
+		top: -32rpx;
+		text-align: center;
+		font-size: 24rpx;
+		line-height: 24rpx;
+		color: #09BE4F;
+		font-weight: normal;
+		transform: scale(.8);
+}

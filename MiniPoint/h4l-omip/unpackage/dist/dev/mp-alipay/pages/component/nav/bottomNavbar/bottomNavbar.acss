@@ -1,0 +1,4 @@
+
+.fui-section__title {
+		margin-left: 32rpx;
+}

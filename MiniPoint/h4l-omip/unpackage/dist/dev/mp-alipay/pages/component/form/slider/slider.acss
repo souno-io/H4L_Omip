@@ -1,0 +1,17 @@
+
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-section__title {
+		margin-bottom: 48rpx;
+}
+
+	/* 头条小程序边缘侧滑返回事件与touch事件有冲突
+	头条小程序中组件不要靠屏幕边缘太近 */
+
+
+
+
+
+
+

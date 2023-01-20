@@ -2,11 +2,11 @@
 <template>
 	<view class="fui-wrap">
 		<view class="fui-banner__box">
-			<image class="fui-banner" :src="`${resUrl}/index/light/img_banner_3x.png`" mode="widthFix"></image>
+			<image class="fui-banner" src="/static/images/index/img_banner_3x.png" mode="widthFix"></image>
 			<view class="fui-banner__content">
 				<image class="fui-logo" src="/static/images/common/img_logo.png" mode="widthFix"></image>
-				<view class="fui-title">First UI</view>
-				<view class="fui-desc">First UI是一款轻量、全面可靠的移动端组件库。</view>
+				<view class="fui-title">运维管理系统</view>
+				<view class="fui-desc">H4L-OMIP是一款致力于信息系统与信息资产管理的软件平台</view>
 			</view>
 			<view class="fui-tabs__box">
 				<scroll-view class="fui-scroll__box" id="fui_tabs" scroll-with-animation scroll-x
@@ -150,6 +150,7 @@
 	.fui-title {
 		font-size: 40rpx;
 		line-height: 40rpx;
+		color: #FFFFFF;
 		padding: 24rpx 0 40rpx;
 		box-sizing: border-box;
 	}
@@ -158,7 +159,7 @@
 		width: 280rpx;
 		font-size: 24rpx;
 		line-height: 40rpx;
-		color: #333333;
+		color: #FFFFFF;
 	}
 
 	.fui-tabs__box {

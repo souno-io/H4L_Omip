@@ -1,0 +1,43 @@
+
+.fui-timer__wrap.data-v-0aa07f9c {
+
+		display: inline-flex;
+
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+}
+.fui-timer__item.data-v-0aa07f9c,
+	.fui-timer__colon.data-v-0aa07f9c {
+
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+		border-radius: 6rpx;
+		text-align: center;
+}
+.fui-timer__ms.data-v-0aa07f9c {
+		border-radius: 6rpx;
+		overflow: hidden;
+}
+.fui-timer__ms-list.data-v-0aa07f9c {
+		animation: ani-0aa07f9c 1s steps(10) infinite;
+}
+@keyframes ani-0aa07f9c {
+from {
+			transform: translateY(0);
+}
+to {
+			transform: translateY(-100%);
+}
+}
+.fui-timer__ms-item.data-v-0aa07f9c {
+
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+}

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "导航栏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-nav-bar": "../../../../components/firstui/fui-nav-bar/fui-nav-bar",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

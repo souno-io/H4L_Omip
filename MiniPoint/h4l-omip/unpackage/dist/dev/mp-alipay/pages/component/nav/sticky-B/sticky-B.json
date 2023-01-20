@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "吸顶容器",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-list-cell": "../../../../components/firstui/fui-list-cell/fui-list-cell",
+    "fui-sticky": "../../../../components/firstui/fui-sticky/fui-sticky"
+  }
+}

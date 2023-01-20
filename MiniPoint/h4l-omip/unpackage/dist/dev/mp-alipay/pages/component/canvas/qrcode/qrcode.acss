@@ -1,0 +1,13 @@
+
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-page__bd {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+}
+.fui-textarea__box {
+		width: 100%;
+}

@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "分页器",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-pagination": "../../../../components/firstui/fui-pagination/fui-pagination",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

@@ -1,0 +1,24 @@
+
+page {
+		font-weight: normal;
+}
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-timer__box {
+		width: 100%;
+		padding-left: 32rpx;
+		padding-bottom: 16rpx;
+		box-sizing: border-box;
+}
+.fui-grid__cell {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		flex: 1;
+		font-size: 28rpx;
+}

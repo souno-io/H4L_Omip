@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "组件",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-tabbar": "../../../../components/firstui/fui-tabbar/fui-tabbar"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="fui-wrap fui-page__bd"><fui-list-cell a:for="{{a}}" a:for-item="item" a:key="c" u-s="{{['d']}}" onClick="{{item.d}}" u-i="{{item.e}}" onVI="__l" u-p="{{b}}"><view><view class="fui-title">First UI {{item.a}} 主要更新</view><view class="fui-date">{{item.b}}</view></view></fui-list-cell></view>

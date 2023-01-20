@@ -1,0 +1,81 @@
+@import "../../../nvue.acss";
+
+page {
+		font-weight: normal;
+}
+.fui-wrap {
+		padding-bottom: 64rpx;
+}
+.fui-align__center {
+		flex-direction: row;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-btn__box {
+
+		width: 100%;
+		display: flex;
+
+		flex-direction: row;
+		justify-content: center;
+}
+
+	/* 布局内容样式 start */
+.fui-card__swiper {
+
+		width: 100%;
+
+		height: 320rpx;
+}
+.fui-cardswiper__box {
+
+		width: 100%;
+		display: flex;
+
+		height: 320rpx;
+		flex-direction: row;
+		justify-content: center;
+}
+.fui-card__swiper-wrap {
+		width: 640rpx;
+		height: 320rpx;
+}
+.fui-cs__swiper-item {
+
+		display: flex;
+
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+}
+.fui-cardswiper__item {
+		width: 640rpx;
+
+		display: flex;
+
+		transition-timing-function: linear;
+		transition-duration: .1s;
+		transition-property:transform ;
+		height: 320rpx;
+		background: #f8f8f8;
+		align-items: center;
+		justify-content: center;
+		border-radius: 24rpx;
+		overflow: hidden;
+}
+.fui-cardswiper__img {
+		width: 640rpx;
+		height: 320rpx;
+
+		display: block;
+
+		border-radius: 24rpx;
+}
+.fui-cardswiper__scale {
+		transform: scale3d(.9, .9, 1);
+}
+
+
+
+	/* 布局内容样式 end */

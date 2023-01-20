@@ -1,0 +1,138 @@
+
+page {
+		font-weight: normal;
+		background-color: #fff;
+}
+.fui-banner__box {
+		width: 100%;
+		height: 420rpx;
+		background: #F1F4FA;
+}
+.fui-banner {
+		width: 100%;
+		height: 420rpx;
+		display: block;
+}
+.fui-menu__wrap {
+		width: 100%;
+		padding: 16rpx 16rpx 32rpx;
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+}
+.fui-menu__item {
+		width: 33.333333%;
+		padding: 16rpx;
+		box-sizing: border-box;
+}
+.fui-item__inner {
+		width: 100%;
+		height: 208rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		font-size: 28rpx;
+		color: #333333;
+		background-color: rgba(254, 184, 8, .05);
+		border-radius: 24rpx;
+}
+.fui-bg__1 {
+		background-color: rgba(9, 190, 79, .05);
+}
+.fui-bg__2 {
+		background-color: rgba(70, 92, 255, .05);
+}
+.fui-bg__3 {
+		background-color: rgba(104, 49, 255, .05);
+}
+.fui-bg__4 {
+		background-color: rgba(255, 43, 43, .05);
+}
+.fui-page__bd {
+		background-color: #fff;
+}
+.fui-menu__icon {
+		width: 96rpx;
+		height: 96rpx;
+		display: block;
+		margin-bottom: 16rpx;
+}
+.fui-contacts__box {
+		width: 100%;
+		padding: 32rpx 32rpx 20rpx;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+}
+.fui-contacts__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		flex: 1;
+}
+.fui-icon {
+		width: 96rpx;
+		height: 96rpx;
+}
+.fui-title {
+		font-size: 28rpx;
+		color: #333333;
+		padding-top: 16rpx;
+}
+.fui-desc {
+		font-size: 24rpx;
+		font-weight: 400;
+		color: #7F7F7F;
+		line-height: 48rpx;
+		width: 100%;
+		padding: 0 64rpx;
+		box-sizing: border-box;
+		text-align: center;
+}
+.fui-pb {
+		padding-bottom: 16rpx;
+}
+.fui-section__title {
+		margin-bottom: 24rpx;
+}
+.fui-link {
+		padding: 0 8rpx;
+		font-weight: 500;
+		color: #465CFF;
+		white-space: nowrap;
+}
+.fui-divider {
+		width: 100%;
+		height: 24rpx;
+		background-color: #F1F4FA;
+}
+.fui-ani__box {
+		width: 622rpx;
+		background: #FFFFFF;
+		border-radius: 24rpx;
+		padding-bottom: 64rpx;
+}
+.fui-ani__title {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 36rpx;
+		font-weight: 600;
+		color: #465CFF;
+		padding: 48rpx 0 30rpx;
+}
+.fui-ani__title text {
+		padding: 0 24rpx;
+}
+.fui-ani__title image {
+		width: 116rpx;
+		height: 20rpx;
+}
+.fui-p {
+		color: #333;
+		text-align: left;
+		margin-bottom: 120rpx;
+}

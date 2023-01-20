@@ -1,0 +1,20 @@
+
+
+	/* 头条小程序组件内不能引入字体，需要在父级页面引入字体文件*/
+@font-face {
+		font-family: fuiFont;
+		src: url("../../../assets/fui-icon.2783439a.ttf") format("truetype");
+}
+.fui-icon.data-v-665e11e9 {
+		font-family: fuiFont;
+		text-decoration: none;
+		text-align: center;
+}
+.fui-icon__color.data-v-665e11e9 {
+		color: var(--fui-color-section, #333333) !important;
+}
+.fui-icon__active-color.data-v-665e11e9 {
+		color: var(--fui-color-primary, #465CFF) !important;
+}
+.fui-icon__not-allowed.data-v-665e11e9 {
+}

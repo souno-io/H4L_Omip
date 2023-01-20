@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "标签",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-tag": "../../../../components/firstui/fui-tag/fui-tag",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon"
+  }
+}

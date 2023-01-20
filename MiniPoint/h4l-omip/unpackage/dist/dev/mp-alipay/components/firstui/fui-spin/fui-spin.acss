@@ -1,0 +1,22 @@
+
+.fui-spin__wrap.data-v-7ccf9a5d {
+
+		display: inline-flex;
+
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+
+
+		animation: spin-7ccf9a5d 0.85s linear infinite;
+}
+@keyframes spin-7ccf9a5d {
+0% {
+			transform: rotate(0deg);
+}
+100% {
+			transform: rotate(360deg);
+}
+}
+
+

@@ -1,0 +1,55 @@
+@import "../../../nvue.acss";
+
+.fui-map {
+		width: 750rpx;
+		height: 600rpx;
+}
+.fui-icon__back {
+		width: 60rpx;
+		height: 60rpx;
+		position: fixed;
+		top: 72rpx;
+		left: 30rpx;
+}
+.fui-content__box {
+
+		width: 100%;
+		box-sizing: border-box;
+
+		padding: 24rpx 32rpx;
+}
+.fui-content__inner {
+
+		width: 100%;
+
+		background-color: #fff;
+		padding: 24rpx 24rpx 0;
+		border-radius: 16rpx;
+		height: 232rpx;
+}
+.fui-content__title {
+
+		width: 100%;
+		display: flex;
+		box-sizing: border-box;
+
+		flex-direction: row;
+}
+.fui-tel__box {
+
+		width: 100%;
+		display: flex;
+		box-sizing: border-box;
+
+		flex-direction: row;
+}
+.fui-tel__item {
+
+		display: flex;
+		box-sizing: border-box;
+
+		flex-direction: row;
+		align-items: center;
+		padding-right: 48rpx;
+		height: 96rpx;
+}

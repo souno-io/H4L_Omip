@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "日历",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-calendar": "../../../../components/firstui/fui-calendar/fui-calendar",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon",
+    "fui-bottom-popup": "../../../../components/firstui/fui-bottom-popup/fui-bottom-popup"
+  }
+}

@@ -1,7 +1,7 @@
 {
-    "name" : "First UI",
+    "name" : "运维管理系统",
     "appid" : "__UNI__EBBA154",
-    "description" : "FirstUI组件库是一款轻量、简洁、高效、全面的移动端组件库。",
+    "description" : "H4L-OMIP是一款致力于信息系统与信息资产管理的软件平台",
     "versionName" : "1.7.0",
     "versionCode" : 170,
     "transformPx" : false,
@@ -108,7 +108,7 @@
         }
     },
     "h5" : {
-        "title" : "First UI",
+        "title" : "运维管理系统",
         "router" : {
             "mode" : "hash",
             "base" : ""

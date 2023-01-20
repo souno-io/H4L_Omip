@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "面板",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-panel": "../../../../components/firstui/fui-panel/fui-panel",
+    "fui-list-cell": "../../../../components/firstui/fui-list-cell/fui-list-cell"
+  }
+}

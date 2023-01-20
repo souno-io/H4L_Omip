@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "功能介绍",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-list-cell": "../../../components/firstui/fui-list-cell/fui-list-cell"
+  }
+}

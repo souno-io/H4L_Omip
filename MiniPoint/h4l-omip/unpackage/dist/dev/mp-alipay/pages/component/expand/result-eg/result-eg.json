@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "Result 演示",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-icon": "../../../../components/firstui/fui-icon/fui-icon",
+    "fui-button": "../../../../components/firstui/fui-button/fui-button",
+    "fui-result": "../../../../components/firstui/fui-result/fui-result"
+  }
+}

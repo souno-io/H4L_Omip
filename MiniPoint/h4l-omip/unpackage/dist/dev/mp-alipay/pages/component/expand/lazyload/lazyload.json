@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "图片懒加载",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-lazyload": "../../../../components/firstui/fui-lazyload/fui-lazyload"
+  }
+}

@@ -1,0 +1,30 @@
+
+page {
+		font-weight: normal;
+}
+.fui-section__title {
+		margin-left: 32rpx;
+}
+.fui-btn__box {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+}
+.fui-autograph__box {
+		width: 100%;
+		height: 200rpx;
+		padding: 64rpx 32rpx;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+}
+.fui-text {
+		font-size: 24rpx;
+		color: #7f7f7f;
+}
+.fui-img {
+		display: block;
+		width: 200rpx;
+}

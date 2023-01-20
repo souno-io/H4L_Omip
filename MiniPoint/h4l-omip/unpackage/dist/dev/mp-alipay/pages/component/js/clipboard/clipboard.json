@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "复制文本",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../../components/firstui/fui-button/fui-button"
+  }
+}

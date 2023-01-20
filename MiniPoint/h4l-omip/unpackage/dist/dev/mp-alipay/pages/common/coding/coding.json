@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "开发中",
+  "pullRefresh": false,
+  "backgroundColor": "#FFFFFE",
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-button": "../../../components/firstui/fui-button/fui-button"
+  }
+}

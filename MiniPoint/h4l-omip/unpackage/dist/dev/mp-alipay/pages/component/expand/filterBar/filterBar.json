@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "筛选栏",
+  "pullRefresh": false,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-filter-bar": "../../../../components/firstui/fui-filter-bar/fui-filter-bar",
+    "fui-dropdown-menu": "../../../../components/firstui/fui-dropdown-menu/fui-dropdown-menu",
+    "fui-drawer": "../../../../components/firstui/fui-drawer/fui-drawer"
+  }
+}

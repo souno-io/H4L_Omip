@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "瀑布流",
+  "pullRefresh": true,
+  "allowsBounceVertical": "YES",
+  "usingComponents": {
+    "fui-overflow-hidden": "../../../components/firstui/fui-overflow-hidden/fui-overflow-hidden",
+    "fui-text": "../../../components/firstui/fui-text/fui-text",
+    "fui-waterfall-item": "../../../components/firstui/fui-waterfall-item/fui-waterfall-item",
+    "fui-waterfall": "../../../components/firstui/fui-waterfall/fui-waterfall",
+    "fui-loadmore": "../../../components/firstui/fui-loadmore/fui-loadmore"
+  }
+}
