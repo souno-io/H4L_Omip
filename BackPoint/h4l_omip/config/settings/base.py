@@ -1,13 +1,19 @@
 """
 Base settings to build other settings files upon.
 """
+import os
+import sys
+import datetime
 from pathlib import Path
 
 import environ
+from django.utils.translation import gettext_noop
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
+sys.path.insert(0, os.path.join(ROOT_DIR, "apps"))
+sys.path.insert(0, os.path.join(ROOT_DIR, "third_apps"))
 # h4l_omip/
-APPS_DIR = ROOT_DIR / "h4l_omip"
+# APPS_DIR = ROOT_DIR / "h4l_omip"
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
@@ -25,7 +31,7 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = "Asia/Shanghai"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "zh-cn"
+LANGUAGE_CODE = "zh-hans"
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -72,13 +78,20 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "django_celery_beat",
     "rest_framework",
+    "rest_framework_sso",
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+    "notifications",
+    "notifications_rest",
+    "mptt",
+    "explorer",
 ]
 
 LOCAL_APPS = [
-    "h4l_omip.users",
+    "users",
+    "system",
+    "itam",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -87,7 +100,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "h4l_omip.contrib.sites.migrations"}
+MIGRATION_MODULES = {"sites": "contrib.sites.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -95,9 +108,14 @@ MIGRATION_MODULES = {"sites": "h4l_omip.contrib.sites.migrations"}
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
+    # 'oauth2_provider.backends.OAuth2Backend',
+    'common.auth_backends.UsernameAuthBackend',
+    'common.auth_backends.EmailAuthBackend',
+    'common.auth_backends.PhoneAuthBackend',
+    'common.auth_backends.HISAuthBackend',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "users.UserProfile"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
 LOGIN_REDIRECT_URL = "users:redirect"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
@@ -139,6 +157,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "common.logs.RequestLogMiddleware",
 ]
 
 # STATIC
@@ -148,7 +167,7 @@ STATIC_ROOT = str(ROOT_DIR / "staticfiles")
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(APPS_DIR / "static")]
+STATICFILES_DIRS = [str(ROOT_DIR / "static")]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -158,7 +177,7 @@ STATICFILES_FINDERS = [
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APPS_DIR / "media")
+MEDIA_ROOT = str(ROOT_DIR / "media")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
 
@@ -170,7 +189,7 @@ TEMPLATES = [
         # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # https://docs.djangoproject.com/en/dev/ref/settings/#dirs
-        "DIRS": [str(APPS_DIR / "templates")],
+        "DIRS": [str(ROOT_DIR / "templates")],
         # https://docs.djangoproject.com/en/dev/ref/settings/#app-dirs
         "APP_DIRS": True,
         "OPTIONS": {
@@ -184,8 +203,11 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "h4l_omip.users.context_processors.allauth_settings",
+                "users.context_processors.allauth_settings",
             ],
+            'libraries': {
+                'tags': 'templatetags.tags',
+            }
         },
     }
 ]
@@ -200,7 +222,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 # FIXTURES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#fixture-dirs
-FIXTURE_DIRS = (str(APPS_DIR / "fixtures"),)
+FIXTURE_DIRS = (str(ROOT_DIR / "fixtures"),)
 
 # SECURITY
 # ------------------------------------------------------------------------------
@@ -238,23 +260,56 @@ MANAGERS = ADMINS
 # See https://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "verbose": {
-            "format": "%(levelname)s %(asctime)s %(module)s "
-                      "%(process)d %(thread)d %(message)s"
+    # 版本
+    'version': 1,
+    # 是否禁止默认配置的记录器
+    'disable_existing_loggers': False,
+    'formatters': {
+        # 'standard': {
+        #     'format': '{"time": "%(asctime)s", "level": "%(levelname)s", "method": "%(method)s",
+        #     "username": "%(username)s", "sip": "%(sip)s", "dip": "%(dip)s", "path": "%(path)s",
+        #     "status_code": "%(status_code)s", "reason_phrase": "%(reason_phrase)s",
+        #     "func": "%(module)s.%(funcName)s:%(lineno)d",  "message": "%(message)s"}',
+        #     'datefmt': '%Y-%m-%d %H:%M:%S'
+        # }
+        'rich': {
+            'format': "%(message)s",
+            'datefmt': "[%X]",
         }
     },
-    "handlers": {
-        "console": {
-            "level": "DEBUG",
-            "class": "logging.StreamHandler",
-            "formatter": "verbose",
-        }
+    # 过滤器
+    'filters': {
+        'request_info': {'()': 'common.logs.RequestLogFilter'},
     },
-    "root": {"level": "INFO", "handlers": ["console"]},
+    'handlers': {
+        # 标准输出
+        # 'console': {
+        #     'level': 'INFO',
+        #     'class': 'common.logs.H4LRichHandler',
+        #     'formatter': 'rich'
+        # },
+        'db_logs': {
+            'level': 'DEBUG',
+            'class': 'common.logs.DBHandler',
+        },
+    },
+    'loggers': {
+        # 'django': {
+        #     'handlers': ['console'],
+        #     'level': 'DEBUG',
+        #     'propagate': False
+        # },
+        'systemLogs': {
+            'handlers': ['db_logs'],
+            'level': 'DEBUG',
+            # 此记录器处理过的消息就不再让 django 记录器再次处理了
+            'propagate': False
+        },
+    }
 }
+
+EXPLORER_CONNECTIONS = {'Default': 'default'}
+EXPLORER_DEFAULT_CONNECTION = 'default'
 
 # Celery
 # ------------------------------------------------------------------------------
@@ -300,13 +355,13 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = "h4l_omip.users.adapters.AccountAdapter"
+ACCOUNT_ADAPTER = "users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
-ACCOUNT_FORMS = {"signup": "h4l_omip.users.forms.UserSignupForm"}
+ACCOUNT_FORMS = {"signup": "users.forms.UserSignupForm"}
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = "h4l_omip.users.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "users.adapters.SocialAccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
-SOCIALACCOUNT_FORMS = {"signup": "h4l_omip.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_FORMS = {"signup": "users.forms.UserSocialSignupForm"}
 # django-compressor
 # ------------------------------------------------------------------------------
 # https://django-compressor.readthedocs.io/en/latest/quickstart/#installation
@@ -318,10 +373,21 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
+        "rest_framework_sso.authentication.JWTAuthentication",
         "rest_framework.authentication.TokenAuthentication",
+        # 'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        # 'oauth2_provider_jwt.authentication.JWTAuthentication',
+    ),
+    'EXCEPTION_HANDLER': 'common.exception.custom_exception_handler',
+    # 修改默认返回JSON的renderer的类
+    'DEFAULT_RENDERER_CLASSES': (
+        'common.rendererresponse_scui.CustomRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    # "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_PAGINATION_CLASS": 'common.pagination.DataCenterPageNumberPagination',
+    # 全局配置异常模块
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
@@ -330,10 +396,189 @@ CORS_URLS_REGEX = r"^/api/.*$"
 # By Default swagger ui is available only to admin user(s). You can change permission classes to change that
 # See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
 SPECTACULAR_SETTINGS = {
-    "TITLE": "H4L-OMIP API",
-    "DESCRIPTION": "Documentation of API endpoints of H4L-OMIP",
+    "TITLE": "H4L信息资产管理平台 API",
+    "DESCRIPTION": "H4L信息资产管理平台后端接口文档",
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
+    "SERVERS": [
+        {"url": "http://127.0.0.1:8000", "description": "本地开发服务"},
+        {"url": "https://h4l.cn", "description": "生产环境服务"},
+    ],
+}
+
+# swagger 配置项
+SWAGGER_SETTINGS = {
+    # 基础样式
+    'SECURITY_DEFINITIONS': {
+        "basic": {
+            'type': 'basic'
+        }
+    },
+    # 如果需要登录才能够查看接口文档, 登录的链接使用restframework自带的.
+    'LOGIN_URL': 'account_login',
+    'LOGOUT_URL': 'account_logout',
+    # 'DOC_EXPANSION': None,
+    # 'SHOW_REQUEST_HEADERS':True,
+    # 'USE_SESSION_AUTH': True,
+    # 'DOC_EXPANSION': 'list',
+    # 接口文档中方法列表以首字母升序排列
+    'APIS_SORTER': 'alpha',
+    # 如果支持json提交, 则接口文档中包含json输入框
+    'JSON_EDITOR': True,
+    # 方法列表字母排序
+    'OPERATIONS_SORTER': 'alpha',
+    'VALIDATOR_URL': None,
+}
+
+# djangorestframework-sso配置项
+REST_FRAMEWORK_SSO = {
+    'CREATE_SESSION_PAYLOAD': 'rest_framework_sso.utils.create_session_payload',
+    'CREATE_AUTHORIZATION_PAYLOAD': 'rest_framework_sso.utils.create_authorization_payload',
+    'ENCODE_JWT_TOKEN': 'rest_framework_sso.utils.encode_jwt_token',
+    'DECODE_JWT_TOKEN': 'rest_framework_sso.utils.decode_jwt_token',
+    'AUTHENTICATE_PAYLOAD': 'rest_framework_sso.utils.authenticate_payload',
+    'ENCODE_ALGORITHM': 'RS256',
+    'DECODE_ALGORITHMS': None,
+    'VERIFY_SIGNATURE': True,
+    'VERIFY_EXPIRATION': True,
+    'VERIFY_SESSION_TOKEN': True,
+    'EXPIRATION_LEEWAY': 0,
+    'SESSION_EXPIRATION': None,
+    'AUTHORIZATION_EXPIRATION': datetime.timedelta(seconds=300),
+    'IDENTITY': 'no1_datacenter',
+    'SESSION_AUDIENCE': ['no1_datacenter'],
+    'AUTHORIZATION_AUDIENCE': None,
+    'ACCEPTED_ISSUERS': None,
+    'KEY_STORE_ROOT': None,
+    'AUTHENTICATE_HEADER': 'Bearer',
+    'PUBLIC_KEYS': {
+        'no1_datacenter': 'certs/no1-20210926.pem',
+    },
+    'PRIVATE_KEYS': {
+        'no1_datacenter': 'certs/no1-20210926.pem',
+    },
+}
+
+JAZZMIN_SETTINGS = {
+    # 窗口标题（默认为 current_admin_site.site_title 如果不存在或无）
+    "site_title": "H4L管理后台",
+    # 登录屏幕上的标题（最多 19 个字符）（默认为 current_admin_site.site_header 如果不存在或无）
+    "site_header": "H4L-Platform",
+    # 品牌标题（最多 19 个字符）（默认为 current_admin_site.site_header 如果不存在或无）
+    "site_brand": "H4L管理后台",
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    "site_logo": "/images/logo.png",
+    # CSS classes that are applied to the logo above
+    "site_logo_classes": "img-circle",
+    # 您网站的网站图标的相对路径，如果不存在，将默认为 site_logo（理想情况下为 32x32 像素）
+    "site_icon": None,
+    # Welcome text on the login screen
+    "welcome_sign": "欢迎登录！",
+    # 页脚版权所有
+    "copyright": "souno souno.cn",
+    # T从搜索栏搜索的模型管理员，如果排除搜索栏则省略
+    "search_model": "auth.User",
+    # 用户模型上的字段名称，包含头像 ImageFieldURLFieldCharfield 或接收用户的可调用对象
+    "user_avatar": 'avatar',
+    ############
+    # Top Menu #
+    ############
+    # 放在顶部菜单的链接
+    "topmenu_links": [
+        # 反转的网址（可以添加权限）
+        {"name": "首页", "url": "admin:index", "permissions": ["auth.view_user"]},
+        # 在新窗口中打开的外部 url（可以添加权限）
+        {"name": "帮助支持", "url": "http://h4l.cn", "new_window": True},
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+        # 带有所有模型页面的下拉菜单的应用程序（针对模型检查的权限）
+        {"app": "books"},
+    ],
+    #############
+    # User Menu #
+    #############
+    # 要包含在右上角的用户菜单中的其他链接（不允许使用“app”url 类型）
+    "usermenu_links": [
+        {"name": "帮助支持", "url": "http://h4l.cn", "new_window": True},
+        {"model": "auth.User"}
+    ],
+    #############
+    # Side Menu #
+    #############
+    # 是否显示侧边菜单
+    "show_sidebar": True,
+    # 是否自动展开菜单
+    "navigation_expanded": True,
+    # 生成侧边菜单时隐藏这些应用程序，例如（auth）
+    "hide_apps": ['auth', 'account', 'socialaccount'],
+    # 生成侧边菜单时隐藏这些模型（例如 auth.User）
+    "hide_models": [],
+    # 基本侧边菜单排序的应用程序（和或模型）列表（不需要包含所有应用程序模型）
+    "order_with_respect_to": ["class3a", "sites"],
+    # 附加到应用程序组的自定义链接，以应用程序名称为键
+    "custom_links": {
+        "books": [{
+            "name": "Make Messages",
+            "url": "make_messages",
+            "icon": "fas fa-comments",
+            "permissions": ["books.view_book"]
+        }]
+    },
+    # Custom icons for side menu apps/models See https://fontawesome.com/icons?d=gallery&m=free&v=5.0.0,5.0.1,5.0.10,5.0.11,5.0.12,5.0.13,5.0.2,5.0.3,5.0.4,5.0.5,5.0.6,5.0.7,5.0.8,5.0.9,5.1.0,5.1.1,5.2.0,5.3.0,5.3.1,5.4.0,5.4.1,5.4.2,5.13.0,5.12.0,5.11.2,5.11.1,5.10.0,5.9.0,5.8.2,5.8.1,5.7.2,5.7.1,5.7.0,5.6.3,5.5.0,5.4.2
+    # for the full list of 5.13.0 free icon classes
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.User": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "users.UserProfile": "fas fa-user",
+        "system.Competence": "fas fa-lock",
+        "system.Menu": "fas fa-bars",
+        "system.Department": "fas fa-campground",
+        "system.Role": "fas fa-user-tag",
+        "users.Notice": "fas fa-exclamation-circle",
+        "class3a.MonitoringData": "fas fa-tv",
+        "class3a.Project": "fas fa-bars",
+        "sites.Site": "fas fa-satellite",
+        "django_celery_beat.PeriodicTask": "fas fa-tasks",
+        "django_celery_beat.ClockedSchedule": "fas fa-hourglass",
+        "django_celery_beat.SolarSchedule": "fas fa-solar-panel",
+        "django_celery_beat.CrontabSchedule": "fab fa-telegram-plane",
+        "django_celery_beat.IntervalSchedule": "fas fa-clock",
+        "system.ConnectionPool": "fab fa-connectdevelop",
+        "system.SystemConfig": "fas fa-cogs",
+        "authtoken.TokenProxy": "fas fa-fingerprint",
+    },
+    # 未手动指定时使用的图标
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+    #################
+    # Related Modal #
+    #################
+    # 使用模态而不是弹出窗口
+    "related_modal_active": False,
+    #############
+    # UI Tweaks #
+    #############
+    # 自定义 CSSJS 脚本的相对路径（必须存在于静态文件中）
+    "custom_css": None,
+    "custom_js": None,
+    # 是否在侧边栏显示 UI 定制器
+    "show_ui_builder": True,
+
+    ###############
+    # Change view #
+    ###############
+    # 将更改视图呈现为单个表单，或者在选项卡中，当前选项是
+    # - single
+    # - horizontal_tabs (default)
+    # - vertical_tabs
+    # - collapsible
+    # - carousel
+    "changeform_format": "horizontal_tabs",
+    # 在每个模型管理员的基础上覆盖更改表单
+    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
+    # 在管理员中添加语言下拉菜单
+    "language_chooser": False,
 }
 # Your stuff...
 # ------------------------------------------------------------------------------

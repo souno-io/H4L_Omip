@@ -10,13 +10,16 @@ https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 import os
 import sys
 from pathlib import Path
+from config.banner import show_logo
+
+print(show_logo())
 
 from django.core.asgi import get_asgi_application
 
 # This allows easy placement of apps within the interior
 # h4l_omip directory.
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent
-sys.path.append(str(ROOT_DIR / "h4l_omip"))
+sys.path.append(str(ROOT_DIR / "apps"))
 
 # If DJANGO_SETTINGS_MODULE is unset, default to the local settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")

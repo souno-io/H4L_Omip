@@ -1,0 +1,385 @@
+/*@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Poppins:wght@600&display=swap");*/
+
+body {
+  font-family: "Lato", sans-serif;
+  /*color: #000000;*/
+  margin: 0;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+.row > * {
+  position: relative;
+}
+
+
+.process-title {
+  color: #ffffff;
+}
+
+/* ----------------------------------------------------- service 3 ------------------------------------------------------- */
+
+.service-3 .text-primary {
+  color: #256bec !important;
+}
+
+.service-3 .btn {
+  padding: 12px 30px;
+  font-size: 15px;
+}
+
+.service-3 {
+  position: absolute;
+  background: rgba(255, 255, 255, 0);
+  display: flex;
+  z-index: 100;
+  margin-top: 50px;
+  align-items: center;
+  height: 100vh;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.service-3 .instru-video {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  background: #ffffff;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.service-3 #instruvideo .btn-close {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.service-3 #instruvideo .btn-close:hover {
+  opacity: 0.5;
+}
+
+.service-3 .process-box .process-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #256bec;
+  transition: all 0.5s ease;
+}
+
+.service-3 .process-box:hover .process-icon {
+  border-radius: 5px;
+  transform: rotate(360deg);
+  background-color: rgba(37, 107, 236, 0.65);
+}
+
+@media (max-width: 768px) {
+  .service-3 {
+    height: auto;
+    padding: 70px 0;
+  }
+}
+
+/* ----------------------------------------------------- service 4 ------------------------------------------------------- */
+
+.services-4 h6 {
+  font-size: 12px;
+}
+
+.services-4 p {
+  line-height: 1.8;
+}
+
+.services-4 {
+  background-color: #273750;
+  padding: 80px 0px;
+  position: relative;
+}
+
+.services-4 .text {
+  background: linear-gradient(to bottom, #fe5580, #fbada3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.services-4 .text-fill {
+  background: linear-gradient(to bottom, #808df5, #06adf1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 1200px) {
+  .services-4 .container {
+    max-width: 1140px !important;
+  }
+}
+
+/* ----------------------------------------------------- service 5 ------------------------------------------------------- */
+
+.service-5 .btn,
+.service-5 .btn:focus,
+.service-5 button,
+.service-5 button:focus {
+  outline: none !important;
+}
+
+.service-5 a {
+  text-decoration: none !important;
+  outline: none;
+}
+
+.service-5 p {
+  font-size: 17px;
+}
+
+.service-5 {
+  padding-bottom: 80px;
+  padding-top: 80px;
+  position: relative;
+}
+
+.service-5 .btn-primary {
+  background: #0186d5;
+  border-color: #0186d5 !important;
+  color: #ffffff !important;
+  box-shadow: 0px 8px 20px -6px rgba(1, 134, 213, 0.6);
+}
+
+.service-5 .btn-primary:hover,
+.service-5 .btn-primary:focus,
+.service-5 .btn-primary:active,
+.service-5 .btn-primary.active,
+.service-5 .btn-primary.focus,
+.service-5 .btn-primary:not(:disabled):not(.disabled):active,
+.service-5 .btn-primary:not(:disabled):not(.disabled):active:focus,
+.service-5 .btn-primary .open > .dropdown-toggle.btn-primary {
+  background: #0179c1;
+  border-color: #0179c1;
+}
+
+.service-5 .f-14 {
+  font-size: 14px;
+}
+
+.service-5 .f-15 {
+  font-size: 15px;
+}
+
+.service-5 .title-border {
+  border: 1px solid #0186d5;
+  width: 80px;
+  margin: 0 auto;
+}
+
+.service-5 .btn {
+  padding: 0.7rem 1.8rem;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.5s;
+}
+
+.service-5 .btn:focus {
+  box-shadow: none;
+}
+
+.service-5 .nav-pills .nav-item {
+  padding: 10px;
+}
+
+.service-5 .nav-pills .nav-item .nav-link {
+  padding: 10px;
+  border: 1px solid #dee3e7;
+  color: #6b7189;
+}
+
+.service-5 .nav-pills .nav-item .nav-link .service-icon i {
+  width: 70px;
+  height: 70px;
+  background-color: #e6f0fa;
+  display: inline-block;
+  line-height: 60px;
+  color: #6b7189;
+  font-size: 34px;
+  border: 5px solid #ffffff;
+  position: relative;
+  margin-top: -50px;
+}
+
+.service-5 .nav-pills .nav-item .nav-link.active {
+  background-color: transparent;
+  color: #444b5b;
+  border: 1px solid #0186d5;
+  border-radius: 0px;
+}
+
+.service-5 .nav-pills .nav-item .nav-link.active .service-icon i {
+  background-color: #0186d5;
+  color: #ffffff;
+}
+
+.service-5 .services-box .services-title {
+  position: relative;
+}
+
+.service-5 .services-box .services-title:before {
+  position: absolute;
+  content: '';
+  border-bottom: 1px solid #0186d5;
+  width: 60px;
+  bottom: -10px;
+}
+
+.service-5 .services-img {
+  position: relative;
+}
+
+.service-5 .services-img:before {
+  position: absolute;
+  content: '';
+  border: 10px solid #444b5b;
+  width: 100%;
+  height: 80%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.services-img img {
+  padding: 0px 30px;
+  position: relative;
+}
+
+.service-5 .services-lable {
+  position: relative;
+}
+
+.service-5 .f-20 {
+  font-size: 20px;
+}
+
+.service-5 .text-muted {
+  color: #6b7189 !important;
+}
+
+.service-5 .services-lable p {
+  background-color: #0186d5;
+  padding: 6px 30px;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  margin-top: -130px;
+}
+
+@media (max-width: 768px) {
+  .service-5 .service-box i {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .service-5 .container {
+    max-width: 1140px !important;
+  }
+}
+
+/* ----------------------------------------------------- service 6 ------------------------------------------------------- */
+
+.service-6 .text-primary {
+  color: #f85b66 !important;
+}
+
+.service-6 .text-muted {
+  color: #878e94 !important;
+}
+
+.service-6 {
+  padding: 80px 0px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.service-6 .services-box {
+  padding: 60px 50px;
+  transition: all .3s ease-in-out;
+  position: relative;
+  z-index: 3;
+}
+
+.service-6 .services-box:hover {
+  transform: scale(1.02);
+}
+
+.service-6 .bg-overlay {
+  background-color: #f6fbfe;
+  clip-path: polygon(0 72%, 100% 35%, 100% 100%, 0 99%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0px;
+  top: 0px;
+}
+
+/* ----------------------------------------------------- service 7 ------------------------------------------------------- */
+
+.service-7 p {
+  line-height: 1.8;
+}
+
+.service-7 .text-primary {
+  color: #ff5f5d !important;
+}
+
+.service-7 .text-muted {
+  color: #607d83 !important;
+}
+
+.service-7 {
+  padding: 80px 0px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.service-7 .services-box .service-icon {
+  position: relative;
+}
+
+.service-7 .services-box .service-icon::before {
+  content: " ";
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(to right, #f2f8ff, #e9e9f2);
+  border-radius: 50%;
+  bottom: 18px;
+  left: 12px;
+}
+
+.service-7 .services-box .service-icon i {
+  position: relative;
+}

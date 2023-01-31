@@ -6,6 +6,7 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/h4l_omip/static" />
+            <path value="file://$PROJECT_DIR$/static" />
           </resourceRoots>
         </entryData>
       </entry>
