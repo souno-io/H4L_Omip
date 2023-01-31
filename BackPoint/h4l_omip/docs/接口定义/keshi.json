@@ -1,0 +1,51 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "list": [
+      {
+        "id": "root",
+        "createTime": "2002-07-05 02:42:19",
+        "name": "根节点",
+        "order": 0,
+        "children": [
+          {
+            "id": "1",
+            "parentId": "root",
+            "parentName": "根节点",
+            "createTime": "2005-07-30 08:24:12",
+            "name": "桃花坞",
+            "order": 0
+          },
+          {
+            "id": "2",
+            "parentId": "root",
+            "parentName": "根节点",
+            "createTime": "1987-02-20 09:05:47",
+            "name": "少林寺",
+            "order": 1,
+            "children": [
+              {
+                "id": "a45cBB86-FAaE-9862-EfD6-Abd486f671DC",
+                "parentId": "2",
+                "parentName": "少林寺",
+                "createTime": "2004-01-05 04:53:14",
+                "name": "达摩院",
+                "order": 0
+              },
+              {
+                "id": "4b19EEdD-B3E0-f2C0-De67-Df4fABCd9EB5",
+                "parentId": "2",
+                "parentName": "少林寺",
+                "createTime": "1982-02-03 09:00:46",
+                "name": "戒律堂",
+                "order": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "total": 1
+  }
+}

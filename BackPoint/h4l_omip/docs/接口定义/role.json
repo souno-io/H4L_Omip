@@ -1,0 +1,26 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "list": [
+      {
+        "id": "360000199211088763",
+        "role": "admin",
+        "btnRolesCheckedList": [
+          "read:system",
+          "write:system",
+          "delete:system"
+        ]
+      },
+      {
+        "id": "650000199611291444",
+        "role": "editor",
+        "btnRolesCheckedList": [
+          "read:system",
+          "write:system"
+        ]
+      }
+    ],
+    "total": 2
+  }
+}
