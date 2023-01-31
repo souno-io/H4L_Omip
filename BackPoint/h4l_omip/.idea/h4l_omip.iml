@@ -17,6 +17,8 @@
       <sourceFolder url="file://$MODULE_DIR$/apps" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/third_apps" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/.envs/.production" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10 (h4l_omip)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
