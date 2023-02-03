@@ -120,7 +120,7 @@ class SystemConfig(H4LBaseModel):
 
     class Meta:
         # swappable = 'AUTH_USER_MODEL'
-        verbose_name = _("system settings")
+        verbose_name = _("系统配置")
         verbose_name_plural = verbose_name
 
     def __str__(self):
