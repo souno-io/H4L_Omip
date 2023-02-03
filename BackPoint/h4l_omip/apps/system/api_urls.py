@@ -5,7 +5,7 @@ from rest_framework_sso.views import obtain_authorization_token
 
 from common.authentication import H4LObtainSessionTokenView
 from system.api_views import menu as system_menu, MenuViewSet, RoleViewSet, DepartmentViewSet, PeriodicTaskViewSet
-from .api_views import SystemConfigViewSet
+from .api_views import SystemConfigViewSet, site_status
 
 app_name = "system"
 
@@ -22,4 +22,5 @@ router.register("tasks", PeriodicTaskViewSet)
 
 urlpatterns = [
     # path("~redirect/", view=user_redirect_view, name="redirect"),
+    path("site_status/<str:platform>", view=site_status, name="site_status"),
 ] + router.urls

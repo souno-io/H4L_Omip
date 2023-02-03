@@ -120,7 +120,7 @@ class SystemConfig(H4LBaseModel):
 
     class Meta:
         # swappable = 'AUTH_USER_MODEL'
-        verbose_name = _("系统设置")
+        verbose_name = _("system settings")
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -143,9 +143,11 @@ class ConnectionPool(H4LBaseModel):
         max_length=100, choices=TypeChoice.choices, default=TypeChoice.POSTGRESQL,
         null=False, blank=False, verbose_name='数据库类型', help_text='数据库类型'
     )
-    configuration = models.CharField(
-        max_length=1024, null=False, blank=False, verbose_name='数据库链接串', help_text='数据库链接串'
-    )
+    host = models.CharField('服务器地址', max_length=1024, null=False, blank=False, help_text='服务器地址')
+    port = models.CharField('服务器端口', max_length=10, null=False, blank=False, help_text='服务器端口')
+    user = models.CharField('数据库用户名', max_length=1024, null=False, blank=False, help_text='数据库用户名')
+    pwd = models.CharField('数据库密码', max_length=1024, null=False, blank=False, help_text='数据库密码')
+    db = models.CharField('数据库名', max_length=1024, null=False, blank=False, help_text='数据库名')
     create_by = models.ForeignKey(
         'users.UserProfile', on_delete=models.SET_NULL, verbose_name='创建者', null=True, blank=True, help_text="创建者"
     )
@@ -167,6 +169,21 @@ class ConnectionPool(H4LBaseModel):
 
     def __str__(self):
         return self.name
+
+    @property
+    def configuration(self):
+        engine = ''
+        if self.type == 'ORACLE':
+            engine = "oracle"
+        elif self.type == "POSTGRESQL":
+            engine = "postgres"
+        elif self.type == "MYSQL":
+            engine = "mysql"
+        elif self.type == "SQLITE":
+            engine = "sqlite"
+        elif self.type == "SQLSERVER":
+            engine = "sqlserver"
+        return f"{engine}://{self.user}:{self.pwd}@{self.host}:{self.port}/{self.db}"
 
     def apply(self):
         settings.DATABASES[self.name] = environ.Env().db('', self.configuration)
@@ -201,7 +218,8 @@ class ConnectionPool(H4LBaseModel):
             Console().log(
                 [
                     {
-                        '数据库名字': self.name, '数据库类型': self.type, '数据库配置': self.configuration, '数据库状态': '连接数据库失败！'
+                        '数据库名字': self.name, '数据库类型': self.type, '数据库配置': self.configuration,
+                        '数据库状态': '连接数据库失败！'
                     },
                     {
                         '错误信息': str(e)
@@ -212,12 +230,19 @@ class ConnectionPool(H4LBaseModel):
             return False
 
     def execute(self, sql):
-        if self.type != 'RESTAPI':
+        if self.type == 'ORACLE':
             try:
                 cursor = connections[self.name].cursor().execute(sql)
                 col_names = [i[0] for i in cursor.description]
-                return [dict(zip(col_names, (str(i) if isinstance(i, cx_Oracle.LOB) else i for i in row))) for row in
-                        cursor]
+                return [dict(zip(col_names, (str(i) if isinstance(i, cx_Oracle.LOB) else i for i in row))) for row in cursor]
+            except Exception as e:
+                return [{'errCode': '500', 'errMsg': str(e)}]
+        elif self.type in ["POSTGRESQL", "MYSQL"]:
+            try:
+                cur = connections[self.name].cursor()
+                cur.execute(sql)
+                col_names = [i[0] for i in cur.description]
+                return [dict(zip(col_names, (str(i) if isinstance(i, cx_Oracle.LOB) else i for i in row))) for row in cur]
             except Exception as e:
                 return [{'errCode': '500', 'errMsg': str(e)}]
         else:
@@ -278,7 +303,8 @@ class Dictionary(H4LBaseModel):
 
 class UploadFile(H4LBaseModel):
     path_and_rename = PathAndRename("avatar/" + timezone.now().strftime("%Y-%m-%d") + "/")
-    file = models.FileField("上传的文件", upload_to=path_and_rename, default='avatar/default.png', help_text='存放文件字段')
+    file = models.FileField("上传的文件", upload_to=path_and_rename, default='avatar/default.png',
+                            help_text='存放文件字段')
 
     class Meta:
         verbose_name = "上传文件"
@@ -310,7 +336,8 @@ class Menu(MPTTModel, H4LBaseModel, TimeStampedModel):
         _('Module English name'), max_length=100, unique=True, null=False, blank=False,
         help_text=_("Menu code, capitalized")
     )
-    title = models.CharField(_('Title'), max_length=255, null=False, blank=False, default='标题', help_text=_("菜单中文标题"))
+    title = models.CharField(_('Title'), max_length=255, null=False, blank=False, default='标题',
+                             help_text=_("菜单中文标题"))
     icon = models.CharField(_('Icon'), max_length=100, help_text=_('图标'), default=None, null=True, blank=True)
     parent = TreeForeignKey(
         'self', verbose_name=_('上级菜单'), null=True, blank=True,
@@ -319,14 +346,18 @@ class Menu(MPTTModel, H4LBaseModel, TimeStampedModel):
     path = models.CharField(_('路径'), max_length=100, help_text=_('路径'), default=None, null=True, blank=True)
     type = models.CharField(_('类型'), choices=TYPE, max_length=100, help_text=_('类型'), default='menu', null=True,
                             blank=True)
-    component = models.CharField(_('组件路径'), max_length=100, help_text=_('组件路径'), default=None, null=True, blank=True)
+    component = models.CharField(_('组件路径'), max_length=100, help_text=_('组件路径'), default=None, null=True,
+                                 blank=True)
     affix = models.BooleanField(_('词缀'), default=False, null=True, blank=True, help_text=_('词缀'), )
-    active = models.CharField(_('激活组件'), max_length=100, help_text=_('激活组件'), default=None, null=True, blank=True)
+    active = models.CharField(_('激活组件'), max_length=100, help_text=_('激活组件'), default=None, null=True,
+                              blank=True)
     fullpage = models.BooleanField(_('整页'), default=False, null=True, blank=True, help_text=_('整页'), )
-    redirect = models.CharField(_('重定向'), max_length=100, help_text=_('重定向路径'), default=None, null=True, blank=True)
+    redirect = models.CharField(_('重定向'), max_length=100, help_text=_('重定向路径'), default=None, null=True,
+                                blank=True)
     hidden = models.BooleanField(_('隐藏路由'), help_text=_('是否显示在菜单中显示隐藏路由'), default=False)
     hiddenBreadcrumb = models.BooleanField(_('隐藏面包屑导航'), help_text=_('隐藏面包屑导航'), default=False)
-    levelHidden = models.BooleanField(_('显示隐藏一级路由'), help_text=_('是否显示在菜单中显示隐藏一级路由'), default=False)
+    levelHidden = models.BooleanField(_('显示隐藏一级路由'), help_text=_('是否显示在菜单中显示隐藏一级路由'),
+                                      default=False)
     noKeepAlive = models.BooleanField(_('当前路由是否不缓存'), help_text=_('当前路由是否不缓存'), default=False)
     noClosable = models.BooleanField(_('是否可关闭多标签页'), help_text=_('是否可关闭多标签页'), default=True)
     badge = models.CharField(
@@ -338,7 +369,8 @@ class Menu(MPTTModel, H4LBaseModel, TimeStampedModel):
         blank=True
     )
     dot = models.BooleanField(_('小圆点'), help_text=_('小圆点'), default=False)
-    dynamicNewTab = models.BooleanField(_('动态传参路由是否新开标签页'), help_text=_('动态传参路由是否新开标签页'), default=False)
+    dynamicNewTab = models.BooleanField(_('动态传参路由是否新开标签页'), help_text=_('动态传参路由是否新开标签页'),
+                                        default=False)
     seq = models.CharField(_('排序'), max_length=100, help_text=_('排序'), default=None, null=True, blank=True)
     remark = models.CharField(_('描述'), max_length=255, null=True, blank=True, help_text=_('描述'))
 

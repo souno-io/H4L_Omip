@@ -1,4 +1,7 @@
 # from drf_spectacular.utils import extend_schema, extend_schema_field
+import time
+
+from django.http import JsonResponse
 from rest_framework import viewsets, status
 from rest_framework.decorators import action, api_view
 from rest_framework.mixins import RetrieveModelMixin, ListModelMixin, UpdateModelMixin
@@ -884,3 +887,15 @@ def menu(request):
             "user.delete"
         ]
     })
+
+
+def site_status(request, platform):
+    if platform == 'ali':
+        return JsonResponse({
+            "statusCode": 200,
+            "data": "0",
+            "succeeded": True,
+            "errors": None,
+            "extras": None,
+            "timestamp": int(time.time())
+        })
