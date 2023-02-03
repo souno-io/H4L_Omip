@@ -5,6 +5,16 @@ from pythonping import ping as python_ping
 from common.models import H4LBaseModel
 
 
+class IPAddressManager(models.Manager):
+    """
+    使用文档查看：https://github.com/autocracy/python-ipy/
+    """
+
+    def generate(self, net_seg: str):
+        from IPy import IP
+        return IP(net_seg)
+
+
 class DataCenter(H4LBaseModel):
     label = models.CharField(
         '数据中心名称', unique=True, blank=True, null=False, max_length=255, help_text="数据中心名称:老院机房,新院机房等"

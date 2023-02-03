@@ -42,3 +42,8 @@ drf-spectacular==0.25.1  # https://github.com/tfranzel/drf-spectacular
 # ---------------------------------------------------------------------------
 swapper
 jsonfield
+
+
+# net-manage
+# ---------------------------------------------------------------------------
+IPy # https://github.com/autocracy/python-ipy/
