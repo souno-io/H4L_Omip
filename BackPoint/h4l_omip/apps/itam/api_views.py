@@ -1,4 +1,4 @@
-from rest_framework.pagination import PageNumberPagination
+from common.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from .models import IPAddress, DataCenter, Cabinet, Device
@@ -11,8 +11,5 @@ class IPAddressViewSet(ModelViewSet):
     lookup_field = "ip_address"
     pagination_class = PageNumberPagination
 
-    # def get_queryset(self, *args, **kwargs):
-    #     if self.request.user.is_superuser:
-    #         return self.queryset.order_by('-ip_address')
-    #     else:
-    #         return self.queryset.filter(id=self.request.user.id)
+    def get_queryset(self, *args, **kwargs):
+        return self.queryset.order_by('-ip_address')
