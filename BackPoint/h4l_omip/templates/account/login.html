@@ -14,11 +14,11 @@
 
 {% if socialaccount_providers %}
   <p>
-    {% translate "Please sign in with one of your existing third party accounts:" %}
+    {% translate "请使用您现有的第三方帐户之一登录：" %}
     {% if ACCOUNT_ALLOW_REGISTRATION %}
       {% blocktranslate trimmed %}
-        Or, <a href="{{ signup_url }}">sign up</a>
-        for a {{ site_name }} account and sign in below:
+        Or, <a href="{{ signup_url }}">注册</a>
+        一个 {{ site_name }} 帐户并在下面登录:
       {% endblocktranslate %}
     {% endif %}
   </p>
@@ -39,8 +39,8 @@
   {% if ACCOUNT_ALLOW_REGISTRATION %}
     <p>
       {% blocktranslate trimmed %}
-        If you have not created an account yet, then please
-        <a href="{{ signup_url }}">sign up</a> first.
+        如果您尚未创建帐户，请
+        <a href="{{ signup_url }}">注册</a> 一个.
       {% endblocktranslate %}
     </p>
   {% endif %}

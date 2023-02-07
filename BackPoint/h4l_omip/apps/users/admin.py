@@ -25,7 +25,7 @@ class UserAdmin(auth_admin.UserAdmin):
         }),
     )
     fieldsets = (
-        (None, {"fields": ("username", "password")}),
+        (_("账户密码"), {"fields": ("username", "password")}),
         (_("Personal info"),
          {"fields": (
              "name", "email", "avatar", "employee_num", "user_departments", "id_card_no", "phone", "ding_userid",

@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Config(AppConfig):
     name = "notifications"
-    verbose_name = _("notifications")
+    verbose_name = _("通知")
     default_auto_field = 'django.db.models.AutoField'
 
     def ready(self):

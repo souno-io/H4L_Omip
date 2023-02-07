@@ -7,11 +7,8 @@ from .models import DataCenter, Cabinet, DeviceType, Device, IPAddress
 @admin.register(DataCenter)
 class DataCenterAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
-        'is_active',
-        'update_datetime',
-        'create_datetime',
         'label',
+        'is_active',
     )
     list_filter = ('is_active', 'update_datetime', 'create_datetime')
 
@@ -19,25 +16,20 @@ class DataCenterAdmin(admin.ModelAdmin):
 @admin.register(Cabinet)
 class CabinetAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
-        'is_active',
-        'update_datetime',
-        'create_datetime',
         'label',
         'units',
+        'data_center',
         'remark',
+        'is_active',
     )
-    list_filter = ('is_active', 'update_datetime', 'create_datetime')
+    list_filter = ('is_active', 'update_datetime', 'data_center', 'create_datetime')
 
 
 @admin.register(DeviceType)
 class DeviceTypeAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
-        'is_active',
-        'update_datetime',
-        'create_datetime',
         'label',
+        'is_active',
     )
     list_filter = ('is_active', 'update_datetime', 'create_datetime')
 
@@ -45,10 +37,6 @@ class DeviceTypeAdmin(admin.ModelAdmin):
 @admin.register(Device)
 class DeviceAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
-        'is_active',
-        'update_datetime',
-        'create_datetime',
         'label',
         'type',
         'model_spec',
@@ -57,34 +45,31 @@ class DeviceAdmin(admin.ModelAdmin):
         'space',
         'bind_Cabinet',
         'location',
+        'is_active',
     )
     list_filter = (
-        'is_active',
-        'update_datetime',
-        'create_datetime',
         'type',
         'warranty_period',
         'bind_Cabinet',
+        'is_active',
     )
 
 
 @admin.register(IPAddress)
 class IPAddressAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
-        'is_active',
-        'update_datetime',
-        'create_datetime',
         'ip_address',
         'use_device',
-        'bind_device',
+        'use_device',
         'location',
         'purpose',
+        'is_active',
     )
     list_filter = (
         'is_active',
-        'update_datetime',
-        'create_datetime',
         'use_device',
         'bind_device',
+    )
+    search_fields = (
+        'ip_address',
     )

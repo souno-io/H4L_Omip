@@ -18,7 +18,7 @@ import sys
 from pathlib import Path
 from config.banner import show_logo
 
-print(show_logo())
+# print(show_logo())
 
 from django.core.wsgi import get_wsgi_application
 

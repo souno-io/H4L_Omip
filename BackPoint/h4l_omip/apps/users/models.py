@@ -313,33 +313,33 @@ class UserProfile(AbstractUser, CompetenceMixin, HISMixin):
     )
     username_validator = UnicodeUsernameValidator()
     username = models.CharField(
-        _('username'),
+        _('用户名'),
         max_length=150,
         unique=True,
-        help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        help_text=_('必填。不超过 150 个字符。字母、数字和 @/./+/-/_ only.'),
         validators=[username_validator],
         error_messages={
-            'unique': _("A user with that username already exists."),
+            'unique': _("具有该用户名的用户已存在。"),
         },
     )
     first_name = None  # type: ignore
     last_name = None  # type: ignore
-    name = models.CharField(_("Name of User"), max_length=60, null=False, blank=False, help_text='姓名')
+    name = models.CharField(_("姓名"), max_length=60, null=False, blank=False, help_text='姓名')
     id_card_no = models.CharField(
-        _('identity number'), max_length=30, unique=True, blank=True, null=True, default=None,
-        help_text=_('identity number')
+        _('身份证号'), max_length=30, unique=True, blank=True, null=True, default=None,
+        help_text=_('身份证号码')
     )
     avatar = models.ImageField(
-        _('profile picture'), upload_to=path_and_rename, blank=True, null=True, unique=False,
-        default='avatar/default.png', help_text=_('profile picture')
+        _('头像'), upload_to=path_and_rename, blank=True, null=True, unique=False,
+        default='avatar/default.png', help_text=_('个人资料图片')
     )
     email = models.EmailField(
-        _('email address'), max_length=50, blank=True, null=True, default=None,
-        help_text=_('Email address for login verification')
+        _('电子邮件地址'), max_length=50, blank=True, null=True, default=None,
+        help_text=_('用于登录验证的电子邮件地址')
     )
     phone = models.CharField(
-        _('telephone number'), max_length=25, blank=True, null=True, default=None,
-        help_text=_('Phone number for login verification')
+        _('电话号码'), max_length=25, blank=True, null=True, default=None,
+        help_text=_('用于登录验证的电话号码')
     )
     ding_userid = models.CharField(
         _('钉钉用户ID'), max_length=25, unique=True, blank=True, null=True, default=None, help_text='钉钉用户ID'
@@ -348,13 +348,13 @@ class UserProfile(AbstractUser, CompetenceMixin, HISMixin):
         _('微信用户ID'), max_length=25, unique=True, blank=True, null=True, default=None, help_text='微信用户ID'
     )
     signature = models.CharField(
-        _('personal signature'), max_length=255, null=True, blank=True,
-        help_text=_('personal signature')
+        _('个人签名'), max_length=255, null=True, blank=True,
+        help_text=_('个人签名')
     )
     is_staff = models.BooleanField(
-        _('staff status'),
+        _('工作人员状况'),
         default=False,
-        help_text=_('Designates whether the user can log into this admin site.'),
+        help_text=_('指定用户是否可以登录到此管理站点。'),
     )
     is_active = models.BooleanField('激活状态', default=True, help_text='状态说明字段')
     update_datetime = models.DateTimeField("修改时间", auto_now=True, null=True, blank=True, help_text="修改时间")

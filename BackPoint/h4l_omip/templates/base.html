@@ -51,30 +51,30 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
+                <a class="nav-link" href="{% url 'home' %}">首页 <span class="visually-hidden">(当前)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
+                <a class="nav-link" href="{% url 'about' %}">关于</a>
               </li>
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
-                  <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% translate "My Profile" %}</a>
+                  <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% translate "我的个人资料" %}</a>
                 </li>
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
-                  <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
+                  <a class="nav-link" href="{% url 'account_logout' %}">{% translate "注销" %}</a>
                 </li>
               {% else %}
                 {% if ACCOUNT_ALLOW_REGISTRATION %}
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
+                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "注册" %}</a>
               </li>
               {% endif %}
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
-                  <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
+                  <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "登录" %}</a>
                 </li>
               {% endif %}
             </ul>
@@ -96,7 +96,7 @@
       {% endif %}
 
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
+        <p>使用此文档添加快速启动任何新项目的方法。</p>
       {% endblock content %}
 
     </div> <!-- /container -->

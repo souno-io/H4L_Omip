@@ -157,10 +157,10 @@ order by
     sqxh
         """)
         # HIS数据库链接语句
-        ConnectionPool.objects.create(
-            name='his', type='ORACLE',
-            configuration='oracle://his:his@200.168.0.78:1521/gzsih'
-        )
+        # ConnectionPool.objects.create(
+        #     name='his', type='ORACLE',
+        #     configuration='oracle://his:his@200.168.0.78:1521/gzsih'
+        # )
         # 员工数据同步语句
         SystemConfig.objects.create(title='系统默认密码', key='Default_PassWord', value="Abc@123456")
         # 科室数据同步语句

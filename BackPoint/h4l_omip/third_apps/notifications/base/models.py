@@ -167,49 +167,49 @@ class AbstractNotification(models.Model):
 
     """
     LEVELS = Choices('success', 'info', 'warning', 'error')
-    level = models.CharField(_('level'), choices=LEVELS, default=LEVELS.info, max_length=20)
+    level = models.CharField(_('级别'), choices=LEVELS, default=LEVELS.info, max_length=20)
 
     recipient = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         blank=False,
-        verbose_name=_('recipient'),
+        verbose_name=_('收件人'),
         related_name='notifications',
         on_delete=models.CASCADE
     )
-    unread = models.BooleanField(_('unread'), default=True, blank=False, db_index=True)
+    unread = models.BooleanField(_('未读'), default=True, blank=False, db_index=True)
 
-    actor_content_type = models.ForeignKey(ContentType, verbose_name=_('actor_content_type'),
+    actor_content_type = models.ForeignKey(ContentType, verbose_name=_('参与者内容类型'),
                                            related_name='notify_actor', on_delete=models.CASCADE)
-    actor_object_id = models.CharField(_('actor_object_id'), max_length=255)
+    actor_object_id = models.CharField(_('参与者对象 ID'), max_length=255)
     actor = GenericForeignKey('actor_content_type', 'actor_object_id')
 
     verb = models.CharField(_('verb'), max_length=255)
-    description = models.TextField(_('description'), blank=True, null=True)
+    description = models.TextField(_('描述'), blank=True, null=True)
 
     target_content_type = models.ForeignKey(
         ContentType,
         related_name='notify_target',
-        verbose_name=_('target_content_type'),
+        verbose_name=_('目标内容类型'),
         blank=True,
         null=True,
         on_delete=models.CASCADE
     )
-    target_object_id = models.CharField(_('target_object_id'), max_length=255, blank=True, null=True)
+    target_object_id = models.CharField(_('目标对象标识'), max_length=255, blank=True, null=True)
     target = GenericForeignKey('target_content_type', 'target_object_id')
 
     action_object_content_type = models.ForeignKey(ContentType, blank=True, null=True,
-                                                   verbose_name=_('action_object_content_type'),
+                                                   verbose_name=_('动作对象内容类型'),
                                                    related_name='notify_action_object', on_delete=models.CASCADE)
-    action_object_object_id = models.CharField(_('action_object_object_id'), max_length=255, blank=True, null=True)
+    action_object_object_id = models.CharField(_('操作对象对象标识'), max_length=255, blank=True, null=True)
     action_object = GenericForeignKey('action_object_content_type', 'action_object_object_id')
 
-    timestamp = models.DateTimeField(_('timestamp'), default=timezone.now, db_index=True)
+    timestamp = models.DateTimeField(_('时间戳'), default=timezone.now, db_index=True)
 
-    public = models.BooleanField(_('public'), default=True, db_index=True)
-    deleted = models.BooleanField(_('deleted'), default=False, db_index=True)
-    emailed = models.BooleanField(_('emailed'), default=False, db_index=True)
+    public = models.BooleanField(_('公开'), default=True, db_index=True)
+    deleted = models.BooleanField(_('删除'), default=False, db_index=True)
+    emailed = models.BooleanField(_('已发送'), default=False, db_index=True)
 
-    data = JSONField(_('data'), blank=True, null=True)
+    data = JSONField(_('数据'), blank=True, null=True)
     objects = NotificationQuerySet.as_manager()
 
     class Meta:

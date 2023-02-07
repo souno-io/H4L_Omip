@@ -8,5 +8,5 @@ class Notification(AbstractNotification):
     class Meta(AbstractNotification.Meta):
         abstract = False
         swappable = swappable_setting('notifications', 'Notification')
-        verbose_name = _('Notification')
+        verbose_name = _('通知')
         verbose_name_plural = verbose_name
