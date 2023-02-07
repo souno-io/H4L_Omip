@@ -8,7 +8,7 @@ from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateMode
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
-from common.pagination import PageNumberPagination
+from common.pagination import H4LPageNumberPagination
 from system.serializers import MenuSerializer
 from .serializers import UserProfileSerializer
 from .models import HISEmployee, HISDepartment
@@ -20,7 +20,7 @@ class UserViewSet(ModelViewSet):
     serializer_class = UserProfileSerializer
     queryset = User.objects.all()
     lookup_field = "username"
-    pagination_class = PageNumberPagination
+    pagination_class = H4LPageNumberPagination
 
     def get_queryset(self, *args, **kwargs):
         if self.request.user.is_superuser:
