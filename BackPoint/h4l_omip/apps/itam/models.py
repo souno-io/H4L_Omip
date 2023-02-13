@@ -1,8 +1,11 @@
+from django.contrib.auth import get_user_model
 from django.db import models, IntegrityError
 from django.utils.translation import gettext_lazy as _
 from pythonping import ping as python_ping
 
 from common.models import H4LBaseModel
+
+User = get_user_model()
 
 
 class IPAddressManager(models.Manager):
@@ -18,11 +21,15 @@ class IPAddressManager(models.Manager):
             except IntegrityError as e:
                 pass
 
-    def application(self) -> str:
-        new_ip = self.filter(usage_status=1).first()
-        new_ip.usage_status = 2
-        new_ip.save()
-        return new_ip.ip_address
+    def application(self, user) -> str:
+        if self.filter(usage_status=2).filter(usage_user=user).first() is not None:
+            return self.filter(usage_status=2).filter(usage_user=user).first()
+        else:
+            new_ip = self.filter(usage_status=1).first()
+            new_ip.usage_status = 2
+            new_ip.usage_user = user
+            new_ip.save()
+            return new_ip
 
     def release(self, ip_address: str) -> int:
         new_ip = self.get(ip_address=ip_address)
@@ -128,16 +135,24 @@ class IPAddress(H4LBaseModel):
         help_text="需要管理的IP地址信息"
     )
     use_device = models.ForeignKey(
-        "Device", verbose_name=_("使用设备"), blank=True, null=True, on_delete=models.SET_NULL,
+        "Device", verbose_name=_("本端使用设备"), blank=True, null=True, on_delete=models.SET_NULL,
         related_name='ip_use_device'
     )
     bind_device = models.ForeignKey(
-        "Device", verbose_name=_("绑定设备"), blank=True, null=True, on_delete=models.SET_NULL,
+        "Device", verbose_name=_("对端绑定设备"), blank=True, null=True, on_delete=models.SET_NULL,
         related_name='ip_bind_device'
     )
     location = models.CharField(
         _('使用位置'), null=True, blank=True, max_length=255,
         help_text="备注使用位置:楼层，办公室等"
+    )
+    os_type = models.CharField(
+        '操作系统类型', null=True, blank=True, max_length=255,
+        help_text="备注使用位置:楼层，办公室等"
+    )
+    usage_user = models.ForeignKey(
+        User, verbose_name=_("占用人"), blank=True, null=True, on_delete=models.SET_NULL,
+        related_name='ip_bind_user'
     )
     usage_status = models.IntegerField(
         _('使用状态'), choices=UsageStatus.choices, null=False, blank=False, default=UsageStatus.IDLE,
