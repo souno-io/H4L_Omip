@@ -16,12 +16,6 @@ class His:
     def __enter__(self):
         return self
 
-    def get_cursor(self):
-        return self.cursor
-
-    def get_conn(self):
-        return self.conn
-
     def execute(self):
         try:
             result = self.cursor.execute(self.query_sql)
@@ -29,18 +23,13 @@ class His:
             result = str(e)
         return result
 
-    def fetch_one(self):
+    def fetch(self, fetch_all=False):
         try:
             self.cursor.execute(self.query_sql)
-            result = self.cursor.fetchone()
-        except Exception as e:
-            result = str(e)
-        return result
-
-    def fetch_all(self):
-        try:
-            self.cursor.execute(self.query_sql)
-            result = self.cursor.fetchall()
+            if fetch_all:
+                result = self.cursor.fetchall()
+            else:
+                result = self.cursor.fetchone()
         except Exception as e:
             result = str(e)
         return result
@@ -80,18 +69,8 @@ class His:
     def commit(self):
         self.conn.commit()
 
-    def close_cursor(self):
+    def __exit__(self, exc_type, exc_val, exc_tb):
         self.cursor.close()
 
-    def close_conn(self):
-        self.conn.close()
-
-    def close(self):
-        self.close_cursor()
-        # self.close_conn()
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.close()
-
     def __del__(self):
-        self.close()
+        self.cursor.close()
