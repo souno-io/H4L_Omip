@@ -128,7 +128,7 @@ class DingApi:
         获取管理员绑定用户列表
         """
         from django.contrib.auth import get_user_model
-        from ..users.models import Role
+        from ..system.models import Role
         return ','.join([x for x in list(
             get_user_model().objects.all().values_list(
                 'ding_userid', flat=True
