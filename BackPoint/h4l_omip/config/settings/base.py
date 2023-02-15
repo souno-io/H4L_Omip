@@ -109,10 +109,7 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
     # 'oauth2_provider.backends.OAuth2Backend',
-    'common.auth_backends.UsernameAuthBackend',
-    'common.auth_backends.EmailAuthBackend',
-    'common.auth_backends.PhoneAuthBackend',
-    'common.auth_backends.HISAuthBackend',
+    'common.auth_backends.MultiAuthBackend',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = "users.UserProfile"
