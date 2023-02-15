@@ -1,6 +1,7 @@
 import json
 
 import requests
+from django.conf import settings
 
 
 class DingApi:
@@ -14,9 +15,11 @@ class DingApi:
     GET_USER_INFO = "https://oapi.dingtalk.com/user/getuserinfo"
 
     def __init__(
-        self, app_key='dingsi59gbikqpaeoqq0',
-        app_secret='MbO84KzJysm_5A7L8S0NLZqcI196jl78CNUdJ_5z9p3JZVfV4TnQRXPh6dqgjXcQ',
-        agent_id='1573984204'
+        self,
+        # app_key='dingsi59gbikqpaeoqq0',
+        app_key=settings.env("DING_APP_KEY"),
+        app_secret=settings.env("DING_APP_SECRET"),
+        agent_id=settings.env("DING_AGENT_ID"),
     ):
         self.agent_id = agent_id
         token_url = f"{DingApi.GET_TOKEN_URL}?appkey={app_key}&appsecret={app_secret}"

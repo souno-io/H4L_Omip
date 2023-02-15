@@ -16,7 +16,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from common.ding_api import DingApi
+from common.ding_api_v2 import DingApi
 from system.models import SystemConfig
 
 
@@ -108,10 +108,14 @@ class HISEmployee(H4LBaseModel):
     )
     department = models.IntegerField('科室代码', null=True, blank=True, help_text=_('所属科室代码，同步gy_ygdm.ksdm'))
     is_specialist = models.BooleanField(_('是否专家'), default=False, null=False, blank=False, help_text=_('是否专家'))
-    antibiotic_rights = models.BooleanField(_('抗生药权'), default=False, null=False, blank=False, help_text=_('抗生药权'))
-    prescription_rights = models.BooleanField(_('开处方权'), default=False, null=False, blank=False, help_text=_('开处方权'))
-    narcotics_rights = models.BooleanField(_('麻醉药权'), default=False, null=False, blank=False, help_text=_('麻醉药权'))
-    psychotropic_rights = models.BooleanField(_('精神药权'), default=False, null=False, blank=False, help_text=_('精神药权'))
+    antibiotic_rights = models.BooleanField(_('抗生药权'), default=False, null=False, blank=False,
+                                            help_text=_('抗生药权'))
+    prescription_rights = models.BooleanField(_('开处方权'), default=False, null=False, blank=False,
+                                              help_text=_('开处方权'))
+    narcotics_rights = models.BooleanField(_('麻醉药权'), default=False, null=False, blank=False,
+                                           help_text=_('麻醉药权'))
+    psychotropic_rights = models.BooleanField(_('精神药权'), default=False, null=False, blank=False,
+                                              help_text=_('精神药权'))
     phone = models.CharField(_('手机号码'), max_length=25, unique=True, blank=True, null=True, help_text=_('手机号码'))
     signature = models.BinaryField('签名图片', blank=True, null=True, help_text=_('签名图片'))
     transfer_history = models.TextField(_('转岗历史'), null=True, blank=True, help_text='转岗历史')
@@ -177,15 +181,21 @@ class HISDepartment(H4LBaseModel):
     name = models.CharField(_('科室名称'), null=False, blank=False, max_length=50, help_text=_('科室名称'))
     alias = models.CharField(_('科室别名'), null=True, blank=True, max_length=50, help_text=_('科室别名'))
     parent_code = models.IntegerField(_('上级科室'), null=False, blank=False, default=0, help_text=_('上级科室'))
-    is_outpatient = models.BooleanField(_('门诊使用'), null=False, default=False, blank=False, help_text=_('是否是门诊科室'))
-    is_technology = models.BooleanField(_('医技使用'), null=False, default=False, blank=False, help_text=_('是否是医技科室'))
-    is_inpatient = models.BooleanField(_('住院使用'), null=False, default=False, blank=False, help_text=_('是否是住院科室'))
+    is_outpatient = models.BooleanField(_('门诊使用'), null=False, default=False, blank=False,
+                                        help_text=_('是否是门诊科室'))
+    is_technology = models.BooleanField(_('医技使用'), null=False, default=False, blank=False,
+                                        help_text=_('是否是医技科室'))
+    is_inpatient = models.BooleanField(_('住院使用'), null=False, default=False, blank=False,
+                                       help_text=_('是否是住院科室'))
     is_ward = models.BooleanField(_('病区使用'), null=False, default=False, blank=False, help_text=_('是否是病区科室'))
-    is_consultation = models.BooleanField(_('会诊使用'), null=False, blank=False, default=False, help_text=_('是否是会诊使用'))
+    is_consultation = models.BooleanField(_('会诊使用'), null=False, blank=False, default=False,
+                                          help_text=_('是否是会诊使用'))
     rated_bed = models.IntegerField(_('额定床位数'), null=False, blank=False, default=0, help_text=_('病区额定床位数'))
     sort = models.CharField(_('排序顺序'), null=True, blank=True, max_length=10, help_text=_('排序顺序'))
-    national_code = models.CharField(_('国临版科室代码'), null=True, blank=True, max_length=20, help_text=_('国临版科室代码'))
-    national_name = models.CharField(_('国临版科室名称'), null=True, blank=True, max_length=50, help_text=_('国临版科室名称'))
+    national_code = models.CharField(_('国临版科室代码'), null=True, blank=True, max_length=20,
+                                     help_text=_('国临版科室代码'))
+    national_name = models.CharField(_('国临版科室名称'), null=True, blank=True, max_length=50,
+                                     help_text=_('国临版科室名称'))
     is_active = models.BooleanField(
         _('active'),
         default=True,
