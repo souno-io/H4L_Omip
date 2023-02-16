@@ -1,7 +1,7 @@
 export default {
 	login: {
-		slogan: 'High performance / delicate / grace',
-		describe: 'Vue3 + element plus based front-end solutions in the background.',
+		slogan: 'Digital/precision/health management',
+		describe: 'Digital management, precision medicine, health management in one step.',
 		signInTitle: 'Sign in',
 		accountLogin: 'Account sign in',
 		mobileLogin: 'Mobile sign in',

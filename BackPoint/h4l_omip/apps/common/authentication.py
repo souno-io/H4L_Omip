@@ -47,7 +47,11 @@ class H4LObtainSessionTokenView(ObtainSessionTokenView):
         userInfo = {
             'dashboard': 0,
             'userId': user.id,
-            'role': [],
+            'role': list(user.get_roles().values_list('label', flat=True)),
             'userName': user.name,
+            'account': user.username,
+            # 'sex': user.gender,
+            'about': user.signature,
+            'email': user.email,
         }
         return Response({"token": jwt_token, "userInfo": userInfo})
