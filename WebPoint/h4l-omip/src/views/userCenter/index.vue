@@ -93,20 +93,20 @@
 							}
 						]
 					},
-					{
-						groupName: "账号升级",
-						list: [
-							{
-								icon: "el-icon-office-building",
-								title: "升级为企业账号",
-								component: "upToEnterprise"
-							}
-						]
-					}
+					// {
+					// 	groupName: "账号升级",
+					// 	list: [
+					// 		{
+					// 			icon: "el-icon-office-building",
+					// 			title: "升级为企业账号",
+					// 			component: "upToEnterprise"
+					// 		}
+					// 	]
+					// }
 				],
 				user: {
-					userName: "Sakuya",
-					role: "超级管理员",
+					userName: this.$TOOL.data.get("USER_INFO").userName,
+					role: this.$TOOL.data.get("USER_INFO").role,
 				},
 				page: "account"
 			}

@@ -1,9 +1,9 @@
 <template>
 	<el-card shadow="hover" header="关于项目" class="item-background">
-		<p>高性能 / 精致 / 优雅。基于Vue3 + Element-Plus 的中后台前端解决方案，如果喜欢就点个星星支持一下。</p>
+		<p>数字化 / 精准 / 健康管理。数字化管理，精准医疗，健康管理一步到位！</p>
 		<p>
-			<a href='https://gitee.com/lolicode/scui' target="_blank">
-				<img src='https://gitee.com/lolicode/scui/badge/star.svg?theme=dark' alt='star' style="vertical-align: middle">
+			<a href='https://github.com/souno-io/H4L_Omip' target="_blank">
+				<img src='https://img.shields.io/badge/%E4%BD%9C%E8%80%85-Souno-red' alt='star' style="vertical-align: middle">
 			</a>
 		</p>
 	</el-card>
@@ -16,7 +16,7 @@
 		description: "点个星星支持一下",
 		data() {
 			return {
-				
+
 			}
 		}
 	}
