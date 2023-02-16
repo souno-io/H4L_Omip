@@ -1,7 +1,7 @@
 import json
 
 import requests
-from django.conf import settings
+from config.settings.base import env
 
 
 class DingApi:
@@ -17,9 +17,9 @@ class DingApi:
     def __init__(
         self,
         # app_key='dingsi59gbikqpaeoqq0',
-        app_key=settings.env("DING_APP_KEY"),
-        app_secret=settings.env("DING_APP_SECRET"),
-        agent_id=settings.env("DING_AGENT_ID"),
+        app_key=env("DING_APP_KEY"),
+        app_secret=env("DING_APP_SECRET"),
+        agent_id=env("DING_AGENT_ID"),
     ):
         self.agent_id = agent_id
         token_url = f"{DingApi.GET_TOKEN_URL}?appkey={app_key}&appsecret={app_secret}"
