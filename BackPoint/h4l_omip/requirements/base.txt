@@ -14,6 +14,7 @@ uvicorn[standard]==0.20.0  # https://github.com/encode/uvicorn
 pythonping # https://github.com/alessandromaggio/pythonping
 cx_Oracle
 rich # https://github.com/Textualize/rich
+six
 
 # Django
 # ------------------------------------------------------------------------------
@@ -37,6 +38,10 @@ django-rest-multiple-models # https://github.com/MattBroach/DjangoRestMultipleMo
 django-sql-explorer[xls]  # https://github.com/groveco/django-sql-explorer
 # DRF-spectacular for api documentation
 drf-spectacular==0.25.1  # https://github.com/tfranzel/drf-spectacular
+django-filter==22.1 # https://github.com/carltongibson/django-filter
+
+
+
 
 # django-notifications
 # ---------------------------------------------------------------------------

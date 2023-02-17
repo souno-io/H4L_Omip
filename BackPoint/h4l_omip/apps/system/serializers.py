@@ -39,7 +39,7 @@ class DepartmentSerializer(serializers.ModelSerializer):
         model = Department
         # fields = ('codename',)
         fields = [
-            'id', 'label', 'parent', 'remark', 'is_active', 'create_datetime', 'update_datetime', 'children'
+            'id', 'label', 'parentId', 'remark', 'is_active', 'create_datetime', 'update_datetime', 'children'
         ]
 
 

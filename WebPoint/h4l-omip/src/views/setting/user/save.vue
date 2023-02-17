@@ -4,8 +4,8 @@
 			<el-form-item label="头像" prop="avatar">
 				<sc-upload v-model="form.avatar" title="上传头像"></sc-upload>
 			</el-form-item>
-			<el-form-item label="登录账号" prop="userName">
-				<el-input v-model="form.userName" placeholder="用于登录系统" clearable></el-input>
+			<el-form-item label="登录账号" prop="username">
+				<el-input v-model="form.username" placeholder="用于登录系统" clearable></el-input>
 			</el-form-item>
 			<el-form-item label="姓名" prop="name">
 				<el-input v-model="form.name" placeholder="请输入完整的真实姓名" clearable></el-input>
@@ -18,11 +18,11 @@
 					<el-input type="password" v-model="form.password2" clearable show-password></el-input>
 				</el-form-item>
 			</template>
-			<el-form-item label="所属部门" prop="dept">
-				<el-cascader v-model="form.dept" :options="depts" :props="deptsProps" clearable style="width: 100%;"></el-cascader>
+			<el-form-item label="所属部门" prop="user_departments">
+				<el-cascader v-model="form.user_departments" :options="depts" :props="deptsProps" clearable style="width: 100%;"></el-cascader>
 			</el-form-item>
-			<el-form-item label="所属角色" prop="group">
-				<el-select v-model="form.group" multiple filterable style="width: 100%">
+			<el-form-item label="所属角色" prop="user_roles">
+				<el-select v-model="form.user_roles" multiple filterable style="width: 100%">
 					<el-option v-for="item in groups" :key="item.id" :label="item.label" :value="item.id"/>
 				</el-select>
 			</el-form-item>
@@ -50,18 +50,18 @@
 				//表单数据
 				form: {
 					id:"",
-					userName: "",
+					username: "",
 					avatar: "",
 					name: "",
-					dept: "",
-					group: []
+					user_departments: "",
+					user_roles: []
 				},
 				//验证规则
 				rules: {
 					avatar:[
 						{required: true, message: '请上传头像'}
 					],
-					userName: [
+					username: [
 						{required: true, message: '请输入登录账号'}
 					],
 					name: [
@@ -86,10 +86,10 @@
 							}
 						}}
 					],
-					dept: [
+					user_departments: [
 						{required: true, message: '请选择所属部门'}
 					],
-					group: [
+					user_roles: [
 						{required: true, message: '请选择所属角色', trigger: 'change'}
 					]
 				},
@@ -125,7 +125,7 @@
 			},
 			async getDept(){
 				var res = await this.$API.system.dept.list.get();
-				this.depts = res.data;
+				this.depts = res.data.rows;
 			},
 			//表单提交方法
 			submit(){
@@ -148,15 +148,15 @@
 			},
 			//表单注入数据
 			setData(data){
-				this.form.id = data.id
-				this.form.userName = data.userName
-				this.form.avatar = data.avatar
-				this.form.name = data.name
-				this.form.group = data.group
-				this.form.dept = data.dept
+				// this.form.id = data.id
+				// this.form.username = data.username
+				// this.form.avatar = data.avatar
+				// this.form.name = data.name
+				// this.form.user_roles = data.user_roles
+				// this.form.user_departments = data.user_departments
 
 				//可以和上面一样单个注入，也可以像下面一样直接合并进去
-				//Object.assign(this.form, data)
+				Object.assign(this.form, data)
 			}
 		}
 	}

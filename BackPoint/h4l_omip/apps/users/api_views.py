@@ -1,4 +1,6 @@
 import datetime
+
+import django_filters
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import check_password
 # from drf_spectacular.utils import extend_schema, OpenApiParameter
@@ -10,6 +12,7 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from common.pagination import H4LPageNumberPagination
 from system.serializers import MenuSerializer
+from .filter import UserProfileFilter
 from .serializers import UserProfileSerializer
 from .models import HISEmployee, HISDepartment
 
@@ -21,6 +24,8 @@ class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     lookup_field = "username"
     pagination_class = H4LPageNumberPagination
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filterset_class = UserProfileFilter
 
     def get_queryset(self, *args, **kwargs):
         if self.request.user.is_superuser:

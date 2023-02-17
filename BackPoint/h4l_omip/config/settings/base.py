@@ -80,6 +80,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework_sso",
     "rest_framework.authtoken",
+    "rest_framework_filters",
     "corsheaders",
     "drf_spectacular",
     "notifications",

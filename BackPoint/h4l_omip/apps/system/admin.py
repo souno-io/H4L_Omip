@@ -11,8 +11,8 @@ from common import widgets
 @admin.register(Department)
 class DepartmentAdmin(DraggableMPTTAdmin):
     list_per_page = 20  # 指定每页显示多少条信息
-    list_display = ["tree_actions", 'indented_title', 'code', 'parent', 'is_active', 'remark']
-    list_display_links = ("indented_title", 'code', 'parent',)  # Sane defaults.
+    list_display = ["tree_actions", 'indented_title', 'code', 'parentId', 'is_active', 'remark']
+    list_display_links = ("indented_title", 'code', 'parentId',)  # Sane defaults.
     list_filter = ['code', 'label']  # 列表过滤栏设置指定过滤的['属性']
     search_fields = ['code', 'label']  # 搜索栏设置指定搜索属性['属性']
     filter_horizontal = ('menus', 'competences')

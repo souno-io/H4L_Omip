@@ -234,7 +234,8 @@ class ConnectionPool(H4LBaseModel):
             try:
                 cursor = connections[self.name].cursor().execute(sql)
                 col_names = [i[0] for i in cursor.description]
-                return [dict(zip(col_names, (str(i) if isinstance(i, cx_Oracle.LOB) else i for i in row))) for row in cursor]
+                return [dict(zip(col_names, (str(i) if isinstance(i, cx_Oracle.LOB) else i for i in row))) for row in
+                        cursor]
             except Exception as e:
                 return [{'errCode': '500', 'errMsg': str(e)}]
         elif self.type in ["POSTGRESQL", "MYSQL"]:
@@ -242,7 +243,8 @@ class ConnectionPool(H4LBaseModel):
                 cur = connections[self.name].cursor()
                 cur.execute(sql)
                 col_names = [i[0] for i in cur.description]
-                return [dict(zip(col_names, (str(i) if isinstance(i, cx_Oracle.LOB) else i for i in row))) for row in cur]
+                return [dict(zip(col_names, (str(i) if isinstance(i, cx_Oracle.LOB) else i for i in row))) for row in
+                        cur]
             except Exception as e:
                 return [{'errCode': '500', 'errMsg': str(e)}]
         else:
@@ -428,8 +430,8 @@ class Role(H4LBaseModel):
 class Department(MPTTModel, H4LBaseModel, TimeStampedModel):
     label = models.CharField(_('部门名称'), max_length=100, null=False, blank=False, help_text=_('部门名称'))
     code = models.CharField(_("部门代码"), max_length=50, null=False, blank=False, help_text=_('部门代码'))
-    parent = TreeForeignKey("self", verbose_name=_('上级部门'), null=True, blank=True, related_name='children',
-                            on_delete=models.CASCADE)
+    parentId = TreeForeignKey("self", verbose_name=_('上级部门'), null=True, blank=True, related_name='children',
+                              on_delete=models.CASCADE)
     menus = models.ManyToManyField(
         'Menu',
         verbose_name=_('菜单'),
@@ -451,3 +453,6 @@ class Department(MPTTModel, H4LBaseModel, TimeStampedModel):
         verbose_name = "科室"
         verbose_name_plural = verbose_name
         ordering = ['label', 'code']
+
+    class MPTTMeta:
+        parent_attr = 'parentId'
