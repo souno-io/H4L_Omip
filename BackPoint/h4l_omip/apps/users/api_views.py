@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from common.pagination import H4LPageNumberPagination
+from system.models import SystemConfig
 from system.serializers import MenuSerializer
 from .filter import UserProfileFilter
 from .serializers import UserProfileSerializer
@@ -158,6 +159,16 @@ class UserViewSet(ModelViewSet):
             "message": "success",
         }
         return Response(result)
+
+    @action(detail=False, methods=["POST"], permission_classes=[permissions.IsAuthenticated, ])
+    def reset_password(self, request):
+        """
+        重设密码为默认密码
+        """
+        user = request.user
+        user.set_password(SystemConfig.objects.get(key='Default_PassWord').value)
+        user.save()
+        return Response(user)
 
 
 @api_view()
