@@ -456,3 +456,16 @@ class Department(MPTTModel, H4LBaseModel, TimeStampedModel):
 
     class MPTTMeta:
         parent_attr = 'parentId'
+
+
+class Upload(H4LBaseModel):
+    path_and_rename = PathAndRename("upload/" + timezone.now().strftime("%Y-%m-%d") + "/")
+    file = models.ImageField(
+        _('上传文件'), upload_to=path_and_rename, blank=True, null=True, unique=False,
+        default='avatar/default.png', help_text=_('上传文件')
+    )
+
+    class Meta:
+        verbose_name = "上传文件"
+        verbose_name_plural = verbose_name
+        ordering = ['create_datetime']

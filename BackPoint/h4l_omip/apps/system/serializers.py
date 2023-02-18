@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from common.serializers import RecursiveField
-from .models import SystemConfig, UploadFile, Menu, Role, Department
+from .models import SystemConfig, UploadFile, Menu, Role, Department, Upload
 from django_celery_beat.models import PeriodicTask, CrontabSchedule
 
 
@@ -133,4 +133,15 @@ class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
         # fields = ('codename',)
+        fields = "__all__"
+
+
+class UploadSerializer(serializers.ModelSerializer):
+    update_datetime = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S', required=False,
+                                                input_formats=['%Y-%m-%d %H:%M:%S'])
+    create_datetime = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S', required=False,
+                                                input_formats=['%Y-%m-%d %H:%M:%S'])
+
+    class Meta:
+        model = Upload
         fields = "__all__"

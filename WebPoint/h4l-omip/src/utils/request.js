@@ -38,10 +38,7 @@ axios.interceptors.response.use(
 	(error) => {
 		if (error.response) {
 			if (error.response.status == 400) {
-				ElNotification.error({
-					title: '请求错误',
-					message: "Status:400，输入的账号密码不正确或发生其他未知错误！"
-				});
+				return error.response
 			} else if (error.response.status == 404) {
 				ElNotification.error({
 					title: '请求错误',

@@ -10,8 +10,8 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
 from .icon_list import ICON_LIST
-from .models import SystemConfig, UploadFile, Role, Menu, Department
-from .serializers import SystemConfigSerializer, UploadFileSerializer, RoleSerializer, MenuSerializer
+from .models import SystemConfig, UploadFile, Role, Menu, Department, Upload
+from .serializers import SystemConfigSerializer, UploadFileSerializer, RoleSerializer, MenuSerializer, UploadSerializer
 from .serializers import SimpleMenuSerializer, DepartmentSerializer, PeriodicTaskSerializer
 from django_celery_beat.models import PeriodicTask
 
@@ -199,6 +199,12 @@ class DepartmentViewSet(ModelViewSet):
     """
     serializer_class = DepartmentSerializer
     queryset = Department.objects.viewable()
+
+
+class UploadViewset(viewsets.ModelViewSet):
+    """ 文件上传 """
+    queryset = Upload.objects.all()
+    serializer_class = UploadSerializer
 
 
 @api_view(['GET'])

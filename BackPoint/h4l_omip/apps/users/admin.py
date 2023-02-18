@@ -48,9 +48,11 @@ class UserAdmin(auth_admin.UserAdmin):
     )
     list_display = ["username", 'phone', "name", "is_superuser", "is_staff", "employee_num"]
     search_fields = ["name", "username", "phone"]
-    filter_horizontal = ('groups', 'user_permissions', "user_roles", "user_competences", "user_menus")
+    filter_horizontal = (
+        'groups', 'user_departments', 'user_permissions', "user_roles", "user_competences", "user_menus"
+    )
     readonly_fields = ["last_login", "date_joined"]  # 只读字段
-    autocomplete_fields = ["user_departments"]  # 带有搜索框的外键选择框
+    # autocomplete_fields = ["user_departments"]  # 带有搜索框的外键选择框
 
 
 @admin.register(HISEmployee)

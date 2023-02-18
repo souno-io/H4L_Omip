@@ -6,4 +6,6 @@ from .models import UserProfile
 class UserProfileFilter(H4LFilter):
     class Meta:
         model = UserProfile
-        fields = ['update_datetime', 'create_datetime', 'is_active', 'user_departments', 'user_roles']
+        fields = [
+            'username', 'name', 'update_datetime', 'create_datetime', 'is_active', 'user_departments', 'user_roles'
+        ]

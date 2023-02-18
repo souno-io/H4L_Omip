@@ -22,7 +22,7 @@ User = get_user_model()
 class UserViewSet(ModelViewSet):
     serializer_class = UserProfileSerializer
     queryset = User.objects.all()
-    lookup_field = "username"
+    # lookup_field = "username"
     pagination_class = H4LPageNumberPagination
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filterset_class = UserProfileFilter
@@ -89,8 +89,10 @@ class UserViewSet(ModelViewSet):
                 "user_id": str(request.user.id),
                 "username": str(request.user.username),
                 "name": str(request.user.name),
-                "department": str(request.user.user_departments.code),
-                "avatar": request.build_absolute_uri(request.user.avatar.url)
+                "department": list(request.user.user_departments.values_list('label', flat=True)),
+                # "department": str(request.user.user_departments.code),
+                # "avatar": request.build_absolute_uri(request.user.avatar.url)
+                "avatar": request.user.avatar
             }
         }
         return Response(
@@ -120,7 +122,7 @@ class UserViewSet(ModelViewSet):
             if new_password == replay_password:
                 if check_password(old_password, user.password):
                     user.set_password(new_password)
-                    user.save()  ##如果用户名、原密码匹配则更新密码
+                    user.save()  # 如果用户名、原密码匹配则更新密码
                     info = {'code': 200, 'message': '密码修改成功!，请重新登录！'}
                 else:
                     info = {'code': 204, 'message': '修改密码失败，请检查原密码是否输入正确!'}

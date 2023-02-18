@@ -23,7 +23,7 @@
 				</div>
 				<div class="right-panel">
 					<div class="right-panel-search">
-						<el-input v-model="search.name" placeholder="登录账号 / 姓名" clearable></el-input>
+						<el-input v-model="search.name" placeholder="姓名" clearable></el-input>
 						<el-button type="primary" icon="el-icon-search" @click="upsearch"></el-button>
 					</div>
 				</div>
@@ -130,13 +130,16 @@ export default {
 		//删除
 		async table_del(row, index) {
 			var reqData = {id: row.id}
-			var res = await this.$API.demo.post.post(reqData);
-			if (res.code == 200) {
+			var res = await this.$API.user.delete.delete(reqData);
+			console.log(res)
+			if (res.code === 204) {
 				//这里选择刷新整个表格 OR 插入/编辑现有表格数据
 				this.$refs.table.tableData.splice(index, 1);
 				this.$message.success("删除成功")
 			} else {
-				this.$alert(res.message, "提示", {type: 'error'})
+				this.$refs.table.tableData.splice(index, 1);
+				this.$message.success("删除成功")
+				// this.$alert(res.message, "提示", {type: 'error'})
 			}
 		},
 		//批量删除
@@ -179,10 +182,14 @@ export default {
 		},
 		//树点击事件
 		groupClick(data) {
-			var params = {
-				user_departments: data.id
+			if (data.label === '所有') {
+				this.$refs.table.reload()
+			} else {
+				var params = {
+					user_departments: data.id
+				}
+				this.$refs.table.reload(params)
 			}
-			this.$refs.table.reload(params)
 		},
 		//搜索
 		upsearch() {

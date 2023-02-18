@@ -252,10 +252,10 @@ class CompetenceMixin(H4LBaseModel):
         related_name="user_competences",
         related_query_name="user",
     )
-    user_departments = models.ForeignKey(
+    user_departments = models.ManyToManyField(
         'system.Department',
         null=True,
-        verbose_name=_('Departments'),
+        verbose_name=_('科室'),
         blank=True,
         help_text=_(
             'The Departments this user belongs to. A user will get all permissions '
@@ -263,7 +263,6 @@ class CompetenceMixin(H4LBaseModel):
         ),
         related_name="user_departments",
         related_query_name="user",
-        on_delete=models.CASCADE
     )
 
     class Meta:
@@ -339,8 +338,8 @@ class UserProfile(AbstractUser, CompetenceMixin, HISMixin):
         _('身份证号'), max_length=30, unique=True, blank=True, null=True, default=None,
         help_text=_('身份证号码')
     )
-    avatar = models.ImageField(
-        _('头像'), upload_to=path_and_rename, blank=True, null=True, unique=False,
+    avatar = models.CharField(
+        _('头像'), blank=True, null=True, unique=False, max_length=1024,
         default='avatar/default.png', help_text=_('个人资料图片')
     )
     email = models.EmailField(
