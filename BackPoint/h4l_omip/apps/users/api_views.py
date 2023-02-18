@@ -74,7 +74,7 @@ class UserViewSet(ModelViewSet):
         """
         ability = []
         for i in request.user.get_all_menus():
-            for j in i.competence_menu.all().values_list('code', flat=True):
+            for j in i.competence_menu.all().values_list('name', flat=True):
                 ability.append(str(j) + ':' + str(i.name))
         print(request.user.get_all_menus())
         result = {

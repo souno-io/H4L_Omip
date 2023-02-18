@@ -5,7 +5,7 @@ from rest_framework_sso.views import obtain_authorization_token
 
 from common.authentication import H4LObtainSessionTokenView
 from system.api_views import menu as system_menu, MenuViewSet, RoleViewSet, DepartmentViewSet, PeriodicTaskViewSet, \
-    UploadViewset
+    UploadViewset,MenuListViewSet
 from .api_views import SystemConfigViewSet, site_status
 
 app_name = "system"
@@ -17,6 +17,7 @@ else:
 
 router.register("config", SystemConfigViewSet)
 router.register("router", MenuViewSet)
+router.register("router_list", MenuListViewSet)
 router.register("roles", RoleViewSet)
 router.register("depart", DepartmentViewSet)
 router.register("tasks", PeriodicTaskViewSet)

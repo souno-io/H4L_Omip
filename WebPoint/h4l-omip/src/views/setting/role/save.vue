@@ -1,6 +1,6 @@
 <template>
 	<el-dialog :title="titleMap[mode]" v-model="visible" :width="500" destroy-on-close @closed="$emit('closed')">
-		<el-form :model="form" :rules="rules" :disabled="mode=='show'" ref="dialogForm" label-width="100px" label-position="left">
+		<el-form :model="form" :rules="rules" :disabled="mode==='show'" ref="dialogForm" label-width="100px" label-position="left">
 			<el-form-item label="角色名称" prop="label">
 				<el-input v-model="form.label" clearable></el-input>
 			</el-form-item>
@@ -8,10 +8,10 @@
 				<el-input v-model="form.alias" clearable></el-input>
 			</el-form-item>
 			<el-form-item label="排序" prop="sort">
-				<el-input-number v-model="form.sort" controls-position="right" :min="1" style="width: 100%;"></el-input-number>
+				<el-input-number v-model="form.sort" controls-position="right" :min="0" style="width: 100%;"></el-input-number>
 			</el-form-item>
-			<el-form-item label="是否有效" prop="status">
-				<el-switch v-model="form.status" active-value="1" inactive-value="0"></el-switch>
+			<el-form-item label="是否有效" prop="is_active">
+				<el-switch v-model="form.is_active" :active-value="true" :inactive-value="false"></el-switch>
 			</el-form-item>
 			<el-form-item label="备注" prop="remark">
 				<el-input v-model="form.remark" clearable type="textarea"></el-input>
@@ -19,7 +19,7 @@
 		</el-form>
 		<template #footer>
 			<el-button @click="visible=false" >取 消</el-button>
-			<el-button v-if="mode!='show'" type="primary" :loading="isSaveing" @click="submit()">保 存</el-button>
+			<el-button v-if="mode!=='show'" type="primary" :loading="isSaveing" @click="submit()">保 存</el-button>
 		</template>
 	</el-dialog>
 </template>
@@ -43,13 +43,16 @@
 					label: "",
 					alias: "",
 					sort: 1,
-					status: 1,
+					is_active: 1,
 					remark: ""
 				},
 				//验证规则
 				rules: {
 					sort: [
 						{required: true, message: '请输入排序', trigger: 'change'}
+					],
+					code: [
+						{required: true, message: '请输入角色代码'}
 					],
 					label: [
 						{required: true, message: '请输入角色名称'}
@@ -73,11 +76,20 @@
 			//表单提交方法
 			submit(){
 				this.$refs.dialogForm.validate(async (valid) => {
+					let res;
 					if (valid) {
 						this.isSaveing = true;
-						var res = await this.$API.demo.post.post(this.form);
+						if(this.mode==='add'){
+							// eslint-disable-next-line no-redeclare
+							res = await this.$API.role.add.post(this.form);
+						} else {
+							// eslint-disable-next-line no-redeclare
+							res = await this.$API.role.edit.patch(this.form);
+						}
+
 						this.isSaveing = false;
-						if(res.code == 200){
+						console.log(res)
+						if(res.code === 200 || res.code === 201){
 							this.$emit('success', this.form, this.mode)
 							this.visible = false;
 							this.$message.success("操作成功")
@@ -89,15 +101,15 @@
 			},
 			//表单注入数据
 			setData(data){
-				this.form.id = data.id
-				this.form.label = data.label
-				this.form.alias = data.alias
-				this.form.sort = data.sort
-				this.form.status = data.status
-				this.form.remark = data.remark
+				// this.form.id = data.id
+				// this.form.label = data.label
+				// this.form.alias = data.alias
+				// this.form.sort = data.sort
+				// this.form.status = data.status
+				// this.form.remark = data.remark
 
 				//可以和上面一样单个注入，也可以像下面一样直接合并进去
-				//Object.assign(this.form, data)
+				Object.assign(this.form, data)
 			}
 		}
 	}

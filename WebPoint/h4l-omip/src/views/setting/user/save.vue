@@ -144,14 +144,15 @@ export default {
 		//表单提交方法
 		submit() {
 			this.$refs.dialogForm.validate(async (valid) => {
+				let res;
 				if (valid) {
 					this.isSaveing = true;
 					if (this.mode === 'add') {
 						// eslint-disable-next-line no-redeclare
-						var res = await this.$API.user.add.post(this.form);
+						res = await this.$API.user.add.post(this.form);
 					} else {
 						// eslint-disable-next-line no-redeclare
-						var res = await this.$API.user.edit.patch(this.form);
+						res = await this.$API.user.edit.patch(this.form);
 					}
 					this.isSaveing = false;
 					if (res.code === 200 || res.code === 201) {

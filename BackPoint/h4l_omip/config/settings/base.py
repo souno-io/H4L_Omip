@@ -379,6 +379,7 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'common.exception.custom_exception_handler',
     # 修改默认返回JSON的renderer的类
     'DEFAULT_RENDERER_CLASSES': (
+        # 'rest_framework.renderers.JSONRenderer',
         'common.rendererresponse_scui.CustomRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),

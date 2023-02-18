@@ -65,21 +65,21 @@
 				</el-form>
 
 			</el-col>
-			<el-col :lg="12" class="apilist">
-				<h2>接口权限</h2>
-				<sc-form-table v-model="form.apiList" :addTemplate="apiListAddTemplate" placeholder="暂无匹配接口权限">
-					<el-table-column prop="code" label="标识" width="150">
-						<template #default="scope">
-							<el-input v-model="scope.row.code" placeholder="请输入内容"></el-input>
-						</template>
-					</el-table-column>
-					<el-table-column prop="url" label="Api url">
-						<template #default="scope">
-							<el-input v-model="scope.row.url" placeholder="请输入内容"></el-input>
-						</template>
-					</el-table-column>
-				</sc-form-table>
-			</el-col>
+<!--			<el-col :lg="12" class="apilist">-->
+<!--				<h2>接口权限</h2>-->
+<!--				<sc-form-table v-model="form.apiList" :addTemplate="apiListAddTemplate" placeholder="暂无匹配接口权限">-->
+<!--					<el-table-column prop="code" label="标识" width="150">-->
+<!--						<template #default="scope">-->
+<!--							<el-input v-model="scope.row.code" placeholder="请输入内容"></el-input>-->
+<!--						</template>-->
+<!--					</el-table-column>-->
+<!--					<el-table-column prop="url" label="Api url">-->
+<!--						<template #default="scope">-->
+<!--							<el-input v-model="scope.row.url" placeholder="请输入内容"></el-input>-->
+<!--						</template>-->
+<!--					</el-table-column>-->
+<!--				</sc-form-table>-->
+<!--			</el-col>-->
 		</template>
 	</el-row>
 
@@ -113,7 +113,7 @@
 						fullpage: false,
 						tag: "",
 					},
-					apiList: []
+					// apiList: []
 				},
 				menuOptions: [],
 				menuProps: {
@@ -167,9 +167,9 @@
 			//保存
 			async save(){
 				this.loading = true
-				var res = await this.$API.demo.post.post(this.form)
+				var res = await this.$API.router.edit.patch(this.form)
 				this.loading = false
-				if(res.code == 200){
+				if(res.code === 201){
 					this.$message.success("保存成功")
 				}else{
 					this.$message.warning(res.message)

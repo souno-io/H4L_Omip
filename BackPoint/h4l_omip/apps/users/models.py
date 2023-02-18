@@ -254,9 +254,7 @@ class CompetenceMixin(H4LBaseModel):
     )
     user_departments = models.ManyToManyField(
         'system.Department',
-        null=True,
         verbose_name=_('科室'),
-        blank=True,
         help_text=_(
             'The Departments this user belongs to. A user will get all permissions '
             'granted to each of their Departments.'

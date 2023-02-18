@@ -5,10 +5,6 @@ from .models import SystemConfig, UploadFile, Menu, Role, Department, Upload
 from django_celery_beat.models import PeriodicTask, CrontabSchedule
 
 
-# class NoticeSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Notice
-#         fields = "__all__"
 class CrontabScheduleSerializer(serializers.ModelSerializer):
     ruler = serializers.SerializerMethodField()
 
@@ -38,9 +34,7 @@ class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
         # fields = ('codename',)
-        fields = [
-            'id', 'label', 'parentId', 'remark', 'is_active', 'create_datetime', 'update_datetime', 'children'
-        ]
+        fields = "__all__"
 
 
 class SystemConfigSerializer(serializers.ModelSerializer):
@@ -81,6 +75,28 @@ class MenuMetaSerializer(serializers.ModelSerializer):
             # 'levelHidden', 'noKeepAlive', 'badge', 'tabHidden',
             # 'activeMenu', 'noClosable', 'dot', 'dynamicNewTab'
         ]
+
+
+class MenuListSerializer(serializers.ModelSerializer):
+    update_datetime = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S', required=False,
+                                                input_formats=['%Y-%m-%d %H:%M:%S'])
+    create_datetime = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S', required=False,
+                                                input_formats=['%Y-%m-%d %H:%M:%S'])
+    meta = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Menu
+        fields = [
+            'id', 'name', 'path', 'component', 'redirect', 'seq',
+            'meta', 'children', 'create_datetime', 'update_datetime',
+        ]
+
+    def get_meta(self, obj):
+        meta = Menu.objects.filter(id=obj.id)
+        if meta is not None and len(meta) > 0:
+            return MenuMetaSerializer(meta[0]).data
+        else:
+            return ""
 
 
 class MenuSerializer(serializers.ModelSerializer):
@@ -127,8 +143,8 @@ class RoleSerializer(serializers.ModelSerializer):
                                                 input_formats=['%Y-%m-%d %H:%M:%S'])
     create_datetime = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S', required=False,
                                                 input_formats=['%Y-%m-%d %H:%M:%S'])
-    competences = serializers.StringRelatedField(many=True)
-    menus = serializers.StringRelatedField(many=True)
+    competences = serializers.StringRelatedField(many=True, read_only=True)
+    menus = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Role

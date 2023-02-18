@@ -27,7 +27,6 @@ class Competence(H4LBaseModel):
     """
     权限表
     """
-    code = models.CharField(_('codename'), max_length=100, unique=True, null=False, blank=False)
     name = models.CharField(_('name'), max_length=255, unique=True, null=False, blank=False)
     menu = models.ForeignKey(
         'Menu',
@@ -49,14 +48,14 @@ class Competence(H4LBaseModel):
     class Meta:
         verbose_name = _('权限')
         verbose_name_plural = _('权限')
-        unique_together = [['name', 'code']]
-        ordering = ['name', 'code']
+        unique_together = [['name']]
+        ordering = ['name']
 
     def __str__(self):
         if self.menu is not None:
-            return '%s:%s' % (self.code, self.menu.name)
+            return '%s:%s' % (self.name, self.menu.name)
         else:
-            return '%s:%s' % (self.code, None)
+            return '%s:%s' % (self.name, None)
 
 
 class ConnectionPoolManager(models.Manager):
@@ -285,7 +284,6 @@ class SystemLogs(H4LBaseModel):
 
 
 class Dictionary(H4LBaseModel):
-    code = models.CharField(max_length=100, blank=True, null=True, verbose_name="编码", help_text="编码")
     label = models.CharField(max_length=100, blank=True, null=True, verbose_name="显示名称", help_text="显示名称")
     value = models.CharField(max_length=100, blank=True, null=True, verbose_name="实际值", help_text="实际值")
     parent = models.ForeignKey(
@@ -400,19 +398,18 @@ class Menu(MPTTModel, H4LBaseModel, TimeStampedModel):
 
 
 class Role(H4LBaseModel):
-    code = models.CharField(_('code'), max_length=100, null=False, blank=False, help_text=_('角色代码'))
     label = models.CharField(_('角色名'), max_length=255, null=False, blank=False, help_text=_('角色名称'))
+    alias = models.CharField(_('别名'), max_length=255, null=True, blank=True, help_text=_('别名'))
+    sort = models.IntegerField(_('排序'), null=False, blank=False, default=0, help_text=_('排序'))
     menus = models.ManyToManyField(
         'Menu',
         verbose_name=_('菜单'),
-        blank=True,
         related_name="role_menus",
         related_query_name="role",
     )
     competences = models.ManyToManyField(
         'Competence',
         verbose_name=_('权限'),
-        blank=True,
         related_name="role_competences",
         related_query_name="role",
     )
@@ -424,12 +421,12 @@ class Role(H4LBaseModel):
     class Meta:
         verbose_name = "角色"
         verbose_name_plural = verbose_name
-        ordering = ['label', 'code']
+        ordering = ['-sort']
 
 
 class Department(MPTTModel, H4LBaseModel, TimeStampedModel):
     label = models.CharField(_('部门名称'), max_length=100, null=False, blank=False, help_text=_('部门名称'))
-    code = models.CharField(_("部门代码"), max_length=50, null=False, blank=False, help_text=_('部门代码'))
+    sort = models.IntegerField(_('排序'), null=False, blank=False, default=0, help_text=_('排序'))
     parentId = TreeForeignKey("self", verbose_name=_('上级部门'), null=True, blank=True, related_name='children',
                               on_delete=models.CASCADE)
     menus = models.ManyToManyField(
@@ -452,7 +449,7 @@ class Department(MPTTModel, H4LBaseModel, TimeStampedModel):
     class Meta:
         verbose_name = "科室"
         verbose_name_plural = verbose_name
-        ordering = ['label', 'code']
+        ordering = ['-sort']
 
     class MPTTMeta:
         parent_attr = 'parentId'

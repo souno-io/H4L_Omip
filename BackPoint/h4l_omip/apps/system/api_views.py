@@ -11,7 +11,8 @@ from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
 from .icon_list import ICON_LIST
 from .models import SystemConfig, UploadFile, Role, Menu, Department, Upload
-from .serializers import SystemConfigSerializer, UploadFileSerializer, RoleSerializer, MenuSerializer, UploadSerializer
+from .serializers import SystemConfigSerializer, UploadFileSerializer, RoleSerializer, MenuSerializer, UploadSerializer, \
+    MenuListSerializer
 from .serializers import SimpleMenuSerializer, DepartmentSerializer, PeriodicTaskSerializer
 from django_celery_beat.models import PeriodicTask
 
@@ -22,38 +23,6 @@ class PeriodicTaskViewSet(ModelViewSet):
     """
     serializer_class = PeriodicTaskSerializer
     queryset = PeriodicTask.objects.all()
-
-
-# class NoticeViewSet(viewsets.ModelViewSet):
-#     """
-#     通知消息主接口
-#     """
-#     queryset = Notice.objects.all()
-#     serializer_class = NoticeSerializer
-#
-#     # lookup_field = "report_code"
-#
-#     @action(detail=False, methods=["GET"])
-#     def user_notice(self, request):
-#         """
-#         :param request: title:请求用户通知
-#         :return: GET:接受的所有title值，POST：具体的数据
-#         """
-#         if request.method == "GET":
-#             notice = list(Notice.objects.filter(deadline__gte=datetime.date.today()))
-#             notice_list = []
-#             for p in notice:
-#                 notice_list.append(
-#                     {'email': p.email, "image": request.build_absolute_uri(p.image.url), "notice": p.notice})
-#             data = {
-#                 "code": 200,
-#                 "message": "success",
-#                 "info": {
-#                     'list': notice_list,
-#                     'total': len(notice_list),
-#                 }
-#             }
-#             return Response(status=status.HTTP_200_OK, data=data)
 
 
 class SystemConfigViewSet(viewsets.ModelViewSet):
@@ -109,10 +78,11 @@ class UploadFileAPIView(APIView):
     # def post(self, request, pk):
 
 
-class RoleViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+class RoleViewSet(viewsets.ModelViewSet):
     serializer_class = RoleSerializer
     queryset = Role.objects.all()
-    lookup_field = "code"
+
+    # lookup_field = "code"
 
     # @action(detail=False, methods=["GET"])
     # def get_list(self, request):
@@ -191,6 +161,14 @@ class MenuViewSet(ModelViewSet):
         queryset = self.get_queryset()
         serializer = SimpleMenuSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class MenuListViewSet(ModelViewSet):
+    """
+    菜单视图
+    """
+    serializer_class = MenuListSerializer
+    queryset = Menu.objects.all()
 
 
 class DepartmentViewSet(ModelViewSet):

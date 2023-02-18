@@ -1,7 +1,7 @@
 import pytest
 
-from h4l_omip.users.models import User
-from h4l_omip.users.tests.factories import UserFactory
+from users.models import UserProfile
+from users.tests.factories import UserFactory
 
 
 @pytest.fixture(autouse=True)
@@ -10,5 +10,5 @@ def media_storage(settings, tmpdir):
 
 
 @pytest.fixture
-def user(db) -> User:
+def user(db) -> UserProfile:
     return UserFactory()

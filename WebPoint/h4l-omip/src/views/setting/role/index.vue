@@ -20,12 +20,12 @@
 				<el-table-column label="角色名称" prop="label" width="150"></el-table-column>
 				<el-table-column label="别名" prop="alias" width="200"></el-table-column>
 				<el-table-column label="排序" prop="sort" width="80"></el-table-column>
-				<el-table-column label="状态" prop="status" width="80">
+				<el-table-column label="状态" prop="is_active" width="80">
 					<template #default="scope">
-						<el-switch v-model="scope.row.status" @change="changeSwitch($event, scope.row)" :loading="scope.row.$switch_status" active-value="1" inactive-value="0"></el-switch>
+						<el-switch v-model="scope.row.is_active" @change="changeSwitch($event, scope.row)" :loading="scope.row.$switch_status" :active-value="true" :inactive-value="false"></el-switch>
 					</template>
 				</el-table-column>
-				<el-table-column label="创建时间" prop="date" width="180"></el-table-column>
+				<el-table-column label="创建时间" prop="create_datetime" width="180"></el-table-column>
 				<el-table-column label="备注" prop="remark" min-width="150"></el-table-column>
 				<el-table-column label="操作" fixed="right" align="right" width="170">
 					<template #default="scope">
@@ -106,8 +106,8 @@
 			//删除
 			async table_del(row){
 				var reqData = {id: row.id}
-				var res = await this.$API.demo.post.post(reqData);
-				if(res.code == 200){
+				var res = await this.$API.role.delete.delete(reqData);
+				if(res.code === 204){
 					this.$refs.table.refresh()
 					this.$message.success("删除成功")
 				}else{
