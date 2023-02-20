@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+# 创建一个主页视图
+def manage(request):
+    return render(request, "manage/index.html")
