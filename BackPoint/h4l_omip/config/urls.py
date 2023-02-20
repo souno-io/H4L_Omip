@@ -24,7 +24,7 @@ except Exception as e:
     pass
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    # path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
@@ -32,7 +32,8 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("users.urls", namespace="users")),
-    path("system/", include("system.urls", namespace="system")),
+    # path("system/", include("system.urls", namespace="system")),
+    path("", include("system.urls", namespace="system")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

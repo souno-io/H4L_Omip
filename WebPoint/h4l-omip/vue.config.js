@@ -11,7 +11,7 @@ module.exports = defineConfig({
 	// build编译后不生成资源MAP文件
 	productionSourceMap: false,
 
-	//开发服务,build后的生产模式还需nginx代理
+	// 开发服务,build后的生产模式还需nginx代理
 	devServer: {
         allowedHosts: 'all',
 		open: false, //运行后自动打开浏览器
