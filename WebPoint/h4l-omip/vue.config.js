@@ -5,9 +5,9 @@ module.exports = defineConfig({
 	publicPath:'',
 	//build编译后存放静态文件的目录
 	//生产环境构建文件的目录名
-	outputDir: process.env.NODE_ENV === 'production' ? '../../BackPoint/h4l_omip/templates/manage' : 'dist', //打包配置
+	outputDir: process.env.NODE_ENV === 'production' ? '../../BackPoint/h4l_omip/templates/system' : 'dist', //打包配置
 	//build编译后存放静态文件的目录
-	assetsDir: process.env.NODE_ENV === 'production' ? '../../static/manage' : 'static',
+	assetsDir: process.env.NODE_ENV === 'production' ? '../../static/system' : 'static',
 	// build编译后不生成资源MAP文件
 	productionSourceMap: false,
 
