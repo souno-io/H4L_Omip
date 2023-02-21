@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunksystem"]=self["webpackChunksystem"]||[]).push([[9978],{9978:function(e,n,r){r.r(n),r.d(n,{default:function(){return f}});var t=r(6252);function u(e,n){const r=(0,t.up)("router-view");return(0,t.wg)(),(0,t.j4)(r)}var s=r(3744);const c={},a=(0,s.Z)(c,[["render",u]]);var f=a}}]);

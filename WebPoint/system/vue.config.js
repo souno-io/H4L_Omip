@@ -5,12 +5,12 @@ module.exports = defineConfig({
 	publicPath: process.env.NODE_ENV === 'production' ? '/static/system' : '',
 	//build编译后存放静态文件的目录
 	//生产环境构建文件的目录名
-	outputDir: process.env.NODE_ENV === 'production' ? '../../BackPoint/h4l_omip/templates/system' : 'dist', //打包配置
+	outputDir: process.env.NODE_ENV === 'production' ? '../../BackPoint/h4l_omip/static/system' : 'dist', //打包配置
 	//build编译后存放静态文件的目录
 	// assetsDir: process.env.NODE_ENV === 'production' ? '../../static/system' : 'static',
 	// build编译后不生成资源MAP文件
 	productionSourceMap: false,
-	indexPath: process.env.NODE_ENV === 'production' ? '../../BackPoint/h4l_omip/templates/system/index.html' : 'index.html',
+	indexPath: process.env.NODE_ENV === 'production' ? '../../templates/system/index.html' : 'index.html',
 
 	// 开发服务,build后的生产模式还需nginx代理
 	devServer: {

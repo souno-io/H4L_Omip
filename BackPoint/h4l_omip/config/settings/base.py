@@ -371,7 +371,7 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_sso.authentication.JWTAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
+        # "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
         # 'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
         # 'oauth2_provider_jwt.authentication.JWTAuthentication',

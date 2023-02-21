@@ -2,7 +2,7 @@
 	<el-card shadow="hover" header="欢迎">
 		<div class="welcome">
 			<div class="logo">
-				<img src="img/logo.png">
+				<img src="~@/assets/img/logo.png">
 				<h2>欢迎体验 H4L</h2>
 			</div>
 			<div class="tips">
