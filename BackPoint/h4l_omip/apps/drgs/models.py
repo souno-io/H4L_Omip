@@ -47,7 +47,7 @@ class SingleDisease(H4LBaseModel):
         _('最小年龄'), null=False, blank=False, default=0, help_text=_('最小年龄:0')
     )
     max_age = models.IntegerField(
-        _('最大年龄'), null=False, blank=False, default=0, help_text=_('最小年龄:0,0为不限制最大年龄')
+        _('最大年龄'), null=False, blank=False, default=0, help_text=_('最大年龄:0,0为不限制最大年龄')
     )
     sort = models.IntegerField(_('排序顺序'), null=True, blank=True, help_text=_('排序顺序'))
     remark = models.TextField(_('备注'), null=True, blank=True, help_text=_("备注:微模块1等"))
@@ -67,22 +67,31 @@ class SingleDisease(H4LBaseModel):
         print(Template(BASE_SQL).safe_substitute(start_date=start_date, end_date=end_date))
         sql = Template(BASE_SQL).safe_substitute(start_date=start_date, end_date=end_date)
         if self.primary_diagnostic_code:
-            sql = sql + f"where SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.primary_diagnostic_code})"
+            sql = sql + f"where SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.primary_diagnostic_code})\n"
             print(sql)
         if self.second_diagnostic_code:
-            sql = sql + f" or SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.second_diagnostic_code})"
+            sql = sql + f" or SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.second_diagnostic_code})\n"
             print(sql)
         if all([self.special_primary_diagnostic, self.special_second_diagnostic]):
-            sql = sql + f" or (SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.special_primary_diagnostic}) and SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.special_second_diagnostic}))"
+            sql = sql + f" or (SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.special_primary_diagnostic}) and " \
+                        f"SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.special_second_diagnostic}))\n"
             print(sql)
         if self.primary_diagnostic_code is None and self.main_surgical_code is not None:
-            sql = sql + f"where SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})"
+            sql = sql + f"where SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})\n"
             print(sql)
         elif all([self.primary_diagnostic_code, self.main_surgical_code]):
-            sql = sql + f" and SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})"
+            sql = sql + f" and SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})\n"
             print(sql)
         else:
             pass
+        if self.is_adult:
+            if self.max_age == 0:
+                sql = sql + f" and 年龄>={self.min_age}"
+            else:
+                sql = sql + f" and {self.min_age}=<年龄<={self.max_age}"
+            print(sql)
+        sql = sql + " order by 住院号码"
+        print(sql)
 
 
 class StaResults(H4LBaseModel):
