@@ -19,6 +19,7 @@ urlpatterns = [
     path('authorize/', obtain_authorization_token),
     path('users/', include("users.api_urls")),
     path('system/', include("system.api_urls")),
+    path('drgs/', include("drgs.api_urls")),
     path('itam/', include("itam.api_urls")),
 ] + router.urls
 

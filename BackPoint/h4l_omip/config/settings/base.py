@@ -93,6 +93,7 @@ LOCAL_APPS = [
     "users",
     "system",
     "itam",
+    "drgs",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -371,8 +372,8 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_sso.authentication.JWTAuthentication",
-        # "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
         # 'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
         # 'oauth2_provider_jwt.authentication.JWTAuthentication',
     ),
