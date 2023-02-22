@@ -1,1 +1,47 @@
 {% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="container">
+
+    <h4 id="normal-cards" style="margin-top:30px;">可提供的系统功能</h4>
+    <br>
+    <div class="row">
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card">
+          <img class="card-img-top" style="height: 200px" src="{% static 'images/system.jpg' %}"
+               alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">系统设置</h4>
+            <p class="card-text">系统设置子系统是一个允许用户配置和调整计算机操作系统的各种设置和选项的集合。</p>
+            <a href="/system" class="btn btn-primary">点击进入系统</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card">
+          <img class="card-img-top" style="height: 200px" src="{% static 'images/itam.png' %}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">信息资产管理</h4>
+            <p class="card-text">用于支持信息资产管理的全生命周期，包括资产识别、分类、评估、保护、监视和报告等方面。</p>
+            <a href="#" class="btn btn-danger disabled">功能关闭中</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="card">
+          <img class="card-img-top" style="height: 200px" src="{% static 'images/kpi.png' %}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">三级公立医院绩效考核</h4>
+            <p class="card-text">多维指标和定量评估方法的管理工具，用于对医院综合运营能力、医疗质量和服务水平进行评估。</p>
+            <a href="#" class="btn btn-danger disabled">功能关闭中</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- .row -->
+{% endblock content %}
