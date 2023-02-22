@@ -64,32 +64,26 @@ class SingleDisease(H4LBaseModel):
         # 判断必须参数是否已给出
         if not all([start_date, end_date]):
             raise Exception('start_date 和 end_date 必须提供！')
-        print(Template(BASE_SQL).safe_substitute(start_date=start_date, end_date=end_date))
+        # 循环拼接sql语句
         sql = Template(BASE_SQL).safe_substitute(start_date=start_date, end_date=end_date)
         if self.primary_diagnostic_code:
             sql = sql + f"where SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.primary_diagnostic_code})\n"
-            print(sql)
         if self.second_diagnostic_code:
             sql = sql + f" or SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.second_diagnostic_code})\n"
-            print(sql)
         if all([self.special_primary_diagnostic, self.special_second_diagnostic]):
             sql = sql + f" or (SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.special_primary_diagnostic}) and " \
                         f"SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.special_second_diagnostic}))\n"
-            print(sql)
         if self.primary_diagnostic_code is None and self.main_surgical_code is not None:
             sql = sql + f"where SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})\n"
-            print(sql)
         elif all([self.primary_diagnostic_code, self.main_surgical_code]):
             sql = sql + f" and SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})\n"
-            print(sql)
         else:
             pass
         if self.is_adult:
             if self.max_age == 0:
-                sql = sql + f" and 年龄>={self.min_age}"
+                sql = sql + f" and 年龄>={self.min_age}\n"
             else:
-                sql = sql + f" and {self.min_age}=<年龄<={self.max_age}"
-            print(sql)
+                sql = sql + f" and {self.min_age} =< 年龄 <= {self.max_age}\n"
         sql = sql + " order by 住院号码"
         print(sql)
 
