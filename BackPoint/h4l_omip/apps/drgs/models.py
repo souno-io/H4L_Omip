@@ -87,7 +87,7 @@ class SingleDisease(H4LBaseModel):
             if self.max_age == 0:
                 age_splice = age_splice + f" and 年龄>={self.min_age}\n"
             else:
-                age_splice = age_splice + f" and {self.min_age} =< 年龄 <= {self.max_age}\n"
+                age_splice = age_splice + f" and {self.min_age} =< 年龄 and 年龄 <= {self.max_age}\n"
         print(sql + diag_splice + surg_splice + age_splice + " order by 住院号码")
         return His(sql + diag_splice + surg_splice + age_splice + " order by 住院号码").rows_as_dicts()
 
