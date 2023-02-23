@@ -61,7 +61,6 @@ class SingleDisease(H4LBaseModel):
     def __str__(self):
         return self.label
 
-    @property
     def fetch(self, start_date=None, end_date=None, user=None, background=False):
         # 判断必须参数是否已给出
         if not all([start_date, end_date]):
