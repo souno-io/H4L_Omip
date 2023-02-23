@@ -2,6 +2,7 @@ from string import Template
 
 from django.db import models
 
+from common.his import His
 from common.models import H4LBaseModel
 from django.utils.translation import gettext_lazy as _
 
@@ -60,32 +61,35 @@ class SingleDisease(H4LBaseModel):
     def __str__(self):
         return self.label
 
+    @property
     def fetch(self, start_date=None, end_date=None, user=None, background=False):
         # 判断必须参数是否已给出
         if not all([start_date, end_date]):
             raise Exception('start_date 和 end_date 必须提供！')
         # 循环拼接sql语句
         sql = Template(BASE_SQL).safe_substitute(start_date=start_date, end_date=end_date)
+        diag_splice: str = ""  # 诊断拼接段
+        surg_splice: str = ""  # 手术拼接段
+        age_splice: str = ""  # 手术拼接段
         if self.primary_diagnostic_code:
-            sql = sql + f"where SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.primary_diagnostic_code})\n"
+            diag_splice = f"where SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.primary_diagnostic_code})\n"
         if self.second_diagnostic_code:
-            sql = sql + f" or SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.second_diagnostic_code})\n"
+            diag_splice = diag_splice + f" or SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.second_diagnostic_code})\n"
         if all([self.special_primary_diagnostic, self.special_second_diagnostic]):
-            sql = sql + f" or (SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.special_primary_diagnostic}) and " \
-                        f"SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.special_second_diagnostic}))\n"
+            diag_splice = diag_splice + f" or (SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.special_primary_diagnostic}) and " \
+                                        f"SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.special_second_diagnostic}))\n"
         if self.primary_diagnostic_code is None and self.main_surgical_code is not None:
-            sql = sql + f"where SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})\n"
+            surg_splice = surg_splice + f"where SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})\n"
         elif all([self.primary_diagnostic_code, self.main_surgical_code]):
-            sql = sql + f" and SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})\n"
+            surg_splice = surg_splice + f" and SUBSTR(主要手术操作编码,0,{self.surgical_digits}) in({self.main_surgical_code})\n"
         else:
             pass
         if self.is_adult:
             if self.max_age == 0:
-                sql = sql + f" and 年龄>={self.min_age}\n"
+                age_splice = age_splice + f" and 年龄>={self.min_age}\n"
             else:
-                sql = sql + f" and {self.min_age} =< 年龄 <= {self.max_age}\n"
-        sql = sql + " order by 住院号码"
-        print(sql)
+                age_splice = age_splice + f" and {self.min_age} =< 年龄 <= {self.max_age}\n"
+        return His(sql + diag_splice + surg_splice + age_splice + " order by 住院号码").rows_as_dicts()
 
 
 class StaResults(H4LBaseModel):
