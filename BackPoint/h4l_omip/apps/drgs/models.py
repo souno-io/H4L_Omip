@@ -71,7 +71,7 @@ class SingleDisease(H4LBaseModel):
         surg_splice: str = ""  # 手术拼接段
         age_splice: str = ""  # 手术拼接段
         if self.primary_diagnostic_code:
-            diag_splice = f"where SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.primary_diagnostic_code})\n"
+            diag_splice = f"where (SUBSTR(出院主要诊断编码,0,{self.diagnostic_digits}) in ({self.primary_diagnostic_code}))\n"
         if self.second_diagnostic_code:
             diag_splice = diag_splice + f" or SUBSTR(出院诊断疾病编码1,0,{self.diagnostic_digits}) in ({self.second_diagnostic_code})\n"
         if all([self.special_primary_diagnostic, self.special_second_diagnostic]):
