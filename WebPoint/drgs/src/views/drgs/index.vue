@@ -48,7 +48,7 @@
 			</el-header>
 			<el-main class="nopadding">
 				<scTable ref="table" :apiObj="listApi" row-key="id" :params="listApiParams"
-						 @selection-change="selectionChange"  >
+						 @selection-change="selectionChange" hidePagination>
 					<el-table-column label="住院号码" prop="住院号码" width="150"></el-table-column>
 					<el-table-column label="姓名" prop="姓名" width="150"></el-table-column>
 					<el-table-column label="是否有效" prop="yx" width="100">
