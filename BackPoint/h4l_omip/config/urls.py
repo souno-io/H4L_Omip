@@ -34,6 +34,7 @@ urlpatterns = [
     path("users/", include("users.urls", namespace="users")),
     # path("system/", include("system.urls", namespace="system")),
     path("system/", include("system.urls", namespace="system")),
+    path("drgs/", include("drgs.urls", namespace="drgs")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

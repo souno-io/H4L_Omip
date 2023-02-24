@@ -11,16 +11,8 @@
 							 @node-click="dicClick">
 						<template #default="{node, data}">
 							<span class="custom-tree-node">
-								<span class="label">{{ data.label }}</span>
+								<span class="label">{{ node.label }}</span>
 								<span class="code">{{ data.code }}</span>
-								<span class="do">
-									<el-button-group>
-										<el-button icon="el-icon-edit" size="small"
-												   @click.stop="dicEdit(data)"></el-button>
-										<el-button icon="el-icon-delete" size="small"
-												   @click.stop="dicDel(node, data)"></el-button>
-									</el-button-group>
-								</span>
 							</span>
 						</template>
 					</el-tree>
@@ -43,34 +35,26 @@
 						</el-date-picker>
 					</div>
 					&nbsp;&nbsp;&nbsp;
-					<el-button type="primary" icon="el-icon-search" @click="addInfo"></el-button>
+					<el-button type="primary" icon="el-icon-search" @click="this.$refs.table.refresh()"></el-button>
 				</div>
 			</el-header>
 			<el-main class="nopadding">
 				<scTable ref="table" :apiObj="listApi" row-key="id" :params="listApiParams"
 						 @selection-change="selectionChange" hidePagination>
-					<el-table-column label="住院号码" prop="住院号码" width="150"></el-table-column>
-					<el-table-column label="姓名" prop="姓名" width="150"></el-table-column>
-					<el-table-column label="是否有效" prop="yx" width="100">
-						<template #default="scope">
-							<el-switch v-model="scope.row.yx" @change="changeSwitch($event, scope.row)"
-									   :loading="scope.row.$switch_yx" active-value="1" inactive-value="0"></el-switch>
-						</template>
-					</el-table-column>
-					<el-table-column label="操作" fixed="right" align="right" width="120">
-						<template #default="scope">
-							<el-button-group>
-								<el-button text type="primary" size="small"
-										   @click="table_edit(scope.row, scope.$index)">编辑
-								</el-button>
-								<el-popconfirm title="确定删除吗？" @confirm="table_del(scope.row, scope.$index)">
-									<template #reference>
-										<el-button text type="primary" size="small">删除</el-button>
-									</template>
-								</el-popconfirm>
-							</el-button-group>
-						</template>
-					</el-table-column>
+					<el-table-column label="住院号码" prop="住院号码" width="85"></el-table-column>
+					<el-table-column label="姓名" prop="姓名" width="80"></el-table-column>
+					<el-table-column label="身份证号" prop="身份证号" width="155"></el-table-column>
+					<el-table-column label="年龄" prop="年龄" width="60"></el-table-column>
+					<el-table-column label="入院科别" prop="入院科别" width="150"></el-table-column>
+					<el-table-column label="出院主要诊断编码" prop="出院主要诊断编码" width="100"></el-table-column>
+					<el-table-column label="出院主要诊断名称" prop="出院主要诊断名称" width="150"></el-table-column>
+					<el-table-column label="出院诊断疾病编码1" prop="出院诊断疾病编码1" width="100"></el-table-column>
+					<el-table-column label="出院诊断其他诊断1" prop="出院诊断其他诊断1" width="150"></el-table-column>
+					<el-table-column label="主要手术操作编码" prop="主要手术操作编码" width="100"></el-table-column>
+					<el-table-column label="主要手术操作名称" prop="主要手术操作名称" width="150"></el-table-column>
+					<el-table-column label="住院天数" prop="住院天数" width="60"></el-table-column>
+					<el-table-column label="总费用" prop="总费用" width="100"></el-table-column>
+					<el-table-column label="离院方式" prop="离院方式" width="60"></el-table-column>
 				</scTable>
 			</el-main>
 		</el-container>
@@ -86,7 +70,6 @@
 <script>
 import dicDialog from './dic'
 import listDialog from './list'
-import Sortable from 'sortablejs'
 
 export default {
 	name: 'drgs',
@@ -118,10 +101,27 @@ export default {
 		}
 	},
 	mounted() {
+		this.data_range = [this.getFirstDay(), this.getLastDay()]
 		this.getDic()
-		this.rowDrop()
 	},
 	methods: {
+		getFirstDay() {
+			//当前月第一天
+			const y = new Date().getFullYear(); //获取年份
+			let m = new Date().getMonth() + 1; //获取月份
+			const d = "01";
+			m = m < 10 ? "0" + m : m; //月份补 0
+			return [y, m, d].join("-");
+		},
+		getLastDay() {
+			//当前月最后一天
+			const y = new Date().getFullYear(); //获取年份
+			let m = new Date().getMonth() + 1; //获取月份
+			let d = new Date(y, m, 0).getDate(); //获取当月最后一日
+			m = m < 10 ? "0" + m : m; //月份补 0
+			d = d < 10 ? "0" + d : d; //日数补 0
+			return [y, m, d].join("-");
+		},
 		//加载树数据
 		async getDic() {
 			var res = await this.$API.drgs.list.get();
@@ -147,23 +147,7 @@ export default {
 			var targetText = data.name + data.code;
 			return targetText.indexOf(value) !== -1;
 		},
-		//树增加
-		addDic() {
-			this.dialog.dic = true
-			this.$nextTick(() => {
-				this.$refs.dicDialog.open()
-			})
-		},
-		//编辑树
-		dicEdit(data) {
-			this.dialog.dic = true
-			this.$nextTick(() => {
-				var editNode = this.$refs.dic.getNode(data.id);
-				var editNodeParentId = editNode.level == 1 ? undefined : editNode.parent.data.id
-				data.parentId = editNodeParentId
-				this.$refs.dicDialog.open('edit').setData(data)
-			})
-		},
+
 		//树点击事件
 		dicClick(data) {
 			this.$refs.table.reload({
@@ -172,170 +156,6 @@ export default {
 				end_date: this.data_range[1],
 			})
 		},
-		//删除树
-		dicDel(node, data) {
-			this.$confirm(`确定删除 ${data.name} 项吗？`, '提示', {
-				type: 'warning'
-			}).then(() => {
-				this.showDicloading = true;
-
-				//删除节点是否为高亮当前 是的话 设置第一个节点高亮
-				var dicCurrentKey = this.$refs.dic.getCurrentKey();
-				this.$refs.dic.remove(data.id)
-				if (dicCurrentKey == data.id) {
-					var firstNode = this.dicList[0];
-					if (firstNode) {
-						this.$refs.dic.setCurrentKey(firstNode.id);
-						this.$refs.table.upData({
-							code: firstNode.code
-						})
-					} else {
-						this.listApi = null;
-						this.$refs.table.tableData = []
-					}
-				}
-
-				this.showDicloading = false;
-				this.$message.success("操作成功")
-			}).catch(() => {
-
-			})
-		},
-		//行拖拽
-		rowDrop() {
-			const _this = this
-			const tbody = this.$refs.table.$el.querySelector('.el-table__body-wrapper tbody')
-			Sortable.create(tbody, {
-				handle: ".move",
-				animation: 300,
-				ghostClass: "ghost",
-				onEnd({newIndex, oldIndex}) {
-					const tableData = _this.$refs.table.tableData
-					const currRow = tableData.splice(oldIndex, 1)[0]
-					tableData.splice(newIndex, 0, currRow)
-					_this.$message.success("排序成功")
-				}
-			})
-		},
-		//添加明细
-		addInfo() {
-			this.dialog.list = true
-			this.$nextTick(() => {
-				var dicCurrentKey = this.$refs.dic.getCurrentKey();
-				const data = {
-					dic: dicCurrentKey
-				}
-				this.$refs.listDialog.open().setData(data)
-			})
-		},
-		//编辑明细
-		table_edit(row) {
-			this.dialog.list = true
-			this.$nextTick(() => {
-				this.$refs.listDialog.open('edit').setData(row)
-			})
-		},
-		//删除明细
-		async table_del(row, index) {
-			var reqData = {id: row.id}
-			var res = await this.$API.demo.post.post(reqData);
-			if (res.code == 200) {
-				this.$refs.table.tableData.splice(index, 1);
-				this.$message.success("删除成功")
-			} else {
-				this.$alert(res.message, "提示", {type: 'error'})
-			}
-		},
-		//批量删除
-		async batch_del() {
-			this.$confirm(`确定删除选中的 ${this.selection.length} 项吗？`, '提示', {
-				type: 'warning'
-			}).then(() => {
-				const loading = this.$loading();
-				this.selection.forEach(item => {
-					this.$refs.table.tableData.forEach((itemI, indexI) => {
-						if (item.id === itemI.id) {
-							this.$refs.table.tableData.splice(indexI, 1)
-						}
-					})
-				})
-				loading.close();
-				this.$message.success("操作成功")
-			}).catch(() => {
-
-			})
-		},
-		//提交明细
-		saveList() {
-			this.$refs.listDialog.submit(async (formData) => {
-				this.isListSaveing = true;
-				var res = await this.$API.demo.post.post(formData);
-				this.isListSaveing = false;
-				if (res.code == 200) {
-					//这里选择刷新整个表格 OR 插入/编辑现有表格数据
-					this.listDialogVisible = false;
-					this.$message.success("操作成功")
-				} else {
-					this.$alert(res.message, "提示", {type: 'error'})
-				}
-			})
-		},
-		//表格选择后回调事件
-		selectionChange(selection) {
-			this.selection = selection;
-		},
-		//表格内开关事件
-		changeSwitch(val, row) {
-			//1.还原数据
-			row.yx = row.yx == '1' ? '0' : '1'
-			//2.执行加载
-			row.$switch_yx = true;
-			//3.等待接口返回后改变值
-			setTimeout(() => {
-				delete row.$switch_yx;
-				row.yx = val;
-				this.$message.success(`操作成功id:${row.id} val:${val}`)
-			}, 500)
-		},
-		//本地更新数据
-		handleDicSuccess(data, mode) {
-			if (mode == 'add') {
-				data.id = new Date().getTime()
-				if (this.dicList.length > 0) {
-					this.$refs.table.upData({
-						code: data.code
-					})
-				} else {
-					this.listApiParams = {
-						code: data.code
-					}
-					this.listApi = this.$API.dic.info;
-				}
-				this.$refs.dic.append(data, data.parentId[0])
-				this.$refs.dic.setCurrentKey(data.id)
-			} else if (mode == 'edit') {
-				var editNode = this.$refs.dic.getNode(data.id);
-				//判断是否移动？
-				var editNodeParentId = editNode.level == 1 ? undefined : editNode.parent.data.id
-				if (editNodeParentId != data.parentId) {
-					var obj = editNode.data;
-					this.$refs.dic.remove(data.id)
-					this.$refs.dic.append(obj, data.parentId[0])
-				}
-				Object.assign(editNode.data, data)
-			}
-		},
-		//本地更新数据
-		handleListSuccess(data, mode) {
-			if (mode == 'add') {
-				data.id = new Date().getTime()
-				this.$refs.table.tableData.push(data)
-			} else if (mode == 'edit') {
-				this.$refs.table.tableData.filter(item => item.id === data.id).forEach(item => {
-					Object.assign(item, data)
-				})
-			}
-		}
 	}
 }
 </script>
