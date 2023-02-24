@@ -15,6 +15,7 @@ pythonping # https://github.com/alessandromaggio/pythonping
 cx_Oracle
 rich # https://github.com/Textualize/rich
 six
+mysqlclient
 
 # Django
 # ------------------------------------------------------------------------------

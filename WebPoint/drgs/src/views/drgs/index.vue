@@ -48,17 +48,9 @@
 			</el-header>
 			<el-main class="nopadding">
 				<scTable ref="table" :apiObj="listApi" row-key="id" :params="listApiParams"
-						 @selection-change="selectionChange" stripe :paginationLayout="'prev, pager, next'">
-					<el-table-column type="selection" width="50"></el-table-column>
-					<el-table-column label="" width="60">
-						<template #default>
-							<el-tag class="move" style="cursor: move;">
-								<el-icon-d-caret style="width: 1em; height: 1em;"/>
-							</el-tag>
-						</template>
-					</el-table-column>
-					<el-table-column label="名称" prop="name" width="150"></el-table-column>
-					<el-table-column label="键值" prop="key" width="150"></el-table-column>
+						 @selection-change="selectionChange"  >
+					<el-table-column label="住院号码" prop="住院号码" width="150"></el-table-column>
+					<el-table-column label="姓名" prop="姓名" width="150"></el-table-column>
 					<el-table-column label="是否有效" prop="yx" width="100">
 						<template #default="scope">
 							<el-switch v-model="scope.row.yx" @change="changeSwitch($event, scope.row)"
