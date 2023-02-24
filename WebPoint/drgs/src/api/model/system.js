@@ -7,7 +7,7 @@ export default {
 			url: `${config.API_URL}/users/personal/userinfo/`,
 			name: "获取我的菜单",
 			get: async function () {
-				return await http.get(this.url);
+				return await http.get(this.url, {sub_system: `${config.SUB_SYSTEM}`});
 			}
 		},
 		list: {

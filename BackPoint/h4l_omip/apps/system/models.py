@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-
+from django.apps import apps
 import cx_Oracle
 import requests
 from model_utils.models import TimeStampedModel
@@ -327,10 +327,15 @@ class Menu(MPTTModel, H4LBaseModel, TimeStampedModel):
     """
     菜单表
     """
+    SUB_SYSTEM = tuple([(i.name, i.verbose_name) for i in apps.get_app_configs()])
     TYPE = (
         ('menu', '菜单'),
         ('link', '链接'),
         ('iframe', '内嵌框架'),
+    )
+    sub_system = models.CharField(
+        _('所属系统'), choices=SUB_SYSTEM, default='system', max_length=100, null=False, blank=False,
+        help_text=_("所属子系统系统：system,drgs")
     )
     name = models.CharField(
         _('Module English name'), max_length=100, unique=True, null=False, blank=False,

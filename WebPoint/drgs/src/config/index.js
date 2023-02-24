@@ -3,10 +3,12 @@ const DEFAULT_CONFIG = {
 	APP_NAME: process.env.VUE_APP_TITLE,
 
 	//首页地址
-	DASHBOARD_URL: "/dashboard",
+	DASHBOARD_URL: "/drgs",
 
 	//版本号
 	APP_VER: "1.0.0",
+
+	SUB_SYSTEM: 'drgs',
 
 	//内核版本号
 	CORE_VER: "1.0.0",
@@ -31,7 +33,7 @@ const DEFAULT_CONFIG = {
 
 	//布局 默认：default | 通栏：header | 经典：menu | 功能坞：dock
 	//dock将关闭标签和面包屑栏
-	LAYOUT: 'default',
+	LAYOUT: 'header',
 
 	//菜单是否折叠
 	MENU_IS_COLLAPSE: false,
@@ -69,11 +71,12 @@ const DEFAULT_CONFIG = {
 
 //合并业务配置
 import MY_CONFIG from "./myConfig"
+
 Object.assign(DEFAULT_CONFIG, MY_CONFIG)
 
 // 如果生产模式，就合并动态的APP_CONFIG
 // public/config.js
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
 	Object.assign(DEFAULT_CONFIG, APP_CONFIG)
 }
 

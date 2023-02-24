@@ -73,8 +73,10 @@ class UserViewSet(ModelViewSet):
         :return:用户信息json
         """
         ability = []
-        for i in request.user.get_all_menus():
-            for j in i.competence_menu.all().values_list('name', flat=True):
+        if not request.GET.get("sub_system"):
+            raise Exception('sub_system 必须提供！')
+        for i in request.user.get_all_menus().filter(sub_system=request.GET.get("sub_system")):
+            for j in i.competence_menu.values_list('name', flat=True):
                 ability.append(str(j) + ':' + str(i.name))
         print(request.user.get_all_menus())
         result = {
@@ -85,7 +87,9 @@ class UserViewSet(ModelViewSet):
                 'permissions': ability,
                 'menu': [
                     MenuSerializer(menu).data for menu in
-                    list(request.user.get_all_menus().order_by('seq').filter(level=0))
+                    list(request.user.get_all_menus().filter(
+                        sub_system=request.GET.get("sub_system")
+                    ).order_by('seq').filter(level=0))
                 ],
                 "user_id": str(request.user.id),
                 "username": str(request.user.username),

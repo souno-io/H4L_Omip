@@ -5,6 +5,8 @@ const DEFAULT_CONFIG = {
 	//首页地址
 	DASHBOARD_URL: "/dashboard",
 
+	SUB_SYSTEM: "system",
+
 	//版本号
 	APP_VER: "1.0.0",
 
@@ -69,11 +71,12 @@ const DEFAULT_CONFIG = {
 
 //合并业务配置
 import MY_CONFIG from "./myConfig"
+
 Object.assign(DEFAULT_CONFIG, MY_CONFIG)
 
 // 如果生产模式，就合并动态的APP_CONFIG
 // public/config.js
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
 	Object.assign(DEFAULT_CONFIG, APP_CONFIG)
 }
 
