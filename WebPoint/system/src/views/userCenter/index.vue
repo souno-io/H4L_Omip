@@ -112,8 +112,8 @@ export default {
 				// }
 			],
 			user: {
-				userName: this.$TOOL.data.get("USER_INFO").userName,
-				role: this.$TOOL.data.get("USER_INFO").role,
+				userName: this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_USER_INFO").userName,
+				role: this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_USER_INFO").role,
 			},
 			page: "account"
 		}

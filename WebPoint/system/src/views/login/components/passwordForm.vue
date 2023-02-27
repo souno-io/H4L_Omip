@@ -74,7 +74,7 @@ export default {
 				this.$TOOL.cookie.set("TOKEN", user.data.token, {
 					expires: this.form.autologin ? 24 * 60 * 60 : 0
 				})
-				this.$TOOL.data.set("USER_INFO", user.data.userInfo)
+				this.$TOOL.data.set(this.$CONFIG.SUB_SYSTEM + "_USER_INFO", user.data.userInfo)
 			} else {
 				this.islogin = false
 				this.$message.warning(user.message)
@@ -92,8 +92,8 @@ export default {
 					})
 					return false
 				}
-				this.$TOOL.data.set("MENU", menu.data.menu)
-				this.$TOOL.data.set("PERMISSIONS", menu.data.permissions)
+				this.$TOOL.data.set(this.$CONFIG.SUB_SYSTEM + "_MENU", menu.data.menu)
+				this.$TOOL.data.set(this.$CONFIG.SUB_SYSTEM + "_PERMISSIONS", menu.data.permissions)
 				this.$TOOL.data.set("DASHBOARDGRID", menu.data.dashboardGrid)
 			} else {
 				this.islogin = false

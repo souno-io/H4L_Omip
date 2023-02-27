@@ -131,9 +131,9 @@ export default {
 	},
 	created: function () {
 		this.$TOOL.cookie.remove("TOKEN")
-		this.$TOOL.data.remove("USER_INFO")
-		this.$TOOL.data.remove("MENU")
-		this.$TOOL.data.remove("PERMISSIONS")
+		this.$TOOL.data.remove(this.$CONFIG.SUB_SYSTEM + "_USER_INFO")
+		this.$TOOL.data.remove(this.$CONFIG.SUB_SYSTEM + "_MENU")
+		this.$TOOL.data.remove(this.$CONFIG.SUB_SYSTEM + "_PERMISSIONS")
 		this.$TOOL.data.remove("DASHBOARDGRID")
 		this.$TOOL.data.remove("grid")
 		this.$store.commit("clearViewTags")

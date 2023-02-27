@@ -14,34 +14,35 @@
 </template>
 
 <script>
-	import { defineAsyncComponent } from 'vue';
-	const work = defineAsyncComponent(() => import('./work'));
-	const widgets = defineAsyncComponent(() => import('./widgets'));
+import {defineAsyncComponent} from 'vue';
 
-	export default {
-		name: "dashboard",
-		components: {
-			work,
-			widgets
-		},
-		data(){
-			return {
-				pageLoading: true,
-				dashboard: '0'
-			}
-		},
-		created(){
-			this.dashboard = this.$TOOL.data.get("USER_INFO").dashboard || '0';
-		},
-		mounted(){
+const work = defineAsyncComponent(() => import('./work'));
+const widgets = defineAsyncComponent(() => import('./widgets'));
 
-		},
-		methods: {
-			onMounted(){
-				this.pageLoading = false
-			}
+export default {
+	name: "dashboard",
+	components: {
+		work,
+		widgets
+	},
+	data() {
+		return {
+			pageLoading: true,
+			dashboard: '0'
+		}
+	},
+	created() {
+		this.dashboard = this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_USER_INFO").dashboard || '0';
+	},
+	mounted() {
+
+	},
+	methods: {
+		onMounted() {
+			this.pageLoading = false
 		}
 	}
+}
 </script>
 
 <style>
