@@ -1,5 +1,6 @@
-import { permissionAll } from '@/utils/permission'
+import {permissionAll} from '@/utils/permission'
 import tool from '@/utils/tool';
+import config from "@/config";
 
 /**
  * 用户权限指令
@@ -8,11 +9,11 @@ import tool from '@/utils/tool';
  * @directive 多个权限验证，全部满足则显示（v-auths-all="['xxx','xxx']"）
  */
 export default {
-	mounted (el, binding) {
-		if(permissionAll()){
+	mounted(el, binding) {
+		if (permissionAll()) {
 			return
 		}
-		let permissions = tool.data.get("PERMISSIONS");
+		let permissions = tool.data.get(config.SUB_SYSTEM + "_PERMISSIONS");
 		if (!permissions.some((v) => v === binding.value)) el.parentNode.removeChild(el);
 	}
 }

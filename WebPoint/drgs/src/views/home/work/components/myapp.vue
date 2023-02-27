@@ -75,7 +75,7 @@
 			getMods(){
 				//这里可用改为读取远程数据
 				this.myModsName = this.$TOOL.data.get("my-mods") || []
-				var menuTree = this.$TOOL.data.get("MENU")
+				var menuTree = this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_MENU")
 				this.filterMenu(menuTree)
 				this.myMods = this.mods.filter(item => {
 					return this.myModsName.includes(item.name)

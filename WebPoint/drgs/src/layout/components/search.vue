@@ -31,7 +31,7 @@
 		mounted() {
 			var searchHistory = this.$TOOL.data.get("SEARCH_HISTORY") || []
 			this.history = searchHistory
-			var menuTree = this.$TOOL.data.get("MENU")
+			var menuTree = this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_MENU")
 			this.filterMenu(menuTree)
 			this.$refs.input.focus()
 		},
@@ -45,10 +45,10 @@
 			},
 			filterMenu(map){
 				map.forEach(item => {
-					if(item.meta.hidden || item.meta.type=="button"){
+					if(item.meta.hidden || item.meta.type==="button"){
 						return false
 					}
-					if(item.meta.type=='iframe'){
+					if(item.meta.type==='iframe'){
 						item.path = `/i/${item.name}`
 					}
 					if(item.children&&item.children.length > 0&&!item.component){

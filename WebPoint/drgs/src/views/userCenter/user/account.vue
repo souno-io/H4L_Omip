@@ -40,11 +40,11 @@
 		data() {
 			return {
 				form: {
-					id: this.$TOOL.data.get("USER_INFO").userId,
-					user: this.$TOOL.data.get("USER_INFO").account,
-					email: this.$TOOL.data.get("USER_INFO").email,
-					name: this.$TOOL.data.get("USER_INFO").userName,
-					about: this.$TOOL.data.get("USER_INFO").about
+					id: this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_USER_INFO").userId,
+					user: this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_USER_INFO").account,
+					email: this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_USER_INFO").email,
+					name: this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_USER_INFO").userName,
+					about: this.$TOOL.data.get(this.$CONFIG.SUB_SYSTEM + "_USER_INFO").about
 				}
 			}
 		}
