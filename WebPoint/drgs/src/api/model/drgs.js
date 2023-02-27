@@ -5,8 +5,8 @@ export default {
 	list: {
 		url: `${config.API_URL}/drgs/single_disease/`,
 		name: "获取病种",
-		get: async function () {
-			return await http.get(this.url);
+		get: async function (params) {
+			return await http.get(this.url, params);
 		}
 	},
 	details: {

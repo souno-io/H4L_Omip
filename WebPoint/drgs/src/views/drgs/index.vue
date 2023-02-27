@@ -6,7 +6,7 @@
 					<el-input placeholder="输入关键字进行过滤" v-model="dicFilterText" clearable></el-input>
 				</el-header>
 				<el-main class="nopadding">
-					<el-tree ref="dic" class="menu" node-key="id" :data="dicList" :props="dicProps"
+					<el-tree ref="dic" class="menu filter-tree" node-key="id" :data="dicList" :props="dicProps"
 							 :highlight-current="true" :expand-on-click-node="false" :filter-node-method="dicFilterNode"
 							 @node-click="dicClick">
 						<template #default="{node, data}">
@@ -124,7 +124,7 @@ export default {
 		},
 		//加载树数据
 		async getDic() {
-			var res = await this.$API.drgs.list.get();
+			var res = await this.$API.drgs.list.get({pageSize: 100});
 			this.showDicloading = false;
 			this.dicList = res.data.rows;
 			//获取第一个节点,设置选中 & 加载明细列表
@@ -161,6 +161,24 @@ export default {
 </script>
 
 <style scoped>
+/*.filter-tree {*/
+/*	!* border: 1px solid #dcdfe6; *!*/
+/*	min-width: 100%;*/
+/*	display: inline-block;*/
+/*	overflow: auto;*/
+/*	margin-top: 12px;*/
+/*}*/
+
+/*.filter-tree span {*/
+/*	font-size: 16px;*/
+/*	display: block;*/
+/*	overflow: hidden;*/
+/*/ / word-break: keep-all;*/
+/*/ / white-space: nowrap;*/
+/*/ / text-overflow: ellipsis;*/
+/*	padding-right: 12px;*/
+/*}*/
+
 .menu:deep(.el-tree-node__label) {
 	display: flex;
 	flex: 1;
