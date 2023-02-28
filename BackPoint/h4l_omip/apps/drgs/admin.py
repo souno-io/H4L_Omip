@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+from mptt.admin import DraggableMPTTAdmin
 
 from .models import SingleDisease, StaResults
 
 
 @admin.register(SingleDisease)
-class SingleDiseaseAdmin(admin.ModelAdmin):
+class SingleDiseaseAdmin(DraggableMPTTAdmin):
     list_display = (
-        'label',
-        'description',
-        'primary_diagnostic_code',
-        'second_diagnostic_code',
-        'main_surgical_code',
+        "tree_actions", 'indented_title', 'parentId',
+        # 'label',
+        # 'description',
+        # 'primary_diagnostic_code',
+        # 'main_surgical_code',
         'is_adult',
-        'remark',
         'is_active',
     )
+    list_display_links = ("indented_title", 'parentId',)  # Sane defaults.
     list_filter = (
         'is_active',
         'update_datetime',

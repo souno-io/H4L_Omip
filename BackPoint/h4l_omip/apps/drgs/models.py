@@ -1,6 +1,9 @@
 from string import Template
 
 from django.db import models
+from mptt.fields import TreeForeignKey
+from mptt.managers import TreeManager
+from mptt.models import MPTTModel
 
 from common.his import His
 from common.models import H4LBaseModel
@@ -9,7 +12,13 @@ from django.utils.translation import gettext_lazy as _
 from drgs.sql import BASE_SQL
 
 
-class SingleDisease(H4LBaseModel):
+class SingleDiseaseManager(TreeManager):
+    def viewable(self):
+        queryset = self.get_queryset().filter(level=0)
+        return queryset
+
+
+class SingleDisease(MPTTModel, H4LBaseModel):
     label = models.CharField(
         _('标题'), unique=True, blank=True, null=False, max_length=255,
         help_text=_("一、急性心肌梗死、心肌梗死、心肌梗死等对脏")
@@ -52,11 +61,20 @@ class SingleDisease(H4LBaseModel):
     )
     sort = models.IntegerField(_('排序顺序'), null=True, blank=True, help_text=_('排序顺序'))
     remark = models.TextField(_('备注'), null=True, blank=True, help_text=_("备注:微模块1等"))
+    parentId = TreeForeignKey(
+        'self', verbose_name=_('上级项目'), null=True, blank=True,
+        max_length=100, related_name='children', on_delete=models.CASCADE
+    )
+
+    objects = SingleDiseaseManager()
+
+    class MPTTMeta:
+        parent_attr = 'parentId'
 
     class Meta:
         verbose_name = '单病种指标'
         verbose_name_plural = verbose_name
-        ordering = ['sort']
+        # ordering = ['sort']
 
     def __str__(self):
         return self.label

@@ -7,7 +7,7 @@ from .serializers import SingleDiseaseSerializer, StaResultsSerializer
 
 
 class SingleDiseaseViewSet(viewsets.ModelViewSet):
-    queryset = SingleDisease.objects.all()
+    queryset = SingleDisease.objects.viewable()
     serializer_class = SingleDiseaseSerializer
 
     @action(detail=True, methods=["GET"])
