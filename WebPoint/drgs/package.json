@@ -27,7 +27,9 @@
 		"vuedraggable": "4.0.3",
 		"vuex": "4.1.0",
 		"xgplayer": "2.32.2",
-		"xgplayer-hls": "2.5.2"
+		"xgplayer-hls": "2.5.2",
+		"file-saver": "2.0.5",
+		"xlsx": "0.18.5"
 	},
 	"devDependencies": {
 		"@babel/core": "7.20.12",

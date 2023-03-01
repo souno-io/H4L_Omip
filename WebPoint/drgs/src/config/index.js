@@ -17,7 +17,7 @@ const DEFAULT_CONFIG = {
 	API_URL: process.env.NODE_ENV === 'development' && process.env.VUE_APP_PROXY === 'true' ? "/api" : process.env.VUE_APP_API_BASEURL,
 
 	//请求超时
-	TIMEOUT: 10000,
+	TIMEOUT: 20000,
 
 	//TokenName
 	TOKEN_NAME: "Authorization",

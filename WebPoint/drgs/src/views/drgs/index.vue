@@ -35,12 +35,23 @@
 						</el-date-picker>
 					</div>
 					&nbsp;&nbsp;&nbsp;
-					<el-button type="primary" icon="el-icon-search" @click="this.$refs.table.refresh()"></el-button>
+					<el-button type="primary" icon="el-icon-search"
+							   @click="this.$refs.table.reload({id:item.id,start_date: data_range[0],end_date: data_range[1]})"></el-button>
+				</div>
+				<div class="right-panel">
+					<el-button type="primary" icon="el-icon-printer" @click="print_table()"></el-button>
+					<el-button type="primary" icon="el-icon-download"
+							   @click="exportExcelHandle('exportTable')"></el-button>
 				</div>
 			</el-header>
 			<el-main class="nopadding">
-				<scTable ref="table" :apiObj="listApi" row-key="id" :params="listApiParams"
+				<scTable ref="table" :apiObj="listApi" row-key="id" :params="listApiParams" id="exportTable"
 						 @selection-change="selectionChange" hidePagination>
+					<el-table-column label="序号" align="center">
+						<template v-slot="scop">
+							{{ scop.$index + 1 }}
+						</template>
+					</el-table-column>
 					<el-table-column label="住院号码" prop="住院号码" width="85"></el-table-column>
 					<el-table-column label="姓名" prop="姓名" width="80"></el-table-column>
 					<el-table-column label="身份证号" prop="身份证号" width="155"></el-table-column>
@@ -70,6 +81,8 @@
 <script>
 import dicDialog from './dic'
 import listDialog from './list'
+import print from '@/utils/print'
+import excelExportUtil from '@/utils/exportExcel'
 
 export default {
 	name: 'drgs',
@@ -79,6 +92,10 @@ export default {
 	},
 	data() {
 		return {
+			item: {
+				id: '',
+				label: '',
+			},
 			dialog: {
 				dic: false,
 				info: false
@@ -105,6 +122,12 @@ export default {
 		this.getDic()
 	},
 	methods: {
+		print_table() {
+			print(this.$refs['table'])
+		},
+		exportExcelHandle(tableId) {
+			excelExportUtil.exportExcel(tableId, this.item.label + "(" + this.data_range[0] + "_" + this.data_range[1] + ")", ".xlsx", true);
+		},
 		getFirstDay() {
 			//当前月第一天
 			const y = new Date().getFullYear(); //获取年份
@@ -138,18 +161,22 @@ export default {
 					start_date: this.data_range[0],
 					end_date: this.data_range[1],
 				}
+				this.item.id = firstNode.id;
+				this.item.label = firstNode.label;
 				this.listApi = this.$API.drgs.details;
 			}
 		},
 		//树过滤
 		dicFilterNode(value, data) {
 			if (!value) return true;
-			var targetText = data.name + data.code;
+			var targetText = data.label + data.code;
 			return targetText.indexOf(value) !== -1;
 		},
 
 		//树点击事件
 		dicClick(data) {
+			this.item.id = data.id;
+			this.item.label = data.label;
 			this.$refs.table.reload({
 				id: data.id,
 				start_date: this.data_range[0],
