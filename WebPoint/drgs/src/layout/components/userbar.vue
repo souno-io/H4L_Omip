@@ -153,6 +153,7 @@
 						confirmButtonText: '退出',
 						confirmButtonClass: 'el-button--danger'
 					}).then(() => {
+						this.$TOOL.cookie.remove("TOKEN")
 						this.$router.replace({path: '/login'});
 					}).catch(() => {
 						//取消退出

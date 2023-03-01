@@ -97,7 +97,17 @@ class UserViewSet(ModelViewSet):
                 "department": list(request.user.user_departments.values_list('label', flat=True)),
                 # "department": str(request.user.user_departments.code),
                 # "avatar": request.build_absolute_uri(request.user.avatar.url)
-                "avatar": request.user.avatar
+                "avatar": request.user.avatar,
+                "userInfo": {
+                    'dashboard': 0,
+                    'userId': request.user.id,
+                    'role': list(request.user.get_roles().values_list('label', flat=True)),
+                    'userName': request.user.name,
+                    'account': request.user.username,
+                    # 'sex': user.gender,
+                    'about': request.user.signature,
+                    'email': request.user.email,
+                }
             }
         }
         return Response(

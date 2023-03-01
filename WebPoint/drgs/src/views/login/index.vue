@@ -130,7 +130,7 @@ export default {
 		}
 	},
 	created: function () {
-		this.$TOOL.cookie.remove("TOKEN")
+		// this.$TOOL.cookie.remove("TOKEN")
 		this.$TOOL.data.remove(this.$CONFIG.SUB_SYSTEM + "_USER_INFO")
 		this.$TOOL.data.remove(this.$CONFIG.SUB_SYSTEM + "_MENU")
 		this.$TOOL.data.remove(this.$CONFIG.SUB_SYSTEM + "_PERMISSIONS")
@@ -140,8 +140,39 @@ export default {
 		this.$store.commit("clearKeepLive")
 		this.$store.commit("clearIframeList")
 		console.log('%c H4L %c Web: https://h4l.cn', 'background:#666;color:#fff;border-radius:3px;', '')
+		if (this.$TOOL.cookie.get("TOKEN")) {
+			this.get_menu()
+		}
 	},
 	methods: {
+		async get_menu() {
+			let menu = null;
+			menu = await this.$API.system.menu.myMenus.get()
+			if (menu.code === 200) {
+				if (menu.data.menu.length === 0) {
+					this.islogin = false
+					this.$alert("当前用户无任何菜单权限，请联系系统管理员", "无权限访问", {
+						type: 'error',
+						center: true
+					})
+					return false
+				}
+				this.$TOOL.data.set(this.$CONFIG.SUB_SYSTEM + "_USER_INFO", menu.data.userInfo)
+				this.$TOOL.data.set(this.$CONFIG.SUB_SYSTEM + "_MENU", menu.data.menu)
+				this.$TOOL.data.set(this.$CONFIG.SUB_SYSTEM + "_PERMISSIONS", menu.data.permissions)
+				this.$TOOL.data.set(this.$CONFIG.SUB_SYSTEM + "_DASHBOARDGRID", menu.data.dashboardGrid)
+			} else {
+				this.islogin = false
+				this.$message.warning(menu.message)
+				return false
+			}
+
+			this.$router.replace({
+				path: '/'
+			})
+			this.$message.success("Login Success 登录成功")
+			this.islogin = false
+		},
 		configDark() {
 			this.config.dark = !this.config.dark
 		},
